@@ -1,0 +1,5 @@
+# Kortform, kortform.at
+User-agent: *
+Allow: /
+
+Sitemap: https://kortform.at/sitemap.xml

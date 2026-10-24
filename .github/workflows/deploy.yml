@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+# Plain static site: site/ is published as is, there is no build step.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Do not cancel a running deployment, so a publish never ends up half done.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/configure-pages@v6
+
+      # include-hidden-files is required because upload-pages-artifact v5
+      # excludes dot files by default: .nojekyll switches Jekyll processing off.
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+          include-hidden-files: true
+
+      - id: deployment
+        uses: actions/deploy-pages@v5
