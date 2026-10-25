@@ -1,6 +1,6 @@
 # Kortform Website
 
-Statische Website für die App **Kortform** unter <https://kortform.at> (Landingpage, Impressum, Datenschutz).
+Statische Website für die App **Kortform** unter <https://kortform.at> (Landingpage, Impressum, Datenschutz, Support).
 Kein Build-Schritt, keine Frameworks, keine externen Abhängigkeiten: Schriften und Bilder liegen im Repo.
 
 ## Struktur
@@ -10,11 +10,13 @@ site/                     wird 1:1 veröffentlicht
   index.html              Startseite
   impressum/index.html    /impressum/
   datenschutz/index.html  /datenschutz/
+  support/index.html      /support/ (Hilfe, FAQ, Kontakt)
   styles.css              gemeinsames Stylesheet (hell + dunkel)
   fonts/                  Barlow Condensed, IBM Plex Sans/Mono (WOFF, aus dem App-Repo, SIL OFL)
   favicon.ico/.svg, apple-touch-icon.png, og-image.png
   CNAME                   kortform.at (bei Actions-Deployment wirkungslos; die Domain steht in Settings → Pages, siehe DNS-SETUP.md)
   404.html, .nojekyll, robots.txt, sitemap.xml
+  app-ads.txt             AdMob-Entwicklerangabe, wird unter /app-ads.txt ausgeliefert
 .github/workflows/deploy.yml   Deployment nach GitHub Pages
 DNS-SETUP.md                   Anleitung: Repo, Pages, DNS bei World4You
 ```
