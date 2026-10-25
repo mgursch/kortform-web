@@ -196,7 +196,7 @@
         (Land bzw. Region) ab; Kortform fragt keine Standortberechtigung ab und übergibt keine GPS-Daten. Es werden keine Inhalte
         der App wie dein Wert, dein Verlauf oder deine Spiele an Google übergeben.</li>
       <li><strong>Einwilligung ändern oder widerrufen:</strong> Im Profil unter „Datenschutz“ öffnet die App, wo erforderlich,
-        das Formular „Privacy options“ von Google. Ein Widerruf schaltet die Werbung bis zum nächsten App-Start ab. Die
+        das Datenschutz-Formular von Google. Ein Widerruf schaltet die Werbung bis zum nächsten App-Start ab. Die
         App-Tracking-Erlaubnis auf dem iPhone kannst du in den Systemeinstellungen ändern, die Werbe-ID auf Android in den
         Google-Einstellungen unter „Werbung“.</li>
     </ul>
@@ -222,7 +222,7 @@
       Nutzungsstatistiken (Abschnitt 8) ab; es gibt dafür keinen Schalter in der App. Die Installations-ID ist eine zufällig
       vergebene Kennung. Kortform setzt keine Nutzer-ID und verknüpft sie nicht mit deinem Namen, deinem Profil oder deinen
       ÖTV-Daten. Sie ist damit pseudonym, nicht anonym. Wenn du keine Absturzberichte übertragen willst, hilft nur, die App nicht
-      zu nutzen; wie du Daten dazu löschen lassen kannst, steht in Abschnitt 18.
+      zu nutzen; wie du Daten dazu löschen lassen kannst, steht in <a href="/datenschutz/#loeschen">Abschnitt 18</a>.
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer stabilen, fehlerfreien App).<br>
@@ -235,7 +235,7 @@
       Firebase Analytics (Google) ist in Kortform <strong>standardmäßig aus</strong> und wird erst nach deiner ausdrücklichen
       Einwilligung aktiviert: über das Kontrollkästchen „Nutzungsstatistiken teilen, um die App zu verbessern“ im Onboarding oder den Schalter
       „Nutzungsstatistiken teilen“ im Profil unter „Datenschutz“. Das Kontrollkästchen erscheint nur im Onboarding-Schritt
-      zum ÖTV-Login; wer diesen Schritt nicht sieht (etwa beim Start ohne Profil), kann die Einwilligung nur im Profil erteilen.
+      zum ÖTV-Login; wer diesen Schritt nicht sieht (etwa beim Start ohne Profil), kann sie im Profil oder beim ÖTV-Login aus dem Matches-Bereich erteilen.
       Du kannst sie dort jederzeit widerrufen; auch „Alle Daten löschen“ nimmt sie zurück.
     </p>
     <p>
@@ -385,10 +385,10 @@
     <p>
       Da wir keine Nutzerkonten führen und die App-Daten nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
       der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten (Google, RevenueCat, Apple)
-      siehe Abschnitt 18; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
+      siehe <a href="/datenschutz/#loeschen">Abschnitt 18</a>; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
     </p>
 
-    <h2>18. Daten löschen lassen (auch bei Dienstleistern)</h2>
+    <h2 id="loeschen">18. Daten löschen lassen (auch bei Dienstleistern)</h2>
     <p>
       <strong>In der App und auf deinem Gerät:</strong> Im Profil unter „Alle Daten löschen“ entfernst du dein Profil, deinen
       Verlauf, deine Spiele, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken) und einen gespeicherten
@@ -404,17 +404,19 @@
       <a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a> und nenne dazu, soweit vorhanden:
     </p>
     <ul>
-      <li><strong>Firebase Crashlytics und Analytics:</strong> die Firebase-Installations-ID bzw. App-Instanz-ID deines Geräts
-        sowie Zeitraum, Gerätemodell und App-Version. Die App zeigt diese Kennungen nicht an; wenn du sie nicht kennst, können
-        wir die Daten meist nicht zuordnen. Das gilt besonders nach einer Neuinstallation, die eine neue Kennung vergibt.
-        Die Daten laufen ohnehin nach den Aufbewahrungsfristen ab (Crashlytics derzeit 90 Tage, Analytics nach der im
-        Firebase-Projekt eingestellten Dauer, Abschnitt 8). Weitere Daten erfasst Analytics nicht mehr, sobald du die
-        Einwilligung im Profil widerrufst oder die App deinstallierst.</li>
-      <li><strong>RevenueCat und Käufe:</strong> die RevenueCat-App-User-ID (eine anonym vergebene Kennung) oder die
+      <li><strong>Firebase Crashlytics und Analytics:</strong> Die App zeigt die Kennungen dieser Dienste
+        (Firebase-Installations-ID bzw. App-Instanz-ID) nicht an, und wir können sie keiner Person zuordnen. Nenne uns daher
+        Gerätemodell, Betriebssystem- und App-Version sowie den ungefähren Zeitraum (bei einem Absturz möglichst Datum und
+        Uhrzeit). Wir prüfen damit, ob sich Daten eindeutig dir zuordnen lassen, und veranlassen deren Löschung, soweit der
+        Dienst das für einzelne Daten zulässt. Bei Nutzungsstatistiken ist eine Zuordnung ohne Kennung in der Regel nicht
+        möglich. Unabhängig davon werden die Daten automatisch gelöscht: Absturzberichte nach 90 Tagen, Nutzungsstatistiken
+        nach der in Abschnitt 8 genannten Frist. Nach einem Widerruf der Einwilligung erfasst Analytics nichts mehr; nach
+        einer Neuinstallation vergibt Firebase neue Kennungen, neue Daten werden also nicht mit alten verbunden.</li>
+      <li><strong>RevenueCat und Käufe:</strong> die RevenueCat-App-User-ID (eine von RevenueCat zufällig vergebene, pseudonyme Kennung) oder die
         Bestellnummer bzw. Transaktions-ID deines Kaufs von Kortform Plus aus Google Play oder dem App Store samt Kaufdatum.
         Damit können wir den Kundendatensatz bei RevenueCat suchen und dessen Löschung veranlassen, soweit dies technisch und
-        rechtlich möglich ist. Nach einer Löschung kann der Kaufstatus bei einer späteren Wiederherstellung neu angelegt
-        werden. Der Kauf selbst und die dazugehörigen Zahlungs- und Kontodaten liegen bei Google bzw. Apple; dort gelten
+        rechtlich möglich ist. Nach einer Löschung legt RevenueCat beim nächsten Start der App oder bei einer Wiederherstellung
+        wieder einen Datensatz an, solange die App installiert ist. Der Kauf selbst und die dazugehörigen Zahlungs- und Kontodaten liegen bei Google bzw. Apple; dort gelten
         deren Aufbewahrungspflichten und Kontoeinstellungen, und wir haben darauf keinen Zugriff.</li>
       <li><strong>Google AdMob:</strong> Werbedaten verarbeitet Google als eigener Dienst. Wir erhalten keine Auswertung
         einzelner Personen und können dort nichts löschen. Auskunft und Löschung beantragst du direkt bei Google
@@ -424,7 +426,7 @@
       <strong>Eigene Einstellungen bei Google und Apple:</strong> Auf Android kannst du die Werbe-ID in den Google-Einstellungen
       unter „Werbung“ zurücksetzen oder löschen und personalisierte Werbung ausschalten. Auf dem iPhone verwaltest du die
       App-Tracking-Erlaubnis in den Systemeinstellungen unter „Datenschutz &amp; Sicherheit“ &rarr; „Tracking“. In der App
-      öffnest du im Profil unter „Datenschutz“ das Formular „Privacy options“ von Google, soweit es für deine Region
+      öffnest du im Profil unter „Datenschutz“ das Datenschutz-Formular von Google, soweit es für deine Region
       vorgesehen ist, und schaltest die Nutzungsstatistiken ein oder aus.
     </p>
     <p>
