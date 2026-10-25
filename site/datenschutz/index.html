@@ -36,7 +36,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 24. Oktober 2026</p>
+    <p class="updated">Stand: 25. Oktober 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -67,14 +67,16 @@
     <ul>
       <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts, optionaler ÖTV-Login (Abschnitte 4 und 5)</li>
       <li>Werbung über Google AdMob, solange du Kortform Plus nicht gekauft hast (Abschnitt 6)</li>
-      <li>Absturzberichte über Firebase Crashlytics (Abschnitt 7)</li>
+      <li>Absturzberichte über Firebase Crashlytics, in der veröffentlichten App immer aktiv (Abschnitt 7)</li>
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
       <li>Abwicklung des Kaufs von Kortform Plus über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
     </ul>
     <p>
-      Kortform erfasst keine Standortdaten und verschickt keine Push-Benachrichtigungen von unserem Server (siehe Abschnitt 11).
-      Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
+      Kortform fragt keine Standortberechtigung ab und greift weder auf GPS noch auf den genauen Standort deines Geräts zu.
+      Google AdMob (Abschnitt 6) und Firebase Analytics (Abschnitt 8, nur mit deiner Einwilligung) leiten aus der IP-Adresse
+      jedoch einen ungefähren Standort (Land bzw. Region) ab. Kortform verschickt keine Push-Benachrichtigungen von unserem
+      Server (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
     </p>
     <div class="notice">
       <p>
@@ -143,7 +145,9 @@
     </p>
     <ul>
       <li><strong>Anmeldung beim ÖTV:</strong> Die Anmeldung läuft in einer eingebetteten Browseransicht auf den
-        Seiten des ÖTV bzw. von nuLiga (<code>oetv.at</code>, <code>tenat-id.liga.nu</code>). Im Onboarding und beim Laden der Spiele
+        Seiten des ÖTV bzw. von nuLiga (<code>oetv.at</code>, <code>tenat-id.liga.nu</code>). Diese Ansicht ist auf <code>oetv.at</code>
+        und <code>liga.nu</code> beschränkt und kein allgemeiner Webbrowser; Links auf andere Seiten öffnen sich im Browser deines
+        Geräts und nicht in der App. Im Onboarding und beim Laden der Spiele
         aus dem Matches-Bereich gibst du E-Mail-Adresse und Passwort zunächst in Eingabefeldern der App ein. Die App trägt sie dann
         in das Anmeldeformular von <code>tenat-id.liga.nu</code> ein und schickt es ab, auch wenn du „Login merken“ nicht gewählt hast.
         Das Einfügen findet nur auf dieser Anmeldeseite statt. Ohne „Login merken“ halten wir die Eingaben nur im Arbeitsspeicher
@@ -188,8 +192,9 @@
       <li><strong>Welche Daten verarbeitet werden:</strong> Beim Laden und Anzeigen von Werbung verarbeitet Google u. a. die
         IP-Adresse, die Werbe-ID des Geräts (Android: Advertising ID; iPhone: IDFA, nur mit deiner Zustimmung), Geräte- und
         App-Informationen sowie Interaktionen mit Anzeigen. Mit deiner Einwilligung kann Google Daten für personalisierte Werbung
-        auch über mehrere Apps und Websites hinweg verwenden. Es werden keine Inhalte der App wie dein Wert, dein Verlauf oder
-        deine Spiele an Google übergeben.</li>
+        auch über mehrere Apps und Websites hinweg verwenden. Aus der IP-Adresse leitet Google außerdem einen ungefähren Standort
+        (Land bzw. Region) ab; Kortform fragt keine Standortberechtigung ab und übergibt keine GPS-Daten. Es werden keine Inhalte
+        der App wie dein Wert, dein Verlauf oder deine Spiele an Google übergeben.</li>
       <li><strong>Einwilligung ändern oder widerrufen:</strong> Im Profil unter „Datenschutz“ öffnet die App, wo erforderlich,
         das Formular „Privacy options“ von Google. Ein Widerruf schaltet die Werbung bis zum nächsten App-Start ab. Die
         App-Tracking-Erlaubnis auf dem iPhone kannst du in den Systemeinstellungen ändern, die Werbe-ID auf Android in den
@@ -213,6 +218,13 @@
       nächsten Start der App übertragen. Entwicklungs-Builds senden nichts.
     </p>
     <p>
+      Crashlytics ist in der veröffentlichten App <strong>immer aktiv</strong> und hängt nicht von der Einwilligung zu
+      Nutzungsstatistiken (Abschnitt 8) ab; es gibt dafür keinen Schalter in der App. Die Installations-ID ist eine zufällig
+      vergebene Kennung. Kortform setzt keine Nutzer-ID und verknüpft sie nicht mit deinem Namen, deinem Profil oder deinen
+      ÖTV-Daten. Sie ist damit pseudonym, nicht anonym. Wenn du keine Absturzberichte übertragen willst, hilft nur, die App nicht
+      zu nutzen; wie du Daten dazu löschen lassen kannst, steht in Abschnitt 18.
+    </p>
+    <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer stabilen, fehlerfreien App).<br>
       <strong>Speicherdauer:</strong> gemäß den Standard-Aufbewahrungsfristen von Firebase Crashlytics (derzeit standardmäßig 90 Tage).<br>
       <strong>Empfänger:</strong> Google LLC / Google Ireland Limited als Auftragsverarbeiter.
@@ -221,7 +233,7 @@
     <h2>8. Firebase Analytics (Nutzungsstatistiken, nur mit Einwilligung)</h2>
     <p>
       Firebase Analytics (Google) ist in Kortform <strong>standardmäßig aus</strong> und wird erst nach deiner ausdrücklichen
-      Einwilligung aktiviert: über das Kontrollkästchen „Anonyme Nutzungsstatistiken teilen“ im Onboarding oder den Schalter
+      Einwilligung aktiviert: über das Kontrollkästchen „Nutzungsstatistiken teilen, um die App zu verbessern“ im Onboarding oder den Schalter
       „Nutzungsstatistiken teilen“ im Profil unter „Datenschutz“. Das Kontrollkästchen erscheint nur im Onboarding-Schritt
       zum ÖTV-Login; wer diesen Schritt nicht sieht (etwa beim Start ohne Profil), kann die Einwilligung nur im Profil erteilen.
       Du kannst sie dort jederzeit widerrufen; auch „Alle Daten löschen“ nimmt sie zurück.
@@ -229,10 +241,11 @@
     <p>
       Erfasst werden ausschließlich die automatischen Standard-Ereignisse des Firebase-SDKs (z. B. erster Start, Sitzungsbeginn,
       App- und Betriebssystem-Update, Bildschirmaufrufe, Nutzungsdauer, unter Android das Entfernen der App) zusammen mit
-      Geräte-, Betriebssystem- und App-Version, grobem Land, der App-Instanz-ID und, nach deiner Einwilligung, der Werbe-ID
+      Geräte-, Betriebssystem- und App-Version, einem ungefähren Standort (Land bzw. Region, aus der IP-Adresse abgeleitet), der App-Instanz-ID und, nach deiner Einwilligung, der Werbe-ID
       (Android: Advertising ID; iPhone: IDFA, nur wenn du die App-Tracking-Erlaubnis erteilt hast). Kortform definiert keine eigenen Ereignisse
-      und keine Nutzer-ID; Inhalte der App (Werte, Spiele, ÖTV-Login) werden nicht übertragen. Die Kennungen sind
-      pseudonymisiert, nicht anonym.
+      und keine Nutzer-ID; Inhalte der App (Werte, Spiele, ÖTV-Login) werden nicht übertragen. Die Daten sind pseudonym: Über die
+      App-Instanz-ID lassen sie sich einem Gerät zuordnen, auch wenn Kortform sie nicht mit deinem Namen verknüpft. Sie sind
+      damit nicht anonym.
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO und § 165 Abs. 3 TKG 2021 (deine Einwilligung).<br>
@@ -371,17 +384,63 @@
     </ul>
     <p>
       Da wir keine Nutzerkonten führen und die App-Daten nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
-      der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten wende dich
-      bitte an die im Abschnitt „Verantwortlicher“ genannte Kontaktadresse oder an den jeweiligen Anbieter.
+      der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten (Google, RevenueCat, Apple)
+      siehe Abschnitt 18; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
     </p>
 
-    <h2>18. Änderungen</h2>
+    <h2>18. Daten löschen lassen (auch bei Dienstleistern)</h2>
+    <p>
+      <strong>In der App und auf deinem Gerät:</strong> Im Profil unter „Alle Daten löschen“ entfernst du dein Profil, deinen
+      Verlauf, deine Spiele, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken) und einen gespeicherten
+      ÖTV-Login samt Anmeldedaten der Browseransicht. Auch die Deinstallation der App löscht die lokalen Daten (zu
+      Geräte-Backups siehe Abschnitt 12). Diese Funktion wirkt nur auf deinem Gerät. Daten, die bereits bei Diensten
+      außerhalb der App liegen, löscht sie nicht.
+    </p>
+    <p>
+      <strong>Bei Dienstleistern:</strong> Wir betreiben keinen eigenen Server und führen keine Nutzerkonten, auch keine
+      Zuordnung der Kennungen der Dienstleister zu deiner Person. Daten bei Google (Crashlytics, Analytics, AdMob) und
+      RevenueCat sind an pseudonyme Kennungen gebunden. Ohne eine solche Kennung können wir dich dort nicht identifizieren
+      und deshalb auch nichts gezielt löschen oder herausgeben (Art. 11 DSGVO). Schreib uns für eine Löschanfrage an
+      <a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a> und nenne dazu, soweit vorhanden:
+    </p>
+    <ul>
+      <li><strong>Firebase Crashlytics und Analytics:</strong> die Firebase-Installations-ID bzw. App-Instanz-ID deines Geräts
+        sowie Zeitraum, Gerätemodell und App-Version. Die App zeigt diese Kennungen nicht an; wenn du sie nicht kennst, können
+        wir die Daten meist nicht zuordnen. Das gilt besonders nach einer Neuinstallation, die eine neue Kennung vergibt.
+        Die Daten laufen ohnehin nach den Aufbewahrungsfristen ab (Crashlytics derzeit 90 Tage, Analytics nach der im
+        Firebase-Projekt eingestellten Dauer, Abschnitt 8). Weitere Daten erfasst Analytics nicht mehr, sobald du die
+        Einwilligung im Profil widerrufst oder die App deinstallierst.</li>
+      <li><strong>RevenueCat und Käufe:</strong> die RevenueCat-App-User-ID (eine anonym vergebene Kennung) oder die
+        Bestellnummer bzw. Transaktions-ID deines Kaufs von Kortform Plus aus Google Play oder dem App Store samt Kaufdatum.
+        Damit können wir den Kundendatensatz bei RevenueCat suchen und dessen Löschung veranlassen, soweit dies technisch und
+        rechtlich möglich ist. Nach einer Löschung kann der Kaufstatus bei einer späteren Wiederherstellung neu angelegt
+        werden. Der Kauf selbst und die dazugehörigen Zahlungs- und Kontodaten liegen bei Google bzw. Apple; dort gelten
+        deren Aufbewahrungspflichten und Kontoeinstellungen, und wir haben darauf keinen Zugriff.</li>
+      <li><strong>Google AdMob:</strong> Werbedaten verarbeitet Google als eigener Dienst. Wir erhalten keine Auswertung
+        einzelner Personen und können dort nichts löschen. Auskunft und Löschung beantragst du direkt bei Google
+        (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>).</li>
+    </ul>
+    <p>
+      <strong>Eigene Einstellungen bei Google und Apple:</strong> Auf Android kannst du die Werbe-ID in den Google-Einstellungen
+      unter „Werbung“ zurücksetzen oder löschen und personalisierte Werbung ausschalten. Auf dem iPhone verwaltest du die
+      App-Tracking-Erlaubnis in den Systemeinstellungen unter „Datenschutz &amp; Sicherheit“ &rarr; „Tracking“. In der App
+      öffnest du im Profil unter „Datenschutz“ das Formular „Privacy options“ von Google, soweit es für deine Region
+      vorgesehen ist, und schaltest die Nutzungsstatistiken ein oder aus.
+    </p>
+    <p>
+      Wir prüfen deine Anfrage und antworten innerhalb der gesetzlichen Frist von einem Monat. Zum Schutz deiner Daten können
+      wir Rückfragen stellen, um sicherzugehen, dass die Anfrage von dir stammt. Schick uns bitte <strong>nie dein
+      Passwort</strong>, auch nicht das für den ÖTV-Login. Zu Daten beim ÖTV bzw. bei nuLiga (Abschnitte 4 und 5) wende dich
+      bitte direkt an den ÖTV.
+    </p>
+
+    <h2>19. Änderungen</h2>
     <p>
       Wir passen diese Erklärung an, wenn sich die App oder die rechtlichen Vorgaben ändern. Es gilt die jeweils hier
       veröffentlichte Fassung.
     </p>
 
-    <h2>19. Kontakt</h2>
+    <h2>20. Kontakt</h2>
     <p>
       Fragen zum Datenschutz richte bitte an:
       <a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>
@@ -390,10 +449,11 @@
   </main>
 
   <footer class="wrap site-footer">
-    <nav class="footer-links" aria-label="Rechtliches">
+    <nav class="footer-links" aria-label="Rechtliches und Support">
       <a href="/">Startseite</a>
       <a href="/impressum/">Impressum</a>
       <a href="/datenschutz/">Datenschutz</a>
+      <a href="/support/">Support</a>
     </nav>
     <p>Kortform ist ein inoffizielles Angebot und steht in keiner Verbindung zum Österreichischen Tennisverband (ÖTV). ITN ist eine Marke des jeweiligen Rechteinhabers.</p>
     <p>© 2026 swordi.studios, Wien</p>
