@@ -36,7 +36,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 25. Oktober 2026</p>
+    <p class="updated">Stand: 26. Oktober 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -95,8 +95,20 @@
         Jahrgang, Geschlecht, Staatsangehörigkeit, Ranglistenposition, die ÖTV-Spieler-ID und die Verein-ID;</li>
       <li>der Verlauf deiner Werte sowie selbst eingetragene Werte mit Notizen;</li>
       <li>bei ÖTV-Login zusätzlich deine Spiele (Datum, Ergebnis, Namen der Gegner*innen und Partner*innen, Änderung des Werts);</li>
-      <li>deine Einstellungen (z. B. Benachrichtigungen, Einwilligung zu Nutzungsstatistiken) und der Kaufstatus von Kortform Plus.</li>
+      <li>deine Einstellungen (z. B. Benachrichtigungen, Einwilligung zu Nutzungsstatistiken, bei einem Profil ohne ÖTV-Verknüpfung die
+        Angabe „Ich bin 11 bis 16 Jahre alt“) und der Kaufstatus von Kortform Plus;</li>
+      <li>eine Datei für die Widgets (siehe unten).</li>
     </ul>
+    <p>
+      <strong>Widgets:</strong> Die Widgets für den Startbildschirm (Android und iPhone) und den Sperrbildschirm (iPhone) zeigen Daten,
+      die die App vorab in einer lokalen Datei ablegt: den Namen deines Profils, deinen aktuellen Wert, die letzte Änderung, den
+      Verlauf der letzten 30 Tage und den Zeitpunkt der letzten Aktualisierung. Unter Android liegt die Datei im Speicher der App,
+      auf dem iPhone in einem gemeinsamen App-Group-Container von App und Widget-Erweiterung. Die Widget-Erweiterung auf dem iPhone enthält
+      keine Werbe-, Firebase- oder Analyse-Bausteine. Für die Widgets werden keine Daten an uns oder Dritte übermittelt. Die Datei
+      wird bei Datenänderungen und nach jeder täglichen Aktualisierung neu geschrieben; nach „Alle Daten löschen“ enthält sie nur noch
+      den Zustand „nicht eingerichtet“, und mit der Deinstallation der App wird sie gelöscht, sofern kein Geräte-Backup (Abschnitt 12) wiederhergestellt wird. Beachte: Ein Widget
+      auf dem Sperrbildschirm (iPhone) ist auch bei gesperrtem Gerät sichtbar; dein Wert ist dann für andere einsehbar.
+    </p>
     <p>
       Namen und weitere Angaben zu Spieler*innen stammen aus der öffentlichen ÖTV-Liste bzw. den ÖTV-Spieldaten.
       Diese Daten gehen nicht an uns. Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
@@ -105,7 +117,10 @@
     <p>
       Du kannst die Daten jederzeit im Profil unter „Alle Daten löschen“ entfernen. Sie werden außerdem mit der Deinstallation
       der App gelöscht, sofern kein Geräte-Backup (siehe Abschnitt 12) wiederhergestellt wird. „Alle Daten löschen“ nimmt auch
-      eine erteilte Einwilligung zu Nutzungsstatistiken (Abschnitt 8) zurück.
+      eine erteilte Einwilligung zu Nutzungsstatistiken (Abschnitt 8) zurück. Eine technische Markierung, mit welcher Alterskategorie
+      (Abschnitt 16) die Werbeabfrage zuletzt lief, bleibt dabei bewusst erhalten. Die Werbe-Einwilligung selbst speichert Googles UMP auf dem Gerät; „Alle Daten löschen“
+      nimmt sie nicht zurück (Widerruf über „Datenschutz“, Abschnitt 6). Die Markierung sorgt dafür, dass die Einwilligung einer
+      erwachsenen Person nie für ein Profil unter 14 gilt (und umgekehrt).
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der von dir genutzten
@@ -188,15 +203,24 @@
         iPhone fragt die App zusätzlich über das Systemdialogfeld „App-Tracking-Transparenz“, ob die Werbe-ID genutzt und
         app-übergreifend verfolgt werden darf. Ob und welche Anzeigen geladen werden, richtet sich nach dem Ergebnis dieser Abfrage.
         Auch wenn du nicht einwilligst, kann Google je nach Region und Einwilligungsstatus nicht personalisierte bzw.
-        eingeschränkte Anzeigen ausliefern.</li>
+        eingeschränkte Anzeigen ausliefern. Beides entfällt bei Profilen unter 14 (siehe unten und Abschnitt 16).</li>
       <li><strong>Welche Daten verarbeitet werden:</strong> Beim Laden und Anzeigen von Werbung verarbeitet Google u. a. die
         IP-Adresse, die Werbe-ID des Geräts (Android: Advertising ID; iPhone: IDFA, nur mit deiner Zustimmung), Geräte- und
         App-Informationen sowie Interaktionen mit Anzeigen. Mit deiner Einwilligung kann Google Daten für personalisierte Werbung
         auch über mehrere Apps und Websites hinweg verwenden. Aus der IP-Adresse leitet Google außerdem einen ungefähren Standort
         (Land bzw. Region) ab; Kortform fragt keine Standortberechtigung ab und übergibt keine GPS-Daten. Es werden keine Inhalte
         der App wie dein Wert, dein Verlauf oder deine Spiele an Google übergeben.</li>
+      <li><strong>Unter 14:</strong> Gilt dein Profil als „unter 14“ (Abschnitt 16), fragt die App weder nach einer Einwilligung
+        noch nach der App-Tracking-Erlaubnis. Alle Anzeigenanfragen sind dann als Behandlung für Kinder gekennzeichnet (Einstellung
+        „Child“ des Google Mobile Ads SDK): Nach Googles Beschreibung gibt es dabei keine personalisierte Werbung und kein
+        Remarketing, es werden keine Drittanbieter-Werbepartner einbezogen und es wird keine Werbe-ID übermittelt. Technisch
+        notwendige Verbindungsdaten wie die IP-Adresse verarbeitet Google für die Auslieferung der Anzeigen weiterhin. Auch eine
+        früher erteilte Einwilligung wird für diese Profile nicht verwendet: Googles Einwilligungsspeicher wird dafür gegebenenfalls zurückgesetzt.
+        Eine früher erteilte App-Tracking-Erlaubnis bleibt in den iOS-Einstellungen bestehen; Google personalisiert mit der
+        Behandlung für Kinder trotzdem nicht. Du kannst sie dort widerrufen.</li>
       <li><strong>Einwilligung ändern oder widerrufen:</strong> Im Profil unter „Datenschutz“ öffnet die App, wo erforderlich,
-        das Datenschutz-Formular von Google. Ein Widerruf schaltet die Werbung bis zum nächsten App-Start ab. Die
+        das Datenschutz-Formular von Google. Ein Widerruf schaltet die Werbung bis zum nächsten App-Start ab. Das Gleiche gilt, wenn sich während der Nutzung die
+        Alterskategorie ändert (z. B. weil du ein anderes Profil verknüpfst). Die
         App-Tracking-Erlaubnis auf dem iPhone kannst du in den Systemeinstellungen ändern, die Werbe-ID auf Android in den
         Google-Einstellungen unter „Werbung“.</li>
     </ul>
@@ -206,7 +230,7 @@
     <p>
       <strong>Rechtsgrundlage:</strong> Für personalisierte Werbung und den Zugriff auf Gerätekennungen deine Einwilligung
       (Art. 6 Abs. 1 lit. a DSGVO, § 165 Abs. 3 TKG 2021). Für nicht personalisierte bzw. eingeschränkte Anzeigen ohne Einwilligung
-      unser berechtigtes Interesse an der Finanzierung der App (Art. 6 Abs. 1 lit. f DSGVO).<br>
+      (auch bei Profilen unter 14) unser berechtigtes Interesse an der Finanzierung der App (Art. 6 Abs. 1 lit. f DSGVO).<br>
       <strong>Empfänger:</strong> Google Ireland Limited / Google LLC.
     </p>
 
@@ -236,7 +260,9 @@
       Einwilligung aktiviert: über das Kontrollkästchen „Nutzungsstatistiken teilen, um die App zu verbessern“ im Onboarding oder den Schalter
       „Nutzungsstatistiken teilen“ im Profil unter „Datenschutz“. Das Kontrollkästchen erscheint nur im Onboarding-Schritt
       zum ÖTV-Login; wer diesen Schritt nicht sieht (etwa beim Start ohne Profil), kann sie im Profil oder beim ÖTV-Login aus dem Matches-Bereich erteilen.
-      Du kannst sie dort jederzeit widerrufen; auch „Alle Daten löschen“ nimmt sie zurück.
+      Du kannst sie dort jederzeit widerrufen; auch „Alle Daten löschen“ nimmt sie zurück. Für Profile unter 14 (Abschnitt 16)
+      ist Firebase Analytics nicht verfügbar: Es gibt dann weder das Kontrollkästchen noch den Schalter, und eine früher erteilte
+      Einwilligung wird zurückgenommen.
     </p>
     <p>
       Erfasst werden ausschließlich die automatischen Standard-Ereignisse des Firebase-SDKs (z. B. erster Start, Sitzungsbeginn,
@@ -363,10 +389,31 @@
 
     <h2>16. Kinder und Jugendliche</h2>
     <p>
-      Kortform wird auch von jugendlichen Spieler*innen genutzt und hat keine Altersabfrage. Die freiwilligen Funktionen, die
-      eine Einwilligung voraussetzen (Nutzungsstatistiken, personalisierte Werbung, Speichern des ÖTV-Logins), sollten Personen
-      unter 14 Jahren nur mit Zustimmung der Erziehungsberechtigten nutzen; in Österreich können Einwilligungen erst ab 14 Jahren
-      allein erteilt werden.
+      Kortform wird auch von jugendlichen Spieler*innen genutzt (in den Stores freigegeben ab 13 Jahren). Die App fragt kein
+      Geburtsdatum ab. In Österreich können Einwilligungen erst ab 14 Jahren allein erteilt werden. Deshalb behandelt die App
+      ein Profil als „unter 14“, wenn
+    </p>
+    <ul>
+      <li>ein ÖTV-Profil verknüpft ist und der Jahrgang das nahelegt. Bekannt ist nur das Geburtsjahr, daher entscheidet die App
+        im Zweifel zugunsten des Kindes: Die Person gilt im gesamten Kalenderjahr ihres 14. Geburtstags als unter 14 (ein Jahrgang
+        in der Zukunft ebenfalls);</li>
+      <li>du Kortform ohne ÖTV-Profil nutzt und bei der Einrichtung „Ich bin 11 bis 16 Jahre alt“ gewählt hast. Diese Angabe nennt
+        kein genaues Alter; aus Vorsicht gilt die ganze Spanne, auch für 14- bis 16-Jährige, als unter 14.</li>
+    </ul>
+    <p>
+      Ohne Jahrgang (kein Profil, ÖTV-Profil ohne Jahrgang, „Ohne Profil“ ohne diese Angabe) kann die App das Alter nicht erkennen
+      und behandelt dich wie eine erwachsene Person. Für Profile unter 14 gilt:
+    </p>
+    <ul>
+      <li><strong>Werbung:</strong> keine Abfrage der Einwilligung und keine App-Tracking-Abfrage; Anzeigenanfragen sind als
+        Behandlung für Kinder gekennzeichnet, also ohne personalisierte Werbung und ohne Werbe-ID (Abschnitt 6).</li>
+      <li><strong>Nutzungsstatistiken:</strong> Firebase Analytics bleibt aus und lässt sich nicht einschalten (Abschnitt 8).</li>
+      <li><strong>Unverändert:</strong> Crashlytics (Abschnitt 7), Remote Config (Abschnitt 9), die Abfrage bei RevenueCat (Abschnitt 10)
+        und die Abfragen beim ÖTV (Abschnitte 4 und 5), da sie nicht auf einer Einwilligung beruhen.</li>
+    </ul>
+    <p>
+      Die freiwillige Funktion, den ÖTV-Login zu speichern (Abschnitt 5), sollten Personen unter 14 Jahren nur mit Zustimmung der
+      Erziehungsberechtigten nutzen.
     </p>
 
     <h2>17. Deine Rechte</h2>
@@ -391,8 +438,9 @@
     <h2 id="loeschen">18. Daten löschen lassen (auch bei Dienstleistern)</h2>
     <p>
       <strong>In der App und auf deinem Gerät:</strong> Im Profil unter „Alle Daten löschen“ entfernst du dein Profil, deinen
-      Verlauf, deine Spiele, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken) und einen gespeicherten
-      ÖTV-Login samt Anmeldedaten der Browseransicht. Auch die Deinstallation der App löscht die lokalen Daten (zu
+      Verlauf, deine Spiele, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken, ohne die technische Markierung aus Abschnitt 3;
+      die Werbe-Einwilligung bei Google bleibt bestehen) und einen gespeicherten
+      ÖTV-Login samt Anmeldedaten der Browseransicht. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
       Geräte-Backups siehe Abschnitt 12). Diese Funktion wirkt nur auf deinem Gerät. Daten, die bereits bei Diensten
       außerhalb der App liegen, löscht sie nicht.
     </p>
@@ -427,7 +475,7 @@
       unter „Werbung“ zurücksetzen oder löschen und personalisierte Werbung ausschalten. Auf dem iPhone verwaltest du die
       App-Tracking-Erlaubnis in den Systemeinstellungen unter „Datenschutz &amp; Sicherheit“ &rarr; „Tracking“. In der App
       öffnest du im Profil unter „Datenschutz“ das Datenschutz-Formular von Google, soweit es für deine Region
-      vorgesehen ist, und schaltest die Nutzungsstatistiken ein oder aus.
+      vorgesehen ist, und schaltest die Nutzungsstatistiken ein oder aus (nicht bei Profilen unter 14, siehe Abschnitt 16).
     </p>
     <p>
       Wir prüfen deine Anfrage und antworten innerhalb der gesetzlichen Frist von einem Monat. Zum Schutz deiner Daten können
