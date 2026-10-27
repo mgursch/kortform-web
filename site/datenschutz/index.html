@@ -7,7 +7,7 @@
   <meta name="description" content="Datenschutzerklärung von Kortform: welche Daten die App für Android und iOS verarbeitet und welche auf deinem Gerät bleiben.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://kortform.at/datenschutz/">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://swordistudios.goatcounter.com/count; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -25,6 +25,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kortform: Verlaufslinie im App-Icon und der Schriftzug Kortform">
   <meta name="twitter:card" content="summary_large_image">
+  <script data-goatcounter="https://swordistudios.goatcounter.com/count" async src="/count.js"></script>
 </head>
 <body>
   <header class="wrap site-header">
@@ -36,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 26. Oktober 2026</p>
+    <p class="updated">Stand: 27. Oktober 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -344,16 +345,41 @@
       keinen Zugriff; es gelten die Datenschutzbestimmungen von GitHub.
     </p>
     <p>
-      Wir selbst setzen auf dieser Website <strong>keine Cookies</strong>, <strong>keine Analyse- oder Tracking-Dienste</strong>
-      und <strong>keine Werbung</strong> ein. Schriften und Bilder werden von dieser Website selbst ausgeliefert, es werden
-      keine Inhalte von Dritten nachgeladen. Die Seite enthält keine Formulare. Links zu anderen Websites (z. B.
-      kortscore.com) verlassen unsere Seite; dort gelten deren eigene Datenschutzerklärungen.
+      Wir selbst setzen auf dieser Website <strong>keine Cookies</strong> und <strong>keine Werbung</strong> ein. Schriften und
+      Bilder werden von dieser Website selbst ausgeliefert. Die Seite enthält keine Formulare. Links zu anderen Websites
+      (z. B. kortscore.com) verlassen unsere Seite; dort gelten deren eigene Datenschutzerklärungen.
+    </p>
+    <p>
+      <strong>Reichweitenmessung mit GoatCounter:</strong> Um zu verstehen, wie oft die Website genutzt wird, setzen wir den
+      Statistikdienst GoatCounter ein. Das Zählskript <code>count.js</code> liefern wir von kortform.at selbst aus, beim Laden
+      des Skripts findet also keine Anfrage an Dritte statt. Beim Aufruf einer Seite sendet es einen Seitenaufruf an
+      <code>swordistudios.goatcounter.com</code>. Verarbeitet werden der Pfad der aufgerufenen Seite, ihr Titel,
+      gegebenenfalls URL-Parameter (z. B. Kampagnenkennungen), der Referrer (die Seite, von der du kommst), dein Browser,
+      dein Betriebssystem (aus der Browserkennung) und das aus der IP-Adresse abgeleitete Land. Deine IP-Adresse wird dabei
+      technisch bedingt an GoatCounter übertragen, nach dessen Angaben aber nicht gespeichert: Sie dient nur dazu, das Land
+      abzuleiten und einen Sitzungsschlüssel zu bilden. Dieser Schlüssel entsteht aus Website-Name, IP-Adresse und
+      Browserkennung (User-Agent), wird einer zufälligen Kennung zugeordnet und höchstens 8 Stunden im Arbeitsspeicher
+      gehalten. Gespeichert werden nur zusammengefasste Zahlen pro Tag bzw. Stunde, etwa wie viele Besuche eine Seite hatte
+      und mit welchem Browser, Betriebssystem oder aus welchem Land sie kamen; die Erfassung einzelner Seitenaufrufe ist in
+      unserem Konto ausgeschaltet.
+    </p>
+    <p>
+      Das Zählskript setzt keine Cookies und liest keine Geräteeigenschaften wie die Bildschirmgröße aus; es prüft lediglich, ob der Browser automatisiert gesteuert wird (Bot-Erkennung). Bei jedem
+      Seitenaufruf prüft es im lokalen Speicher (Local Storage) deines Browsers, ob dort der Eintrag <code>skipgc</code>
+      steht, mit dem du die Zählung ausgeschaltet hast. Diesen Eintrag legt es nur an, wenn du die Zählung selbst
+      ausschaltest: Rufe dazu <a href="/#toggle-goatcounter">kortform.at/#toggle-goatcounter</a> auf (es erscheint eine
+      kurze Bestätigung auf Englisch). Danach sendet das Skript auf diesem Gerät nichts mehr; mit demselben Aufruf
+      schaltest du die Zählung wieder ein und der Eintrag wird entfernt. Das Speichern und Lesen dieses Eintrags dient nur
+      dazu, deine ausdrücklich gewünschte Abschaltung umzusetzen (§ 165 Abs. 3 TKG 2021).
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren und effizienten
-      Bereitstellung der Website).<br>
-      <strong>Speicherdauer:</strong> richtet sich nach GitHub.<br>
-      <strong>Empfänger:</strong> GitHub, Inc. / Microsoft als Hosting-Anbieter.
+      Bereitstellung der Website sowie an einer zusammengefassten statistischen Auswertung ihrer Nutzung).<br>
+      <strong>Speicherdauer:</strong> beim Hosting richtet sie sich nach GitHub. Die Statistikdaten bei GoatCounter werden
+      nach 365 Tagen automatisch gelöscht; Sicherungskopien können danach noch bis zu 30 Tage bestehen.<br>
+      <strong>Empfänger:</strong> GitHub, Inc. / Microsoft als Hosting-Anbieter; GoatCounter (Betreiber: Martin Tournoij,
+      Irland), dessen Daten auf Servern der Hetzner Online GmbH in Finnland und Deutschland liegen. Nach Angaben von
+      GoatCounter werden keine Informationen an Dritte weitergegeben.
     </p>
 
     <h2>14. Kein Verkauf von Daten</h2>
@@ -378,6 +404,7 @@
           <tr><td>Android Auto-Backup</td><td>Google LLC</td><td>gemäß Google-Kontoeinstellungen</td></tr>
           <tr><td>iCloud-Backup</td><td>Apple Inc.</td><td>gemäß deinen iCloud-Einstellungen</td></tr>
           <tr><td>Website-Hosting (GitHub Pages)</td><td>GitHub, Inc. / Microsoft</td><td>USA und weltweit (Garantien nach Angaben von GitHub)</td></tr>
+          <tr><td>Website-Statistik (GoatCounter)</td><td>Martin Tournoij (GoatCounter.com), Irland; Server bei Hetzner Online GmbH</td><td>EU (Finnland, Deutschland)</td></tr>
         </tbody>
       </table>
     </div>
@@ -434,6 +461,10 @@
       der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten (Google, RevenueCat, Apple)
       siehe <a href="/datenschutz/#loeschen">Abschnitt 18</a>; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
     </p>
+    <p>
+      Der Reichweitenmessung auf dieser Website (Abschnitt 13) kannst du jederzeit widersprechen, indem du
+      <a href="/#toggle-goatcounter">kortform.at/#toggle-goatcounter</a> aufrufst.
+    </p>
 
     <h2 id="loeschen">18. Daten löschen lassen (auch bei Dienstleistern)</h2>
     <p>
@@ -469,6 +500,8 @@
       <li><strong>Google AdMob:</strong> Werbedaten verarbeitet Google als eigener Dienst. Wir erhalten keine Auswertung
         einzelner Personen und können dort nichts löschen. Auskunft und Löschung beantragst du direkt bei Google
         (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>).</li>
+      <li><strong>GoatCounter (Website):</strong> Es werden nur zusammengefasste Zahlen ohne Bezug zu einzelnen Personen gespeichert;
+        eine Zuordnung zu dir ist daher nicht möglich (Art. 11 DSGVO).</li>
     </ul>
     <p>
       <strong>Eigene Einstellungen bei Google und Apple:</strong> Auf Android kannst du die Werbe-ID in den Google-Einstellungen
