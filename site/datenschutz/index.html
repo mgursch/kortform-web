@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 27. Oktober 2026</p>
+    <p class="updated">Stand: 28. Oktober 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -61,12 +61,13 @@
       (ITN) täglich mitverfolgen und vor einem Match durchrechnen kannst, was Sieg oder Niederlage
       bringen. Die App arbeitet im Kern lokal auf deinem Gerät. Es gibt <strong>keine Nutzerkonten bei
       uns</strong> und <strong>kein eigenes Backend</strong>: Wir betreiben keinen Server, auf dem Daten
-      aus der App landen. Dein Profil, dein Verlauf, deine Spiele und deine Einstellungen werden nur
-      auf deinem Gerät gespeichert.
+      aus der App landen. Dein Profil, dein Verlauf, deine Spiele, die Spieler*innen, denen du folgst, deine Mannschaften und
+      deine Einstellungen werden nur auf deinem Gerät gespeichert.
     </p>
     <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
-      <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts, optionaler ÖTV-Login (Abschnitte 4 und 5)</li>
+      <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst,
+        Import von Mannschaften, optionaler ÖTV-Login (Abschnitte 4 und 5)</li>
       <li>Werbung über Google AdMob, solange du Kortform Plus nicht gekauft hast (Abschnitt 6)</li>
       <li>Absturzberichte über Firebase Crashlytics, in der veröffentlichten App immer aktiv (Abschnitt 7)</li>
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
@@ -96,6 +97,11 @@
         Jahrgang, Geschlecht, Staatsangehörigkeit, Ranglistenposition, die ÖTV-Spieler-ID und die Verein-ID;</li>
       <li>der Verlauf deiner Werte sowie selbst eingetragene Werte mit Notizen;</li>
       <li>bei ÖTV-Login zusätzlich deine Spiele (Datum, Ergebnis, Namen der Gegner*innen und Partner*innen, Änderung des Werts);</li>
+      <li>Spieler*innen, denen du folgst, und die Mitglieder deiner Mannschaften: Name, Verein, Jahrgang, Staatsangehörigkeit,
+        Lizenznummer, soweit vorhanden die ÖTV-Spieler-ID, und der Verlauf ihrer Werte (ITN);</li>
+      <li>Mannschaften, die du selbst anlegst oder importierst: Name, Bewerb und bei importierten Mannschaften der gespeicherte Liga-Link;</li>
+      <li>bei ÖTV-Login zusätzlich die vollständigen Spielverläufe der Spieler*innen, denen du folgst (Datum, Ergebnis, Änderung
+        des Werts, Namen der Gegner*innen und Partner*innen);</li>
       <li>deine Einstellungen (z. B. Benachrichtigungen, Einwilligung zu Nutzungsstatistiken, bei einem Profil ohne ÖTV-Verknüpfung die
         Angabe „Ich bin 11 bis 16 Jahre alt“) und der Kaufstatus von Kortform Plus;</li>
       <li>eine Datei für die Widgets (siehe unten).</li>
@@ -111,13 +117,17 @@
       auf dem Sperrbildschirm (iPhone) ist auch bei gesperrtem Gerät sichtbar; dein Wert ist dann für andere einsehbar.
     </p>
     <p>
-      Namen und weitere Angaben zu Spieler*innen stammen aus der öffentlichen ÖTV-Liste bzw. den ÖTV-Spieldaten.
-      Diese Daten gehen nicht an uns. Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
+      Namen und weitere Angaben zu Spieler*innen stammen aus der öffentlichen ÖTV-Liste, den ÖTV-Spieldaten bzw. den
+      Ligadaten von ÖTV und Wiener Tennisverband (WTV). Diese Daten gehen nicht an uns; es gibt keinen Kortform-Server, an den
+      sie übertragen würden. Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
       System-Teilen-Menü; wohin du sie sendest, entscheidest du.
     </p>
     <p>
       Du kannst die Daten jederzeit im Profil unter „Alle Daten löschen“ entfernen. Sie werden außerdem mit der Deinstallation
-      der App gelöscht, sofern kein Geräte-Backup (siehe Abschnitt 12) wiederhergestellt wird. „Alle Daten löschen“ nimmt auch
+      der App gelöscht, sofern kein Geräte-Backup (siehe Abschnitt 12) wiederhergestellt wird. Folgst du einer Person nicht
+      mehr, löscht die App nach einer Frist von 24 Stunden (so lange lässt sich das rückgängig machen) ihren Spielverlauf und,
+      wenn sie auch keiner deiner Mannschaften angehört, alle Daten zu ihr. Das Gleiche gilt für Mitglieder einer Mannschaft,
+      die du löschst. „Alle Daten löschen“ nimmt auch
       eine erteilte Einwilligung zu Nutzungsstatistiken (Abschnitt 8) zurück. Eine technische Markierung, mit welcher Alterskategorie
       (Abschnitt 16) die Werbeabfrage zuletzt lief, bleibt dabei bewusst erhalten. Die Werbe-Einwilligung selbst speichert Googles UMP auf dem Gerät; „Alle Daten löschen“
       nimmt sie nicht zurück (Widerruf über „Datenschutz“, Abschnitt 6). Die Markierung sorgt dafür, dass die Einwilligung einer
@@ -128,7 +138,7 @@
       Funktionen der App).
     </p>
 
-    <h2>4. Abfragen beim ÖTV (Profilsuche und tägliche Aktualisierung)</h2>
+    <h2>4. Abfragen beim ÖTV (Profilsuche, tägliche Aktualisierung, Mannschaften)</h2>
     <p>
       Kortform ruft öffentlich zugängliche Daten der ÖTV-Website (<code>oetv.at</code>) direkt von deinem
       Gerät ab, ohne dass wir dazwischengeschaltet sind:
@@ -138,10 +148,17 @@
         eingegebene Nachname, Vorname und/oder die Lizenznummer an den ÖTV übermittelt; die Treffer
         (Name, Verein, Jahrgang, Landesverband, ITN) kommen zurück in die App.</li>
       <li><strong>Tägliche Aktualisierung:</strong> Ist ein Profil verknüpft, ruft die App deinen aktuellen Wert über die
-        öffentliche Spielersuche des ÖTV ab. Dabei wird nur deine Lizenznummer gesendet. Das geschieht einmal pro Tag im
+        öffentliche Spielersuche des ÖTV ab. Folgst du Spieler*innen oder hast du Mannschaften angelegt, ruft sie auf demselben
+        Weg auch deren öffentlich einsehbaren Wert ab. Dabei werden nur deine Lizenznummer sowie die Lizenznummern dieser
+        Spieler*innen und der Mitglieder deiner Mannschaften gesendet. Das geschieht einmal pro Tag im
         Hintergrund (frühestens ab etwa 6 Uhr). Beim Start der App wird eine Aktualisierung nachgeholt, wenn seit 6 Uhr noch
         keine erfolgreich war; mit dem Aktualisieren-Symbol im Verlauf oder in den Matches kannst du sie jederzeit selbst auslösen. Ohne
-        verknüpftes Profil findet keine Aktualisierung statt.</li>
+        verknüpftes Profil und ohne gefolgte Spieler*innen oder Mannschaften findet keine Aktualisierung statt.</li>
+      <li><strong>Mannschaften importieren:</strong> Wenn du eine Mannschaft über einen Liga-Link von <code>tennis.wien</code>
+        importierst oder eine importierte Mannschaft aktualisierst, lädt die App die Mannschaft und ihre gemeldeten
+        Spieler*innen (Name, Jahrgang, Lizenznummer, ÖTV-Spieler-ID, ITN) aus den Ligadaten von ÖTV bzw. WTV.
+        Die Daten werden über <code>oetv.at</code> abgerufen; gesendet werden nur die Kennungen von Gruppe und Mannschaft
+        aus dem Link. Das geschieht nur, wenn du den Import oder die Aktualisierung selbst auslöst.</li>
     </ul>
     <p>
       Wie bei jedem Abruf einer Website erhält der ÖTV dabei technisch bedingt deine IP-Adresse und
@@ -157,7 +174,8 @@
     <h2>5. Optionaler ÖTV-Login (deine Spiele)</h2>
     <p>
       Mit einem ÖTV-Login (nuLiga-ID) kann Kortform deine Spiele und deinen Werteverlauf aus der
-      Vergangenheit laden. Der Login ist freiwillig; die App funktioniert auch ohne.
+      Vergangenheit laden, außerdem die Spielverläufe der Spieler*innen, denen du folgst. Der Login ist freiwillig; die App
+      funktioniert auch ohne.
     </p>
     <ul>
       <li><strong>Anmeldung beim ÖTV:</strong> Die Anmeldung läuft in einer eingebetteten Browseransicht auf den
@@ -169,7 +187,9 @@
         Das Einfügen findet nur auf dieser Anmeldeseite statt. Ohne „Login merken“ halten wir die Eingaben nur im Arbeitsspeicher
         für diese eine Anmeldung und verwerfen sie danach. Die Zugangsdaten gehen ausschließlich an die ÖTV-Anmeldeseite, nicht an uns.</li>
       <li><strong>Anmeldesitzung „auf Abruf“:</strong> Nach dem Login liest die App die Anmelde-Cookies der ÖTV-Seite und holt
-        damit deine Spiele. Diese Sitzung wird nur bis zum Ende dieses Abrufs auf dem Gerät gehalten und danach gelöscht.
+        damit deine Spiele. Folgst du Spieler*innen, sendet sie in derselben Sitzung auch deren ÖTV-Spieler-IDs an den ÖTV, um
+        ihre Spielverläufe zu laden. Der ÖTV kann dadurch sehen, welche Spieler*innen du über deinen Login abrufst.
+        Diese Sitzung wird nur bis zum Ende dieses Abrufs auf dem Gerät gehalten und danach gelöscht.
         Die tägliche Hintergrund-Aktualisierung (Abschnitt 4) nutzt den Login nicht. Die Cookies der Browseransicht selbst bleiben
         auf dem Gerät, bis du den Login löschst (siehe „Löschen“).</li>
       <li><strong>„Login merken“ (optional):</strong> Wenn du das wählst, speichert die App deine E-Mail-Adresse und dein
@@ -183,7 +203,7 @@
         Wechsel zu einer anderen Person entfernen den Login.</li>
     </ul>
     <p>
-      Die geladenen Spieldaten enthalten Namen und Ergebnisse von Gegner*innen. Sie werden nur auf deinem Gerät gespeichert
+      Die geladenen Spieldaten enthalten Namen und Ergebnisse von Gegner*innen und Partner*innen. Sie werden nur auf deinem Gerät gespeichert
       und nicht weitergegeben.
     </p>
     <p>
@@ -393,7 +413,7 @@
       <table>
         <thead><tr><th>Dienst</th><th>Anbieter</th><th>Verarbeitungsort</th></tr></thead>
         <tbody>
-          <tr><td>ÖTV-Abfragen und ÖTV-Login</td><td>Österreichischer Tennisverband / nuLiga</td><td>gemäß deren Datenschutzbestimmungen</td></tr>
+          <tr><td>ÖTV-Abfragen (inkl. Ligadaten) und ÖTV-Login</td><td>Österreichischer Tennisverband / nuLiga</td><td>gemäß deren Datenschutzbestimmungen</td></tr>
           <tr><td>Google AdMob, Google UMP</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
           <tr><td>Firebase Crashlytics</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
           <tr><td>Firebase Analytics (nur mit Einwilligung)</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
@@ -469,7 +489,8 @@
     <h2 id="loeschen">18. Daten löschen lassen (auch bei Dienstleistern)</h2>
     <p>
       <strong>In der App und auf deinem Gerät:</strong> Im Profil unter „Alle Daten löschen“ entfernst du dein Profil, deinen
-      Verlauf, deine Spiele, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken, ohne die technische Markierung aus Abschnitt 3;
+      Verlauf, deine Spiele, die Spieler*innen, denen du folgst, deine Mannschaften samt ihren Mitgliedern, deren Werte und
+      Spielverläufe, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken, ohne die technische Markierung aus Abschnitt 3;
       die Werbe-Einwilligung bei Google bleibt bestehen) und einen gespeicherten
       ÖTV-Login samt Anmeldedaten der Browseransicht. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
       Geräte-Backups siehe Abschnitt 12). Diese Funktion wirkt nur auf deinem Gerät. Daten, die bereits bei Diensten
