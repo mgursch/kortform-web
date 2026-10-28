@@ -150,9 +150,26 @@ section { margin-top: 72px; }
 .shot figcaption { margin-top: 14px; font-size: 14px; color: var(--text-2); line-height: 1.4; }
 .shot figcaption strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); line-height: 1.1; }
 @media (min-width: 900px) {
-  .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; overflow: visible; padding: 4px 0 0; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; overflow: visible; padding: 4px 0 0; }
   .shot { flex: none; }
 }
+
+/* Following players and teams */
+.follow { background: var(--surface-2); border-radius: 16px; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }
+@media (min-width: 640px) { .follow { padding: 40px; } }
+.follow-copy { flex: 1 1 340px; min-width: 0; }
+.follow-copy h2 { margin-top: 12px; }
+.follow-copy p { margin: 14px 0 0; color: var(--text-2); }
+.follow-copy .eyebrow { margin: 0; }
+.follow-list { margin: 16px 0 0; padding-left: 20px; color: var(--text-2); }
+.follow-list li { margin-bottom: 10px; }
+.follow-list strong { color: var(--text); font-weight: 600; }
+.follow-copy .follow-note { font-size: 14px; }
+.follow-shots { flex: 1 1 300px; min-width: 0; display: flex; justify-content: center; align-items: flex-start; gap: 16px; }
+.follow-shot { margin: 0; flex: 0 1 220px; min-width: 0; }
+.follow-shot:nth-child(2) { margin-top: 40px; }
+.follow-shot img { display: block; width: 100%; height: auto; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 12px 28px rgba(22, 21, 15, 0.14); background: var(--card); }
+@media (prefers-color-scheme: dark) { .follow-shot img { box-shadow: none; } }
 
 /* Widgets */
 .widgets { background: var(--surface-2); border-radius: 16px; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }

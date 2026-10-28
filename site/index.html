@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kortform - ITN Verwaltung AT</title>
-  <meta name="description" content="Kortform für Android und iPhone: Deinen Wert aus der öffentlichen ÖTV-Liste täglich mitverfolgen, den Verlauf als Diagramm sehen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen. Deine Werte und Spiele bleiben auf deinem Gerät.">
+  <meta name="description" content="Kortform für Android und iPhone: Deinen Wert aus der öffentlichen ÖTV-Liste täglich mitverfolgen, Spieler*innen und Mannschaften folgen, den Verlauf als Diagramm sehen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen. Deine Werte und Spiele bleiben auf deinem Gerät.">
   <link rel="canonical" href="https://kortform.at/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://swordistudios.goatcounter.com/count; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
@@ -20,7 +20,7 @@
   <meta property="og:site_name" content="Kortform">
   <meta property="og:locale" content="de_AT">
   <meta property="og:title" content="Kortform - ITN Verwaltung AT">
-  <meta property="og:description" content="Deinen Wert aus der öffentlichen ÖTV-Liste täglich mitverfolgen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen.">
+  <meta property="og:description" content="Deinen Wert und die Werte der Spieler*innen, denen du folgst, und deiner Mannschaften täglich mitverfolgen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen.">
   <meta property="og:url" content="https://kortform.at/">
   <meta property="og:image" content="https://kortform.at/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -45,7 +45,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Tennis · Österreich</p>
         <h1>Dein Wert. <em>Jeden Morgen aktuell.</em></h1>
-        <p class="lead">Kortform holt deinen Wert aus der öffentlichen ÖTV-Liste, zeichnet den Verlauf und rechnet vor jedem Match aus, was Sieg oder Niederlage bringen.</p>
+        <p class="lead">Kortform holt deinen Wert aus der öffentlichen ÖTV-Liste, zeichnet den Verlauf und rechnet vor jedem Match aus, was Sieg oder Niederlage bringen. Du kannst auch Spieler*innen und Mannschaften folgen.</p>
       </div>
 
       <div class="hero-visual" role="group" aria-label="Beispiel einer Berechnung">
@@ -71,6 +71,30 @@
       <li>Funktioniert auch ohne Profil</li>
     </ul>
 
+    <section aria-labelledby="folgen">
+      <div class="follow">
+        <div class="follow-copy">
+          <p class="eyebrow">Neu</p>
+          <h2 id="folgen">Spieler*innen und Mannschaften im Blick</h2>
+          <p>Folge Spieler*innen und leg deine Mannschaft an: Kortform holt den Wert aller, denen du folgst und die in deinen Mannschaften spielen, jeden Morgen aus der öffentlichen ÖTV-Liste und zeigt dir, wie sie sich entwickeln.</p>
+          <ul class="follow-list">
+            <li><strong>Spieler*innen folgen:</strong> per Namen oder Lizenznummer suchen und mit einem Tipp folgen. Die Liste zeigt Wert und letzte Änderung, sortierbar nach Wert, letzter Änderung, Name und mit ÖTV-Login nach letztem Spiel. Dein eigener Wert steht zum Vergleichen oben (abschaltbar).</li>
+            <li><strong>Letztes Spiel und Form:</strong> mit gespeichertem ÖTV-Login (bei verknüpftem Profil) siehst du zusätzlich das letzte Spiel samt Wertänderung und die Ergebnisse der letzten fünf Spiele (S/N).</li>
+            <li><strong>Mannschaften:</strong> selbst zusammenstellen oder mit Plus eine Mannschaft samt Meldung über den Link ihrer Ligagruppe auf tennis.wien importieren. Du siehst die Spieler*innen nach Rang bzw. Wert und den durchschnittlichen Wert der Mannschaft. Bei importierten Mannschaften zeigt Kortform mit Plus beim Aktualisieren, wer neu gemeldet ist oder nicht mehr.</li>
+          </ul>
+          <p class="follow-note">Gratis kannst du drei Spieler*innen folgen und eine Mannschaft selbst anlegen; die Mitglieder deiner Mannschaften zählen nicht dazu. Mit Kortform Plus (Einmalkauf) folgst du ohne Limit, legst beliebig viele Mannschaften an, importierst sie aus der Liga und die Werbung entfällt. Deine Listen und Mannschaften speichert Kortform nur auf deinem Gerät; die Werte fragt die App direkt beim ÖTV ab.</p>
+        </div>
+        <div class="follow-shots">
+          <figure class="follow-shot">
+            <img src="/img/app-spieler.webp" alt="" width="720" height="1616" loading="lazy" decoding="async">
+          </figure>
+          <figure class="follow-shot">
+            <img src="/img/app-mannschaft.webp" alt="" width="720" height="1616" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="funktionen">
       <div class="section-head">
         <h2 id="funktionen">Was Kortform kann</h2>
@@ -83,21 +107,26 @@
         </li>
         <li class="feature">
           <span class="num">02</span>
+          <h3>Spieler*innen und Mannschaften</h3>
+          <p>Folge Spieler*innen und leg Mannschaften an, mit Plus auch per Liga-Link von tennis.wien. Ihre Werte werden täglich mitgezogen, mit gespeichertem ÖTV-Login auch letztes Spiel und Form.</p>
+        </li>
+        <li class="feature">
+          <span class="num">03</span>
           <h3>Sieg oder Niederlage vorab</h3>
           <p>Gegner*in per Namenssuche oder direkter Eingabe wählen und sofort sehen, wo du nach dem Match stehst. Einzel und Doppel, auch im Kurzformat.</p>
         </li>
         <li class="feature">
-          <span class="num">03</span>
+          <span class="num">04</span>
           <h3>Verlauf als Diagramm</h3>
           <p>30 Tage, 90 Tage, Saison oder alles: Sinkt die Kurve, wirst du stärker. Dazu die Liste deiner letzten Änderungen.</p>
         </li>
         <li class="feature">
-          <span class="num">04</span>
+          <span class="num">05</span>
           <h3>Deine Spiele</h3>
           <p>Mit optionalem ÖTV-Login siehst du Ergebnisse, Gegner*innen und die Änderung je Spiel. Die App funktioniert auch ohne.</p>
         </li>
         <li class="feature">
-          <span class="num">05</span>
+          <span class="num">06</span>
           <h3>Widgets</h3>
           <p>Dein Wert auf dem Startbildschirm, auf dem iPhone auch auf dem Sperrbildschirm. Ohne Plus, ohne Werbung.</p>
         </li>
@@ -111,7 +140,19 @@
       </div>
       <div class="shots" tabindex="0" role="region" aria-label="App-Screenshots, seitlich scrollbar">
         <figure class="shot">
-          <img src="/img/app-verlauf.webp" alt="Verlauf-Ansicht der App: aktueller Wert 7,512, Diagramm der Saison und Liste der letzten Änderungen" width="720" height="1616" loading="lazy" decoding="async">
+          <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und fünf weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" loading="lazy" decoding="async">
+          <figcaption><strong>Spieler*innen</strong> Werte, letztes Spiel und Form im Blick</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/img/app-mannschaft.webp" alt="Mannschaftsansicht der App: Mannschaft Hobbyrunde mit durchschnittlichem Wert 6,891 und ihren fünf Spieler*innen mit Wert, letztem Spiel und Form" width="720" height="1616" loading="lazy" decoding="async">
+          <figcaption><strong>Mannschaft</strong> Spieler*innen und Schnitt der ganzen Mannschaft</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/img/app-liga-import.webp" alt="Liga-Import der App: Mannschaft Herren 41 mit acht gemeldeten Spieler*innen in Rangfolge, vor dem Anlegen prüfen" width="720" height="1616" loading="lazy" decoding="async">
+          <figcaption><strong>Liga-Import</strong> Mannschaft per Link aus der Liga laden</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/img/app-verlauf.webp" alt="Verlauf-Ansicht der App: aktueller Wert 7,512, Diagramm der Saison, letztes Match und Liste der letzten Änderungen" width="720" height="1616" loading="lazy" decoding="async">
           <figcaption><strong>Verlauf</strong> Deine Kurve und die letzten Änderungen</figcaption>
         </figure>
         <figure class="shot">
@@ -121,10 +162,6 @@
         <figure class="shot">
           <img src="/img/app-matches.webp" alt="Matches-Ansicht der App: Liste der Spiele mit Ergebnis und Änderung je Spiel" width="720" height="1616" loading="lazy" decoding="async">
           <figcaption><strong>Matches</strong> Ergebnisse und Änderung je Spiel</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/img/app-spielersuche.webp" alt="Spielersuche der App: Trefferliste mit Wert und Einschätzung, ob die Gegner*innen stärker oder schwächer sind" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Spielersuche</strong> Gegner*in finden, Wert übernehmen</figcaption>
         </figure>
       </div>
     </section>
