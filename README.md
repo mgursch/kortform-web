@@ -1,6 +1,6 @@
 # Kortform Website
 
-Statische Website für die App **Kortform** unter <https://kortform.at> (Landingpage, Impressum, Datenschutz, Support).
+Statische Website für die App **Kortform** unter <https://kortform.at> (Landingpage, Impressum, Datenschutz, Nutzungsbedingungen, Support).
 Kein Build-Schritt, keine Frameworks, keine externen Abhängigkeiten: Schriften und Bilder liegen im Repo. Einzige Ausnahme
 ist die Reichweitenmessung mit GoatCounter (Skript selbst gehostet unter `/count.js`, Zählung an `swordistudios.goatcounter.com`).
 
@@ -12,6 +12,7 @@ site/                     wird 1:1 veröffentlicht
   impressum/index.html    /impressum/
   datenschutz/index.html  /datenschutz/
   support/index.html      /support/ (Hilfe, FAQ, Kontakt)
+  nutzungsbedingungen.html  /nutzungsbedingungen.html (flache Datei, URL so vom Betreiber vorgegeben; vom Plus-Sheet der App verlinkt)
   styles.css              gemeinsames Stylesheet (hell + dunkel)
   fonts/                  Barlow Condensed, IBM Plex Sans/Mono (WOFF, aus dem App-Repo, SIL OFL)
   favicon.ico/.svg, apple-touch-icon.png, og-image.png
