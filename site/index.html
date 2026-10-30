@@ -14,6 +14,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/home.css">
   <link rel="preload" href="/fonts/BarlowCondensed-700.woff" as="font" type="font/woff" crossorigin>
 
   <meta property="og:type" content="website">
@@ -29,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <script data-goatcounter="https://swordistudios.goatcounter.com/count" async src="/count.js"></script>
 </head>
-<body>
+<body class="home">
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
   <header class="wrap site-header">
@@ -37,157 +38,158 @@
       <img src="/favicon.svg" alt="" width="36" height="36">
       <span>Kortform</span>
     </a>
-    <span class="header-note">Android · iPhone</span>
+    <nav class="index" aria-label="Auf dieser Seite">
+      <a href="#folgen">Folgen</a>
+      <a href="#rechenweg">Rechner</a>
+      <a href="#verlauf">Verlauf</a>
+      <a href="#widgets">Widgets</a>
+    </nav>
   </header>
 
-  <main id="inhalt" class="wrap">
-    <div class="hero">
+  <main id="inhalt">
+
+    <div class="wrap hero">
       <div class="hero-copy">
-        <p class="eyebrow">Tennis · Österreich</p>
-        <h1>Dein Wert. <em>Jeden Morgen aktuell.</em></h1>
-        <p class="lead">Kortform holt deinen Wert aus der öffentlichen ÖTV-Liste, zeichnet den Verlauf und rechnet vor jedem Match aus, was Sieg oder Niederlage bringen. Du kannst auch Spieler*innen und Mannschaften folgen.</p>
+        <h1>Weniger <span class="h1-arrow" aria-hidden="true"><svg viewBox="0 0 40 56" width="40" height="56" focusable="false"><path d="M20 4v44M6 34l14 14 14-14"/></svg></span><br>ist besser.</h1>
+        <p class="lead">Kortform holt deinen Wert jeden Morgen aus der ÖTV-Liste und rechnet vor dem Match aus, wo du nach Sieg oder Niederlage stehst.</p>
+        <p class="status"><strong>Bald im App Store und bei Google Play.</strong> Deine Werte und Spiele bleiben auf deinem Gerät.</p>
       </div>
 
-      <div class="hero-visual" role="group" aria-label="Beispiel einer Berechnung">
-        <div class="result-card">
-          <div class="result-row result-win">
-            <div class="result-block"><span class="result-label">Bei Sieg</span></div>
-            <span class="result-value">7,374</span>
-            <span class="result-delta"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12l7 7 7-7"/></svg>−0,138</span>
-          </div>
-          <div class="result-row result-lose">
-            <div class="result-block"><span class="result-label">Bei Niederlage</span></div>
-            <span class="result-value">7,539</span>
-            <span class="result-delta"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>+0,027</span>
-          </div>
-          <p class="result-note">Beispiel: Du 7,512 gegen 7,180, Einzel. Weniger ist besser.</p>
+      <figure class="hero-shot">
+        <div class="crop crop-rechner">
+          <img src="/img/app-rechner.webp" alt="Rechner der App im Einzel: Du mit 7,512 gegen Erika Musterfrau mit 7,180. Bei Sieg 7,374, also minus 0,138. Bei Niederlage 7,539, also plus 0,027." width="720" height="1616" decoding="async" fetchpriority="high">
+          <span class="tag tr1" aria-hidden="true">A</span>
+          <span class="tag tr2" aria-hidden="true">B</span>
+          <span class="tag tr3" aria-hidden="true">C</span>
+          <span class="tag tr4" aria-hidden="true">D</span>
         </div>
-      </div>
+        <figcaption>
+          <ol class="legend" type="A">
+            <li><span class="legend-tag" aria-hidden="true">A</span> Sieg oder Niederlage, vorab</li>
+            <li><span class="legend-tag" aria-hidden="true">B</span> Kurzformat zählt halb</li>
+            <li><span class="legend-tag" aria-hidden="true">C</span> Unsicheres Gegenüber per Schalter</li>
+            <li><span class="legend-tag" aria-hidden="true">D</span> Gegner*in suchen oder Wert eintippen</li>
+          </ol>
+        </figcaption>
+      </figure>
     </div>
 
-    <ul class="trust" aria-label="Auf einen Blick">
-      <li>Ohne Login möglich</li>
-      <li>Deine Werte und Spiele bleiben auf deinem Gerät</li>
-      <li>Funktioniert auch ohne Profil</li>
-    </ul>
+    <div class="curve" aria-hidden="true">
+      <svg viewBox="0 0 1000 200" preserveAspectRatio="none" focusable="false">
+        <polyline points="0,30 67,30 134,51 199,51 266,14 333,14 400,70 467,70 533,107 600,107 667,88 734,88 801,141 866,141 933,184 1000,184"/>
+      </svg>
+    </div>
 
-    <section aria-labelledby="folgen">
-      <div class="follow">
-        <div class="follow-copy">
-          <p class="eyebrow">Neu</p>
-          <h2 id="folgen">Spieler*innen und Mannschaften im Blick</h2>
-          <p>Folge Spieler*innen und leg deine Mannschaft an: Kortform holt den Wert aller, denen du folgst und die in deinen Mannschaften spielen, jeden Morgen aus der öffentlichen ÖTV-Liste und zeigt dir, wie sie sich entwickeln.</p>
-          <ul class="follow-list">
-            <li><strong>Spieler*innen folgen:</strong> per Namen oder Lizenznummer suchen und mit einem Tipp folgen. Die Liste zeigt Wert und letzte Änderung, sortierbar nach Wert, letzter Änderung, Name und mit ÖTV-Login nach letztem Spiel. Dein eigener Wert steht zum Vergleichen oben (abschaltbar).</li>
-            <li><strong>Letztes Spiel und Form:</strong> mit gespeichertem ÖTV-Login (bei verknüpftem Profil) siehst du zusätzlich das letzte Spiel samt Wertänderung und die Ergebnisse der letzten fünf Spiele (S/N).</li>
-            <li><strong>Mannschaften:</strong> selbst zusammenstellen oder mit Plus eine Mannschaft samt Meldung über den Link ihrer Ligagruppe auf tennis.wien importieren. Du siehst die Spieler*innen nach Rang bzw. Wert und den durchschnittlichen Wert der Mannschaft. Bei importierten Mannschaften zeigt Kortform mit Plus beim Aktualisieren, wer neu gemeldet ist oder nicht mehr.</li>
-          </ul>
-          <p class="follow-note">Gratis kannst du drei Spieler*innen folgen und eine Mannschaft selbst anlegen; die Mitglieder deiner Mannschaften zählen nicht dazu. Mit Kortform Plus (Einmalkauf) folgst du ohne Limit, legst beliebig viele Mannschaften an, importierst sie aus der Liga und die Werbung entfällt. Deine Listen und Mannschaften speichert Kortform nur auf deinem Gerät; die Werte fragt die App direkt beim ÖTV ab.</p>
+    <section class="wrap follow" aria-labelledby="folgen">
+      <div class="follow-copy">
+        <h2 id="folgen">Spieler*innen und Mannschaften</h2>
+        <p>Folge anderen Spieler*innen und leg deine Mannschaft an, selbst oder per Liga-Link. Ihre Werte kommen jeden Morgen mit.</p>
+        <p class="small">Gratis drei Spieler*innen und eine Mannschaft, mit Kortform Plus ohne Limit, mit Liga-Import und ohne Werbung.</p>
+      </div>
+      <div class="stairs">
+        <figure class="step step-1">
+          <div class="crop crop-spieler">
+            <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Spieler*innen</figcaption>
+        </figure>
+        <figure class="step step-2">
+          <div class="crop crop-mannschaft">
+            <img src="/img/app-mannschaft.webp" alt="Mannschaftsansicht der App: Mannschaft Hobbyrunde mit durchschnittlichem Wert 6,891 und ihren fünf Spieler*innen mit Wert, letztem Spiel und Form" width="720" height="1616" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Mannschaft mit Schnitt</figcaption>
+        </figure>
+        <figure class="step step-3">
+          <div class="crop crop-liga">
+            <img src="/img/app-liga-import.webp" alt="Liga-Import der App: Mannschaft Herren 41 mit acht gemeldeten Spieler*innen in Rangfolge, vor dem Anlegen prüfen" width="720" height="1616" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Liga-Import</figcaption>
+        </figure>
+      </div>
+
+    </section>
+
+    <section class="clay" aria-labelledby="rechenweg">
+      <div class="wrap clay-inner">
+        <div class="clay-copy">
+          <h2 id="rechenweg">Samstag, Meisterschaft. Du verlierst knapp gegen den Nachwuchs.</h2>
+          <p>Verlierst du ab 21 im Einzel gegen 11- bis 16-Jährige, zählt das Match für dich nur halb.</p>
         </div>
-        <div class="follow-shots">
-          <figure class="follow-shot">
-            <img src="/img/app-spieler.webp" alt="" width="720" height="1616" loading="lazy" decoding="async">
-          </figure>
-          <figure class="follow-shot">
-            <img src="/img/app-mannschaft.webp" alt="" width="720" height="1616" loading="lazy" decoding="async">
-          </figure>
+
+        <div class="sheet">
+          <p class="sheet-title">Spielbericht <span>Beispiel</span></p>
+          <dl class="sheet-fields">
+            <div><dt>Bewerb</dt><dd>Meisterschaft</dd></div>
+            <div><dt>Spielart</dt><dd>Einzel</dd></div>
+            <div><dt>Format</dt><dd>2 Sätze bis 6</dd></div>
+            <div><dt>Ergebnis</dt><dd class="num">4:6 6:3 8:10</dd></div>
+          </dl>
+          <table class="ledger">
+            <caption class="visually-hidden">Berechnung der Wertänderung Schritt für Schritt</caption>
+            <tbody>
+              <tr><th scope="row">Du, 34 Jahre, vor dem Match</th><td>7,903</td></tr>
+              <tr><th scope="row">Gegenüber, 14 Jahre</th><td>7,899</td></tr>
+              <tr><th scope="row">Abstand <span class="formula">x = Verlierer − Sieger</span></th><td>0,004</td></tr>
+              <tr><th scope="row">Änderung <span class="formula">Δ = 0,250 / (1 + 2,595 · e<sup>3,5 · x</sup>)</span></th><td>0,06884…</td></tr>
+              <tr class="ledger-mark"><th scope="row">Δ auf drei Stellen runden</th><td>0,069</td></tr>
+              <tr><th scope="row">× 50 %, weil du gegen die Jugend verlierst</th><td>0,0345</td></tr>
+              <tr><th scope="row">Noch einmal runden, kaufmännisch</th><td>+0,035</td></tr>
+              <tr class="ledger-total"><th scope="row">Dein neuer Wert</th><td>7,938</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-foot">Beide gelten als sicher. Inoffizielle Berechnung, maßgeblich ist die Liste des ÖTV.</p>
         </div>
+
+        <p class="margin-note">Kortform rundet Δ zuerst auf drei Stellen, sonst wären es in diesem Beispiel +0,034.</p>
+
+        <p class="verdict">
+          <span>7,903</span>
+          <svg class="verdict-arrow" viewBox="0 0 120 60" width="120" height="60" aria-hidden="true" focusable="false"><path d="M4 30h106M86 8l24 22-24 22"/></svg>
+          <span class="visually-hidden">wird zu</span>
+          <span>7,938</span>
+        </p>
       </div>
     </section>
 
-    <section aria-labelledby="funktionen">
-      <div class="section-head">
-        <h2 id="funktionen">Was Kortform kann</h2>
+    <section class="wrap history" aria-labelledby="verlauf">
+      <div class="history-copy">
+        <h2 id="verlauf">Verlauf und Matches</h2>
+        <p>Dein Wert als Kurve, mit der Änderung im gewählten <span class="nowrap">Zeitraum&nbsp;<span class="ref" aria-hidden="true">1</span></span>. Mit ÖTV-Login kommen deine Matches <span class="nowrap">dazu&nbsp;<span class="ref" aria-hidden="true">2</span></span>, jeweils mit Wert vorher und <span class="nowrap">nachher&nbsp;<span class="ref" aria-hidden="true">3</span></span>.</p>
       </div>
-      <ul class="features">
-        <li class="feature">
-          <span class="num">01</span>
-          <h3>Dein Wert, täglich</h3>
-          <p>Profil einmal verknüpfen, dann wird dein ITN-Wert jeden Morgen aktualisiert. Ohne Profil trägst du ihn einfach selbst ein.</p>
-        </li>
-        <li class="feature">
-          <span class="num">02</span>
-          <h3>Spieler*innen und Mannschaften</h3>
-          <p>Folge Spieler*innen und leg Mannschaften an, mit Plus auch per Liga-Link von tennis.wien. Ihre Werte werden täglich mitgezogen, mit gespeichertem ÖTV-Login auch letztes Spiel und Form.</p>
-        </li>
-        <li class="feature">
-          <span class="num">03</span>
-          <h3>Sieg oder Niederlage vorab</h3>
-          <p>Gegner*in per Namenssuche oder direkter Eingabe wählen und sofort sehen, wo du nach dem Match stehst. Einzel und Doppel, auch im Kurzformat.</p>
-        </li>
-        <li class="feature">
-          <span class="num">04</span>
-          <h3>Verlauf als Diagramm</h3>
-          <p>30 Tage, 90 Tage, Saison oder alles: Sinkt die Kurve, wirst du stärker. Dazu die Liste deiner letzten Änderungen.</p>
-        </li>
-        <li class="feature">
-          <span class="num">05</span>
-          <h3>Deine Spiele</h3>
-          <p>Mit optionalem ÖTV-Login siehst du Ergebnisse, Gegner*innen und die Änderung je Spiel. Die App funktioniert auch ohne.</p>
-        </li>
-        <li class="feature">
-          <span class="num">06</span>
-          <h3>Widgets</h3>
-          <p>Dein Wert auf dem Startbildschirm, auf dem iPhone auch auf dem Sperrbildschirm. Ohne Plus, ohne Werbung.</p>
-        </li>
-      </ul>
-    </section>
 
-    <section aria-labelledby="screenshots">
-      <div class="section-head">
-        <h2 id="screenshots">So sieht Kortform aus</h2>
-        <p>Screenshots der Android-App mit Beispieldaten.</p>
-      </div>
-      <div class="shots" tabindex="0" role="region" aria-label="App-Screenshots, seitlich scrollbar">
-        <figure class="shot">
-          <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und fünf weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Spieler*innen</strong> Werte, letztes Spiel und Form im Blick</figcaption>
+      <div class="history-shots">
+        <figure class="hist">
+          <div class="crop crop-verlauf">
+            <img src="/img/app-verlauf.webp" alt="Verlauf-Ansicht der App: aktueller Wert 7,512, minus 0,270 seit 2. Jänner, Diagramm der Saison mit fallender Kurve und die Karte Letztes Match" width="720" height="1616" loading="lazy" decoding="async">
+            <span class="tag tv1" aria-hidden="true">1</span>
+            <span class="tag tv2" aria-hidden="true">2</span>
+          </div>
         </figure>
-        <figure class="shot">
-          <img src="/img/app-mannschaft.webp" alt="Mannschaftsansicht der App: Mannschaft Hobbyrunde mit durchschnittlichem Wert 6,891 und ihren fünf Spieler*innen mit Wert, letztem Spiel und Form" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Mannschaft</strong> Spieler*innen und Schnitt der ganzen Mannschaft</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/img/app-liga-import.webp" alt="Liga-Import der App: Mannschaft Herren 41 mit acht gemeldeten Spieler*innen in Rangfolge, vor dem Anlegen prüfen" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Liga-Import</strong> Mannschaft per Link aus der Liga laden</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/img/app-verlauf.webp" alt="Verlauf-Ansicht der App: aktueller Wert 7,512, Diagramm der Saison, letztes Match und Liste der letzten Änderungen" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Verlauf</strong> Deine Kurve und die letzten Änderungen</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/img/app-rechner.webp" alt="Rechner-Ansicht der App: Bei Sieg 7,374, bei Niederlage 7,539 im Einzel gegen eine*n Gegner*in mit 7,180" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Rechner</strong> Sieg oder Niederlage vorab</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/img/app-matches.webp" alt="Matches-Ansicht der App: Liste der Spiele mit Ergebnis und Änderung je Spiel" width="720" height="1616" loading="lazy" decoding="async">
-          <figcaption><strong>Matches</strong> Ergebnisse und Änderung je Spiel</figcaption>
+        <figure class="hist hist-matches">
+          <div class="crop crop-matches">
+            <img src="/img/app-matches.webp" alt="Matches-Ansicht der App: Liste der Spiele mit Ergebnis, Gegner*in, Wert vorher und nachher und Änderung je Spiel" width="720" height="1616" loading="lazy" decoding="async">
+            <span class="tag tv3" aria-hidden="true">3</span>
+          </div>
         </figure>
       </div>
     </section>
 
-    <section aria-labelledby="widgets">
-      <div class="widgets">
-        <div class="widgets-copy">
-          <p class="eyebrow">Widgets</p>
-          <h2 id="widgets">Dein Wert auf dem Startbildschirm</h2>
-          <p>Ein Blick aufs Handy genügt: Je nach Größe zeigen die Widgets deinen aktuellen Wert, die letzte Änderung oder die Änderung der letzten 30 Tage, den Verlauf als Kurve und wann der Wert zuletzt aktualisiert wurde. Ein Tipp öffnet die App beim Verlauf.</p>
-          <ul class="widget-list">
-            <li><strong>Android:</strong> drei Startbildschirm-Widgets, Klein (2×2), Mittel (4×2, mit Änderung über 30 Tage) und Leiste (2×1, Wert und letzte Änderung).</li>
-            <li><strong>iPhone:</strong> Startbildschirm in Klein und Mittel, dazu auf dem Sperrbildschirm als Textzeile, rundes oder rechteckiges Widget.</li>
-          </ul>
-          <p class="widgets-note">Die Widgets brauchen kein Plus und zeigen keine Werbung. Sie aktualisieren sich, sobald sich dein Wert ändert oder die App im Hintergrund abgeglichen hat.</p>
+    <section class="field" aria-labelledby="widgets">
+      <div class="wrap field-inner">
+        <div class="field-copy">
+          <h2 id="widgets">Dein Wert, gleich neben dem Wetter.</h2>
+          <p>Dein Wert auf dem Startbildschirm, am iPhone auch auf dem Sperrbildschirm, ohne Plus und ohne Werbung.</p>
         </div>
-        <div class="widget-previews">
-          <figure class="widget-preview widget-medium">
+        <div class="homescreen">
+          <figure class="w w-mittel">
             <img src="/img/widget-mittel.webp" alt="Android-Widget Mittel: Wert 7,512, Änderung minus 0,172 in 30 Tagen und Verlaufsdiagramm" width="700" height="434" loading="lazy" decoding="async">
             <figcaption>Mittel</figcaption>
           </figure>
-          <figure class="widget-preview widget-small">
+          <figure class="w w-klein">
             <img src="/img/widget-klein.webp" alt="Android-Widget Klein: Wert 7,512, Änderung minus 0,048, kleine Verlaufskurve und Zeitstempel" width="449" height="586" loading="lazy" decoding="async">
             <figcaption>Klein</figcaption>
           </figure>
-          <figure class="widget-preview widget-bar">
+          <figure class="w w-leiste">
             <img src="/img/widget-leiste.webp" alt="Android-Widget Leiste: Wert 7,512 und Änderung minus 0,048 in einer Zeile" width="449" height="270" loading="lazy" decoding="async">
             <figcaption>Leiste</figcaption>
           </figure>
@@ -195,29 +197,17 @@
       </div>
     </section>
 
-    <section aria-labelledby="stores">
-      <div class="stores">
-        <div class="stores-copy">
-          <p class="eyebrow">Demnächst</p>
-          <h2 id="stores">Bald im App Store und bei Google Play</h2>
-          <p>Kortform erscheint für iPhone und Android. Sobald die App verfügbar ist, findest du hier die Links.</p>
+    <div class="wrap">
+      <section class="sister" aria-labelledby="kortscore">
+        <div class="sister-copy">
+          <p class="sister-kicker">Die Schwester-App</p>
+          <h2 id="kortscore">Das Match selbst zählt <span>Kortscore.</span></h2>
+          <p>Ein Tap pro Punkt auf Apple Watch oder Wear OS.</p>
+          <a class="sister-link" href="https://kortscore.com" rel="noopener">kortscore.com <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="store-pills" aria-hidden="true">
-          <span class="pill"><small>Bald im</small><strong>App Store</strong></span>
-          <span class="pill"><small>Bald bei</small><strong>Google Play</strong></span>
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="kortscore">
-      <div class="kortscore">
-        <div class="kortscore-copy">
-          <h2 id="kortscore">Das Match selbst<br><span>zählt Kortscore.</span></h2>
-          <p>Kortform ist die Schwester-App von Kortscore: ein Tap pro Punkt auf Apple Watch oder Wear OS, mit Statistik und Live-Spielstand für alle, die nicht am Platz stehen.</p>
-        </div>
-        <a class="btn" href="https://kortscore.com" rel="noopener">Zu Kortscore</a>
-      </div>
-    </section>
+        <img class="sister-watch" src="/img/kortscore-watch.webp" alt="Kortscore auf der Apple Watch: Spielstand während des Matches, du führst 40:15" width="512" height="624" loading="lazy" decoding="async">
+      </section>
+    </div>
   </main>
 
   <footer class="wrap site-footer">
