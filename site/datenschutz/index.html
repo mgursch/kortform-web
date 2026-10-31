@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 30. Oktober 2026</p>
+    <p class="updated">Stand: 31. Oktober 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -67,7 +67,7 @@
     <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
       <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften,
-        Import von Mannschaften, optionaler ÖTV-Login (Abschnitte 4 und 5)</li>
+        Import von Mannschaften, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
       <li>Werbung über Google AdMob, solange Kortform Plus nicht aktiv ist (Abschnitt 6)</li>
       <li>Absturzberichte über Firebase Crashlytics, in der veröffentlichten App immer aktiv (Abschnitt 7)</li>
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
@@ -159,7 +159,9 @@
         Hintergrund (frühestens ab etwa 6 Uhr). Beim Start der App wird eine Aktualisierung nachgeholt, wenn seit 6 Uhr noch
         keine erfolgreich war; mit dem Aktualisieren-Symbol im Verlauf, in den Matches, bei den Spieler*innen oder im Mannschaftsdetail kannst du sie jederzeit selbst auslösen;
         sie läuft auch sofort, wenn du neue Spieler*innen hinzufügst. Ohne
-        verknüpftes Profil und ohne gefolgte Spieler*innen oder Mannschaften findet keine Aktualisierung statt.</li>
+        verknüpftes Profil und ohne gefolgte Spieler*innen oder Mannschaften findet keine Aktualisierung statt.
+        Hast du in Kortform einen ÖTV-Login gespeichert, meldet sich die App in diesem täglichen Lauf zusätzlich beim ÖTV an und
+        lädt deine Spiele (Abschnitt 5).</li>
       <li><strong>Mannschaften importieren:</strong> Wenn du eine Mannschaft über den Link einer Ligagruppe von einer
         Landesverbandsseite importierst (<code>tennis.wien</code>, <code>noetv.at</code>, <code>ooetv.at</code>,
         <code>sttv.oetv.at</code>, <code>tenniskaernten.at</code>, <code>salzburgtennis.at</code>, <code>tennistirol.at</code>,
@@ -191,20 +193,18 @@
       funktioniert auch ohne.
     </p>
     <ul>
-      <li><strong>Anmeldung beim ÖTV:</strong> Die Anmeldung läuft in einer eingebetteten Browseransicht auf den
-        Seiten des ÖTV bzw. von nuLiga (<code>oetv.at</code>, <code>tenat-id.liga.nu</code>). Diese Ansicht ist auf <code>oetv.at</code>
-        und <code>liga.nu</code> beschränkt und kein allgemeiner Webbrowser; Links auf andere Seiten öffnen sich im Browser deines
-        Geräts und nicht in der App. Im Onboarding, im Profil unter „ÖTV-Login“ und beim Laden der Spiele
-        und der Spielverläufe (Matches, Spieler*innen, Mannschaften) gibst du E-Mail-Adresse und Passwort zunächst in Eingabefeldern der App ein. Die App trägt sie dann
-        in das Anmeldeformular von <code>tenat-id.liga.nu</code> ein und schickt es ab, auch wenn du „Login merken“ nicht gewählt hast.
-        Das Einfügen findet nur auf dieser Anmeldeseite statt. Ohne „Login merken“ halten wir die Eingaben nur im Arbeitsspeicher
-        für diese eine Anmeldung und verwerfen sie danach. Die Zugangsdaten gehen ausschließlich an die ÖTV-Anmeldeseite, nicht an uns.</li>
-      <li><strong>Anmeldesitzung „auf Abruf“:</strong> Nach dem Login liest die App die Anmelde-Cookies der ÖTV-Seite und holt
+      <li><strong>Anmeldung beim ÖTV:</strong> Die Anmeldung führt die App selbst aus, ohne eingebettete Browseransicht (WebView). Im Onboarding, im Profil unter
+        „ÖTV-Login“ und beim Laden der Spiele und der Spielverläufe (Matches, Spieler*innen, Mannschaften) gibst du E-Mail-Adresse
+        und Passwort in Eingabefeldern der App ein. Die App sendet sie per verschlüsselter Verbindung (HTTPS) direkt an die
+        Anmeldeseite von nuLiga (<code>tenat-id.liga.nu</code>) und ruft dabei Seiten des ÖTV (<code>oetv.at</code>) und von nuLiga
+        (<code>liga.nu</code>) wie ein Browser auf; andere Adressen ruft sie dabei nicht auf. Das gilt auch, wenn du „Login merken“ nicht gewählt hast.
+        Ohne „Login merken“ halten wir die Eingaben nur im Arbeitsspeicher für diese eine Anmeldung und verwerfen sie danach.
+        Die Zugangsdaten gehen ausschließlich an die ÖTV- bzw. nuLiga-Anmeldeseite, nicht an uns.</li>
+      <li><strong>Anmeldesitzung „auf Abruf“:</strong> Nach der Anmeldung erhält die App vom ÖTV eine kurzlebige Sitzung (Cookies der ÖTV-Seite) und holt
         damit deine Spiele. Folgst du Spieler*innen oder hast du Mannschaften angelegt, sendet sie in derselben Sitzung auch
         die ÖTV-Spieler-IDs dieser Spieler*innen und der Mitglieder deiner Mannschaften an den ÖTV, um ihre Spielverläufe zu laden. Der ÖTV kann dadurch sehen, welche Spieler*innen du über deinen Login abrufst.
-        Diese Sitzung wird nur bis zum Ende dieses Abrufs auf dem Gerät gehalten und danach gelöscht.
-        Die tägliche Hintergrund-Aktualisierung (Abschnitt 4) nutzt den Login nicht. Die Cookies der Browseransicht selbst bleiben
-        auf dem Gerät, bis du den Login löschst (siehe „Löschen“).</li>
+        Die Sitzung wird nur bis zum Ende dieses Abrufs auf dem Gerät gehalten und danach gelöscht; weitere Cookies der Anmeldung behält die App nicht.
+        Die Sitzung des ÖTV selbst läuft dort von allein nach einigen Stunden ab.</li>
       <li><strong>„Login merken“ (optional):</strong> Wenn du das wählst, speichert die App deine E-Mail-Adresse und dein
         Passwort für die ÖTV-Anmeldung verschlüsselt auf deinem Gerät (Android Keystore bzw. iOS-Schlüsselbund) und verwendet sie
         bei jedem weiteren Login wie oben beschrieben. Gespeichert wird erst, nachdem der ÖTV die Anmeldung bestätigt hat;
@@ -213,9 +213,20 @@
         außerdem automatisch beim ÖTV an und lädt neue Spiele und die Spielverläufe der Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften. Unter Android werden diese
         Daten nicht in Geräte-Backups aufgenommen; unter iOS lässt sich der verschlüsselte Wert nicht auf einem anderen Gerät
         entschlüsseln.</li>
+      <li><strong>Täglicher Login im Hintergrund:</strong> Mit gespeichertem Login meldet sich die App zusätzlich einmal pro Tag
+        im Rahmen der täglichen Aktualisierung (Abschnitt 4, frühestens ab etwa 6 Uhr) automatisch im Hintergrund beim ÖTV an, ohne dass du
+        etwas tun musst, und lädt deine neuen Spiele sowie die Spielverläufe der Spieler*innen, denen du folgst, und der Mitglieder
+        deiner Mannschaften. Pro Tag gibt es höchstens eine bestätigte Anmeldung und höchstens zwei Versuche. Lehnt der ÖTV deine
+        gespeicherten Zugangsdaten ab (etwa nach einer Passwortänderung), meldet sich die App nicht mehr von selbst an, bis du
+        deinen Login neu eingibst. Wir können diesen Hintergrund-Login für alle Nutzer*innen über Firebase Remote Config
+        abschalten (Abschnitt 9), etwa wenn der ÖTV oder nuLiga bei wiederholten Anmeldungen Sicherheitsmeldungen auslöst; vom
+        Hintergrund-Login unberührt bleibt jede Anmeldung, die du selbst startest. Ohne gespeicherten Login findet keine
+        Anmeldung im Hintergrund statt. Du kannst ihn jederzeit beenden, indem du den gespeicherten Login löschst (siehe „Löschen“).</li>
       <li><strong>Löschen:</strong> Im Profil unter „ÖTV-Login“ kannst du den gespeicherten Login jederzeit löschen
-        („ÖTV-Login löschen“); dabei werden auch die Anmeldedaten der Browseransicht entfernt. Auch „Alle Daten löschen“ und der
-        Wechsel zu einer anderen Person entfernen den Login.</li>
+        („ÖTV-Login löschen“); dabei werden auch eine noch gespeicherte Sitzung und Anmeldedaten früherer App-Versionen entfernt. Auch „Alle Daten löschen“ und der
+        Wechsel zu einer anderen Person entfernen den Login. Frühere Versionen von Kortform nutzten für die Anmeldung eine
+        eingebettete Browseransicht; deren Cookies für <code>oetv.at</code> und <code>liga.nu</code> löscht die App nach dem Update einmalig
+        (unter Android alle Cookies der Browseransicht der App, auf dem iPhone die für <code>oetv.at</code> und <code>liga.nu</code>).</li>
     </ul>
     <p>
       Die geladenen Spieldaten enthalten Namen und Ergebnisse von Gegner*innen und Partner*innen. Sie werden nur auf deinem Gerät gespeichert
@@ -223,8 +234,10 @@
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (die von dir gewünschte Funktion).<br>
-      <strong>Empfänger:</strong> ÖTV bzw. nuLiga als eigenständig Verantwortliche für die Anmeldung; wir erhalten deine
-      Zugangsdaten nicht.
+      <strong>Speicherdauer:</strong> Zugangsdaten nur mit „Login merken“, bis du sie löschst (Profil, „Alle Daten löschen“,
+      Wechsel der Person, Deinstallation); die Sitzung nur bis zum Ende des jeweiligen Abrufs.<br>
+      <strong>Empfänger:</strong> ÖTV bzw. nuLiga als eigenständig Verantwortliche für die Anmeldung und als Anbieter deines
+      eigenen ÖTV-Kontos; wir erhalten deine Zugangsdaten nicht.
     </p>
 
     <h2>6. Werbung (Google AdMob) und Einwilligung</h2>
@@ -274,7 +287,10 @@
     <p>
       Firebase Crashlytics (Google) erfasst Absturzberichte, um Fehler zu erkennen und zu beheben: den technischen
       Ablauf zum Zeitpunkt des Absturzes (Stacktrace), das Gerätemodell, die Betriebssystem- und App-Version sowie eine
-      Installations-ID. Inhalte der App (Werte, Spiele, Zugangsdaten) werden nicht gemeldet. Ein Absturzbericht wird erst beim
+      Installations-ID. Inhalte der App (Werte, Spiele, Zugangsdaten) werden nicht gemeldet. Bei Fehlern im Ablauf der ÖTV-Anmeldung (Abschnitt 5)
+      sendet die App zusätzlich eine Fehlermeldung, die nur feste Codes enthält (wo der Ablauf scheiterte, Art des Fehlers,
+      wer ihn ausgelöst hat), nie Zugangsdaten, Cookies, Adressen oder Namen; sie kommt auch ohne Einwilligung zu
+      Nutzungsstatistiken an. Ein Absturzbericht wird erst beim
       nächsten Start der App übertragen. Entwicklungs-Builds senden nichts.
     </p>
     <p>
@@ -319,8 +335,12 @@
         Spieler*innen einer importierten Mannschaft auf einmal folgst, eine Mannschaft anlegst oder löschst. Dazu kommen, wo die Aktion
         stattfand (z. B. Suche oder Mannschaftsdetail), ob Kortform Plus aktiv ist, ob das Folgen direkt nach dem Kauf von Plus geschah, wie vielen Personen du danach folgst bzw. wie viele
         Mitglieder die Mannschaft hat und ob sie von Hand angelegt oder aus der Liga importiert wurde.</li>
-      <li><strong>Abgleich mit dem ÖTV-Login:</strong> Start und Ende eines Abgleichs (Art, Ergebnis, Dauer je Abschnitt und wie
-        viele Spielverläufe von Spieler*innen angefragt und geladen wurden).</li>
+      <li><strong>Abgleich mit dem ÖTV-Login:</strong> Start und Ende eines Abgleichs (Art, ob du ihn gestartet hast oder der tägliche
+        Hintergrundlauf, Ergebnis, Dauer je Abschnitt und wie viele Spielverläufe von Spieler*innen angefragt und geladen wurden).</li>
+      <li><strong>ÖTV-Anmeldung:</strong> bei jeder Anmeldung beim ÖTV (Formular, gespeicherter Login, täglicher Hintergrundlauf) das
+        Ergebnis (Erfolg, abgelehnte Zugangsdaten, Fehler oder nicht versucht) mit einem Code für den Schritt und die Art eines
+        Fehlers, woher die Anmeldung kam (Formular, gespeicherter Login, Hintergrund), in welchem Bereich der App sie
+        stattfand und wie lange sie dauerte. Nie E-Mail-Adresse, Passwort, Cookies oder Namen.</li>
       <li><strong>App-Updates (nur Android):</strong> ob ein Update-Hinweis von Google Play angezeigt, angenommen oder abgelehnt und
         ob das Update installiert wurde, mit Art, Priorität und Versionsnummer des Updates.</li>
     </ul>
@@ -335,12 +355,13 @@
     <p>
       Kortform lädt über Firebase Remote Config (Google) Konfigurationswerte auf dein Gerät, u. a. den
       Zugangsschlüssel für die ÖTV-Schnittstelle (Abschnitt 4). So kann dieser ohne App-Update erneuert werden, falls der ÖTV
-      ihn ändert. Dafür verarbeitet Google die Firebase-Installations-ID sowie grundlegende Geräte- und
+      ihn ändert. Außerdem enthält die Konfiguration einen Schalter, mit dem wir den täglichen Login im Hintergrund (Abschnitt 5)
+      für alle abschalten können. Dafür verarbeitet Google die Firebase-Installations-ID sowie grundlegende Geräte- und
       App-Informationen (App-Version, Betriebssystem, Sprache, Land). Remote Config dient nicht der Nutzungsanalyse.
     </p>
     <p>
-      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Funktionieren der App und an der
-      Pflege der ÖTV-Anbindung ohne Update).<br>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Funktionieren der App, an der
+      Pflege der ÖTV-Anbindung ohne Update und daran, den Hintergrund-Login bei Problemen mit dem ÖTV schnell stoppen zu können).<br>
       <strong>Speicherdauer:</strong> gemäß den Standard-Aufbewahrungsfristen von Firebase Remote Config bzw. Firebase
       Installations (siehe Google-Dokumentation).<br>
       <strong>Empfänger:</strong> Google LLC / Google Ireland Limited als Auftragsverarbeiter.
@@ -527,7 +548,7 @@
       Verlauf, deine Spiele, die Spieler*innen, denen du folgst, deine Mannschaften samt ihren Mitgliedern, die zuletzt gesuchten Personen, deren Werte und
       Spielverläufe, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken, ohne die technische Markierung aus Abschnitt 3;
       die Werbe-Einwilligung bei Google bleibt bestehen) und einen gespeicherten
-      ÖTV-Login samt Anmeldedaten der Browseransicht. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
+      ÖTV-Login samt Sitzung. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
       Geräte-Backups siehe Abschnitt 12). Diese Funktion wirkt nur auf deinem Gerät. Daten, die bereits bei Diensten
       außerhalb der App liegen, löscht sie nicht.
     </p>
