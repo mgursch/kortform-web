@@ -15,7 +15,7 @@ site/                     wird 1:1 veröffentlicht
   nutzungsbedingungen.html  /nutzungsbedingungen.html (flache Datei, URL so vom Betreiber vorgegeben; vom Plus-Sheet der App verlinkt)
   styles.css              gemeinsames Stylesheet (hell + dunkel)
   fonts/                  Barlow Condensed, IBM Plex Sans/Mono (WOFF, aus dem App-Repo, SIL OFL)
-  favicon.ico/.svg, apple-touch-icon.png, og-image.png
+  favicon.svg (App-Icon, Header-Logo), favicon-small.svg (vereinfacht, fett, Tab-Icon), favicon.ico (16/32/48 aus favicon-small.svg), apple-touch-icon.png, og-image.png
   count.js                GoatCounter-Zählskript (selbst gehostet, leicht angepasst, siehe Hinweise)
   CNAME                   kortform.at (bei Actions-Deployment wirkungslos; die Domain steht in Settings → Pages, siehe DNS-SETUP.md)
   404.html, .nojekyll, robots.txt, sitemap.xml
