@@ -74,26 +74,18 @@
 .step figcaption { margin-top: 10px; font-size: 13px; line-height: 1.4; color: var(--text-2); }
 .follow-facts { display: grid; gap: 28px; padding-top: 24px; border-top: 2px solid var(--text); }
 .follow-facts p { margin: 8px 0 0; font-size: 16px; max-width: 28em; }
-.limits { width: 100%; max-width: 340px; margin-top: 8px; border-collapse: collapse; font-size: 15px; }
-.limits th, .limits td { padding: 7px 14px 7px 0; border-bottom: 1px solid var(--border); text-align: left; vertical-align: baseline; }
-.limits thead th { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-2); }
-.limits th:last-child, .limits td:last-child { padding-right: 0; }
-.limits tbody th { font-weight: 400; }
-.limits td { font-family: var(--font-mono); font-weight: 500; font-size: 14px; }
 @media (min-width: 760px) {
   .stairs { grid-template-columns: 1fr 1fr; gap: 0 16px; max-width: 520px; }
   .step { width: auto; }
   .step-2 { justify-self: stretch; margin-top: 56px; }
   .follow-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-  .follow-facts > :last-child { grid-column: 1 / -1; }
 }
 @media (min-width: 1000px) {
   .follow { margin-top: 72px; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: start; }
   .follow-copy { grid-column: 1 / 7; }
   .stairs { grid-column: 8 / 13; max-width: none; margin-top: 8px; }
   .step-2 { margin-top: 110px; }
-  .follow-facts { grid-column: 1 / 13; margin-top: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 48px; }
-  .follow-facts > :last-child { grid-column: auto; }
+  .follow-facts { grid-column: 1 / 13; margin-top: 16px; column-gap: 48px; }
 }
 
 /* Compact worked example on clay */
