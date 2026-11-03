@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kortform - ITN Verwaltung AT</title>
-  <meta name="description" content="Kortform für Android und iPhone: Deinen Wert aus der öffentlichen ÖTV-Liste täglich mitverfolgen, Spieler*innen und Mannschaften folgen, den Verlauf als Diagramm sehen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen. Deine Werte und Spiele bleiben auf deinem Gerät.">
+  <meta name="description" content="Kortform für Android und iPhone: Spieler*innen und Mannschaften folgen und ihre Werte automatisch aus der öffentlichen ÖTV-Liste mitverfolgen, Mannschaften per Liga-Link anlegen, deinen eigenen Verlauf sehen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen. Deine Werte und Spiele bleiben auf deinem Gerät.">
   <link rel="canonical" href="https://kortform.at/">
+  <meta name="apple-itunes-app" content="app-id=6826770040">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://swordistudios.goatcounter.com/count; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)">
@@ -21,7 +22,7 @@
   <meta property="og:site_name" content="Kortform">
   <meta property="og:locale" content="de_AT">
   <meta property="og:title" content="Kortform - ITN Verwaltung AT">
-  <meta property="og:description" content="Deinen Wert und die Werte der Spieler*innen, denen du folgst, und deiner Mannschaften täglich mitverfolgen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen.">
+  <meta property="og:description" content="Spieler*innen und Mannschaften folgen und ihre Werte automatisch mitverfolgen, Mannschaften aus der Liga importieren, deinen eigenen Wert im Blick behalten und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen.">
   <meta property="og:url" content="https://kortform.at/">
   <meta property="og:image" content="https://kortform.at/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -40,8 +41,8 @@
     </a>
     <nav class="index" aria-label="Auf dieser Seite">
       <a href="#folgen">Folgen</a>
-      <a href="#rechenweg">Rechner</a>
       <a href="#verlauf">Verlauf</a>
+      <a href="#rechner">Rechner</a>
       <a href="#widgets">Widgets</a>
     </nav>
   </header>
@@ -50,25 +51,26 @@
 
     <div class="wrap hero">
       <div class="hero-copy">
-        <h1>Weniger <span class="h1-arrow" aria-hidden="true"><svg viewBox="0 0 40 56" width="40" height="56" focusable="false"><path d="M20 4v44M6 34l14 14 14-14"/></svg></span><br>ist besser.</h1>
-        <p class="lead">Kortform holt deinen Wert jeden Morgen aus der ÖTV-Liste und rechnet vor dem Match aus, wo du nach Sieg oder Niederlage stehst.</p>
-        <p class="status"><strong>Bald im App Store und bei Google Play.</strong> Deine Werte und Spiele bleiben auf deinem Gerät.</p>
+        <h1>Alle<br>im Blick.</h1>
+        <p class="lead">Folge deinen Mitspieler*innen, Gegner*innen und deiner Mannschaft. Kortform holt ihre Werte automatisch aus der öffentlichen ÖTV-Liste und zeigt, wie sie sich ändern. Dein eigener Wert läuft mit.</p>
+        <p class="store"><a class="store-badge" href="https://apps.apple.com/at/app/kortform-tennis-wertung/id6826770040"><img src="/img/app-store-badge-de.svg" alt="Laden im App Store" width="120" height="40"></a></p>
+        <p class="status"><strong>Für das iPhone jetzt vorbestellbar, Android folgt bald.</strong> Deine Werte und Spiele bleiben auf deinem Gerät.</p>
       </div>
 
       <figure class="hero-shot">
-        <div class="crop crop-rechner">
-          <img src="/img/app-rechner.webp" alt="Rechner der App im Einzel: Du mit 7,512 gegen Erika Musterfrau mit 7,180. Bei Sieg 7,374, also minus 0,138. Bei Niederlage 7,539, also plus 0,027." width="720" height="1616" decoding="async" fetchpriority="high">
-          <span class="tag tr1" aria-hidden="true">A</span>
-          <span class="tag tr2" aria-hidden="true">B</span>
-          <span class="tag tr3" aria-hidden="true">C</span>
-          <span class="tag tr4" aria-hidden="true">D</span>
+        <div class="crop crop-spieler">
+          <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" decoding="async" fetchpriority="high">
+          <span class="tag ts1" aria-hidden="true">A</span>
+          <span class="tag ts2" aria-hidden="true">B</span>
+          <span class="tag ts3" aria-hidden="true">C</span>
+          <span class="tag ts4" aria-hidden="true">D</span>
         </div>
         <figcaption>
           <ol class="legend" type="A">
-            <li><span class="legend-tag" aria-hidden="true">A</span> Sieg oder Niederlage, vorab</li>
-            <li><span class="legend-tag" aria-hidden="true">B</span> Kurzformat zählt halb</li>
-            <li><span class="legend-tag" aria-hidden="true">C</span> Unsicheres Gegenüber per Schalter</li>
-            <li><span class="legend-tag" aria-hidden="true">D</span> Gegner*in suchen oder Wert eintippen</li>
+            <li><span class="legend-tag" aria-hidden="true">A</span> Du bleibst oben angeheftet</li>
+            <li><span class="legend-tag" aria-hidden="true">B</span> Änderung durch das letzte Match</li>
+            <li><span class="legend-tag" aria-hidden="true">C</span> Letztes Spiel mit Datum und Ergebnis, mit ÖTV-Login</li>
+            <li><span class="legend-tag" aria-hidden="true">D</span> Form: die letzten fünf Spiele, mit ÖTV-Login</li>
           </ol>
         </figcaption>
       </figure>
@@ -82,24 +84,33 @@
 
     <section class="wrap follow" aria-labelledby="folgen">
       <div class="follow-copy">
-        <h2 id="folgen">Spieler*innen und Mannschaften</h2>
-        <p>Folge anderen Spieler*innen und leg deine Mannschaft an, selbst oder per Liga-Link. Ihre Werte kommen jeden Morgen mit.</p>
-        <p class="small">Gratis drei Spieler*innen und eine Mannschaft, mit Kortform Plus ohne Limit, mit Liga-Import und ohne Werbung.</p>
+        <h2 id="folgen">Spieler*innen und Mannschaften folgen</h2>
+        <p class="follow-intro">Folge Spieler*innen, die dich interessieren, und leg deine Mannschaft an, selbst oder per Liga-Link. Ihre Werte kommen automatisch mit, du siehst auf einen Blick, wer sich verändert.</p>
+
+        <ol class="follow-list">
+          <li>
+            <h3>Spieler*innen</h3>
+            <p>Such Mitspieler*innen und Gegner*innen und folg ihnen. Die Liste zeigt Wert und Änderung, mit ÖTV-Login auch letztes Spiel und die Form der letzten fünf Spiele. Du selbst bleibst oben angeheftet.</p>
+          </li>
+          <li>
+            <h3>Mannschaften</h3>
+            <p>Leg eine Mannschaft an und wähl ihre Spieler*innen aus. Du siehst den Schnitt der Mannschaft und jede Person mit Wert und, mit ÖTV-Login, letztem Spiel und Form, auch ohne ihr zu folgen. Mitglieder zählen nicht zum Limit fürs Folgen.</p>
+          </li>
+          <li>
+            <h3>Aus der Liga importieren <span class="plus">Plus</span></h3>
+            <p>Füg den Link einer Ligagruppe von der Seite deines Landesverbands ein, etwa von tennis.wien, wähl die Mannschaft und prüf die Meldung in Rangfolge. Ändert sich die Meldung, zeigt dir Aktualisieren, wer neu ist und wer fehlt.</p>
+          </li>
+        </ol>
       </div>
+
       <div class="stairs">
-        <figure class="step step-1">
-          <div class="crop crop-spieler">
-            <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" loading="lazy" decoding="async">
-          </div>
-          <figcaption>Spieler*innen</figcaption>
-        </figure>
-        <figure class="step step-2">
+        <figure class="step">
           <div class="crop crop-mannschaft">
             <img src="/img/app-mannschaft.webp" alt="Mannschaftsansicht der App: Mannschaft Hobbyrunde mit durchschnittlichem Wert 6,891 und ihren fünf Spieler*innen mit Wert, letztem Spiel und Form" width="720" height="1616" loading="lazy" decoding="async">
           </div>
           <figcaption>Mannschaft mit Schnitt</figcaption>
         </figure>
-        <figure class="step step-3">
+        <figure class="step step-2">
           <div class="crop crop-liga">
             <img src="/img/app-liga-import.webp" alt="Liga-Import der App: Mannschaft Herren 41 mit acht gemeldeten Spieler*innen in Rangfolge, vor dem Anlegen prüfen" width="720" height="1616" loading="lazy" decoding="async">
           </div>
@@ -107,47 +118,30 @@
         </figure>
       </div>
 
-    </section>
-
-    <section class="clay" aria-labelledby="rechenweg">
-      <div class="wrap clay-inner">
-        <div class="clay-copy">
-          <h2 id="rechenweg">Samstag, Meisterschaft. Du verlierst knapp gegen den Nachwuchs.</h2>
-          <p>Verlierst du ab 21 im Einzel gegen 11- bis 16-Jährige, zählt das Match für dich nur halb.</p>
+      <div class="follow-facts">
+        <div>
+          <h3>Automatisch aktuell</h3>
+          <p>Kortform holt die Werte aller Gefolgten und Mannschaftsmitglieder regelmäßig im Hintergrund aus der öffentlichen ÖTV-Liste. Ein Tipp auf Aktualisieren holt sie sofort.</p>
         </div>
-
-        <div class="sheet">
-          <p class="sheet-title">Spielbericht <span>Beispiel</span></p>
-          <dl class="sheet-fields">
-            <div><dt>Bewerb</dt><dd>Meisterschaft</dd></div>
-            <div><dt>Spielart</dt><dd>Einzel</dd></div>
-            <div><dt>Format</dt><dd>2 Sätze bis 6</dd></div>
-            <div><dt>Ergebnis</dt><dd class="num">4:6 6:3 8:10</dd></div>
-          </dl>
-          <table class="ledger">
-            <caption class="visually-hidden">Berechnung der Wertänderung Schritt für Schritt</caption>
+        <div>
+          <h3>Mit ÖTV-Login mehr</h3>
+          <p>Letztes Spiel, Form und Matches aller Gefolgten und Mitglieder gibt es mit deinem ÖTV-Login. Ohne ihn siehst du Wert und Änderung.</p>
+        </div>
+        <div>
+          <h3>Gratis und Plus</h3>
+          <table class="limits">
+            <caption class="visually-hidden">Gratis und Kortform Plus im Vergleich</caption>
+            <thead>
+              <tr><td></td><th scope="col">Gratis</th><th scope="col">Plus</th></tr>
+            </thead>
             <tbody>
-              <tr><th scope="row">Du, 34 Jahre, vor dem Match</th><td>7,903</td></tr>
-              <tr><th scope="row">Gegenüber, 14 Jahre</th><td>7,899</td></tr>
-              <tr><th scope="row">Abstand <span class="formula">x = Verlierer − Sieger</span></th><td>0,004</td></tr>
-              <tr><th scope="row">Änderung <span class="formula">Δ = 0,250 / (1 + 2,595 · e<sup>3,5 · x</sup>)</span></th><td>0,06884…</td></tr>
-              <tr class="ledger-mark"><th scope="row">Δ auf drei Stellen runden</th><td>0,069</td></tr>
-              <tr><th scope="row">× 50 %, weil du gegen die Jugend verlierst</th><td>0,0345</td></tr>
-              <tr><th scope="row">Noch einmal runden, kaufmännisch</th><td>+0,035</td></tr>
-              <tr class="ledger-total"><th scope="row">Dein neuer Wert</th><td>7,938</td></tr>
+              <tr><th scope="row">Spieler*innen</th><td>3</td><td>unbegrenzt</td></tr>
+              <tr><th scope="row">Mannschaften</th><td>1</td><td>unbegrenzt</td></tr>
+              <tr><th scope="row">Liga-Import</th><td>nein</td><td>ja</td></tr>
+              <tr><th scope="row">Werbung</th><td>ja</td><td>nein</td></tr>
             </tbody>
           </table>
-          <p class="sheet-foot">Beide gelten als sicher. Inoffizielle Berechnung, maßgeblich ist die Liste des ÖTV.</p>
         </div>
-
-        <p class="margin-note">Kortform rundet Δ zuerst auf drei Stellen, sonst wären es in diesem Beispiel +0,034.</p>
-
-        <p class="verdict">
-          <span>7,903</span>
-          <svg class="verdict-arrow" viewBox="0 0 120 60" width="120" height="60" aria-hidden="true" focusable="false"><path d="M4 30h106M86 8l24 22-24 22"/></svg>
-          <span class="visually-hidden">wird zu</span>
-          <span>7,938</span>
-        </p>
       </div>
     </section>
 
@@ -169,6 +163,37 @@
           <div class="crop crop-matches">
             <img src="/img/app-matches.webp" alt="Matches-Ansicht der App: Liste der Spiele mit Ergebnis, Gegner*in, Wert vorher und nachher und Änderung je Spiel" width="720" height="1616" loading="lazy" decoding="async">
             <span class="tag tv3" aria-hidden="true">3</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="calc" aria-labelledby="rechner">
+      <div class="wrap calc-inner">
+        <div class="calc-copy">
+          <h2 id="rechner">Und vor dem Match: der Rechner.</h2>
+          <p>Gegner*in suchen oder Wert eintippen, und Kortform zeigt dir, wo du nach Sieg oder Niederlage stehst. Im Einzel und im Doppel, mit Kurzformat und unsicherem Gegenüber.</p>
+        </div>
+
+        <div class="sheet">
+          <p class="sheet-title">Beispiel <span>Meisterschaft, Einzel, 4:6 6:3 8:10</span></p>
+          <table class="ledger">
+            <caption class="visually-hidden">Berechnung der Wertänderung Schritt für Schritt</caption>
+            <tbody>
+              <tr><th scope="row">Du, 34 Jahre, vor dem Match</th><td>7,903</td></tr>
+              <tr><th scope="row">Gegenüber, 14 Jahre</th><td>7,899</td></tr>
+              <tr class="ledger-mark"><th scope="row">Änderung Δ auf drei Stellen runden <span class="formula"><span class="nowrap">x = Verlierer − Sieger</span> <span class="nowrap">= 0,004</span><br>Δ = 0,250 / <span class="nowrap">(1 + 2,595 · e<sup>3,5 · x</sup>)</span></span></th><td>0,069</td></tr>
+              <tr><th scope="row">× 50 %, weil du ab 21 im Einzel gegen 11- bis 16-Jährige verlierst</th><td>0,0345</td></tr>
+              <tr><th scope="row">Noch einmal runden, kaufmännisch</th><td>+0,035</td></tr>
+              <tr class="ledger-total"><th scope="row">Dein neuer Wert</th><td>7,938</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-foot">Kortform rundet Δ zuerst, sonst wären es +0,034. Beide gelten als sicher. Inoffizielle Berechnung, maßgeblich ist die Liste des ÖTV.</p>
+        </div>
+
+        <figure class="calc-shot">
+          <div class="crop crop-rechner">
+            <img src="/img/app-rechner.webp" alt="Rechner der App im Einzel: Du mit 7,512 gegen Erika Musterfrau mit 7,180. Bei Sieg 7,374, also minus 0,138. Bei Niederlage 7,539, also plus 0,027." width="720" height="1616" loading="lazy" decoding="async">
           </div>
         </figure>
       </div>
@@ -217,6 +242,7 @@
       <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
       <a href="/support/">Support</a>
     </nav>
+    <p class="footer-store">Kortform fürs iPhone: <a href="https://apps.apple.com/at/app/kortform-tennis-wertung/id6826770040">im App Store vorbestellen</a>. Android folgt bald.</p>
     <p>Kortform ist ein inoffizielles Angebot und steht in keiner Verbindung zum Österreichischen Tennisverband (ÖTV). Die Berechnung ist unverbindlich, maßgeblich ist die Liste des ÖTV. ITN ist eine Marke des jeweiligen Rechteinhabers.</p>
     <p>© 2026 swordi.studios, Wien</p>
   </footer>
