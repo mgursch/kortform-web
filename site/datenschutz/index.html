@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 31. Oktober 2026</p>
+    <p class="updated">Stand: 6. November 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -59,12 +59,13 @@
     <p>
       Kortform ist eine App für Android und iPhone, mit der du deinen eigenen Wert aus der ÖTV-Liste
       (ITN) täglich mitverfolgen und vor einem Match durchrechnen kannst, was Sieg oder Niederlage
-      bringen. Die App arbeitet im Kern lokal auf deinem Gerät. Es gibt <strong>keine Nutzerkonten bei
-      uns</strong> und <strong>kein eigenes Backend</strong>: Wir betreiben keinen Server, auf dem Daten
-      aus der App landen. Dein Profil, dein Verlauf, deine Spiele, die Spieler*innen, denen du folgst, deine Mannschaften und
-      deine Einstellungen werden nur auf deinem Gerät gespeichert.
+      bringen. Die App arbeitet im Kern lokal auf deinem Gerät. Dein Profil, dein Verlauf, deine Spiele, die Spieler*innen,
+      denen du folgst, deine Mannschaften und deine Einstellungen werden nur auf deinem Gerät gespeichert. Du brauchst
+      <strong>kein Nutzerkonto bei uns</strong>. Nur wenn du freiwillig eine <strong>Kort-ID</strong> anlegst, um eine Liga mit
+      weiteren Mannschaftsführenden zu teilen, speichern wir dafür Daten auf einem Server (Abschnitt 19). Ohne Kort-ID
+      landen keine Daten aus der App auf einem Server von uns.
     </p>
-    <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10 beschrieben sind (zur Website siehe Abschnitt 13):</p>
+    <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10 und 19 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
       <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften,
         Import von Mannschaften, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
@@ -73,6 +74,7 @@
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
       <li>Abwicklung des Kaufs von Kortform Plus über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
+      <li>nur mit Kort-ID: Anmeldung und geteilte Ligen über Supabase, Versand des Anmelde-Codes über Resend, optional Anmeldung über Google oder Apple (Abschnitt 19)</li>
     </ul>
     <p>
       Kortform fragt keine Standortberechtigung ab und greift weder auf GPS noch auf den genauen Standort deines Geräts zu.
@@ -121,7 +123,7 @@
     </p>
     <p>
       Namen und weitere Angaben zu Spieler*innen stammen aus der öffentlichen ÖTV-Liste, den ÖTV-Spieldaten bzw. den
-      Ligadaten des ÖTV und der Landesverbände. Diese Daten gehen nicht an uns; es gibt keinen Kortform-Server, an den
+      Ligadaten des ÖTV und der Landesverbände. Diese Daten gehen nicht an uns; ohne Kort-ID gibt es keinen Kortform-Server, an den
       sie übertragen würden. Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
       System-Teilen-Menü; wohin du sie sendest, entscheidest du.
     </p>
@@ -422,7 +424,7 @@
     </p>
     <p>
       Wir selbst setzen auf dieser Website <strong>keine Cookies</strong> und <strong>keine Werbung</strong> ein. Schriften und
-      Bilder werden von dieser Website selbst ausgeliefert. Die Seite enthält keine Formulare. Links zu anderen Websites
+      Bilder werden von dieser Website selbst ausgeliefert. Die Seiten enthalten keine Formulare, mit Ausnahme der Seite zum Löschen der Kort-ID (Abschnitt 19). Links zu anderen Websites
       (z. B. kortscore.com) verlassen unsere Seite; dort gelten deren eigene Datenschutzerklärungen.
     </p>
     <p>
@@ -479,6 +481,9 @@
           <tr><td>RevenueCat (Kaufverwaltung)</td><td>RevenueCat, Inc.</td><td>USA (Garantien nach Angaben von RevenueCat, siehe dessen Datenschutzhinweise)</td></tr>
           <tr><td>Android Auto-Backup</td><td>Google LLC</td><td>gemäß Google-Kontoeinstellungen</td></tr>
           <tr><td>iCloud-Backup</td><td>Apple Inc.</td><td>gemäß deinen iCloud-Einstellungen</td></tr>
+          <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Kort-ID: Versand des Anmelde-Codes per E-Mail (nur mit Kort-ID)</td><td>Resend, Inc.</td><td>EU-Region; soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Resend</td></tr>
+          <tr><td>Kort-ID: Anmeldung mit Google oder Apple (optional)</td><td>Google Ireland Ltd. / Google LLC bzw. Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß deren Datenschutzbestimmungen</td></tr>
           <tr><td>Website-Hosting (GitHub Pages)</td><td>GitHub, Inc. / Microsoft</td><td>USA und weltweit (Garantien nach Angaben von GitHub)</td></tr>
           <tr><td>Website-Statistik (GoatCounter)</td><td>Martin Tournoij (GoatCounter.com), Irland; Server bei Hetzner Online GmbH</td><td>EU (Finnland, Deutschland)</td></tr>
         </tbody>
@@ -533,7 +538,7 @@
         Datenschutzbehörde: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a></li>
     </ul>
     <p>
-      Da wir keine Nutzerkonten führen und die App-Daten nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
+      Da die App-Daten (außer denen deiner Kort-ID, Abschnitt 19) nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
       der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten (Google, RevenueCat, Apple)
       siehe <a href="/datenschutz/#loeschen">Abschnitt 18</a>; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
     </p>
@@ -553,7 +558,12 @@
       außerhalb der App liegen, löscht sie nicht.
     </p>
     <p>
-      <strong>Bei Dienstleistern:</strong> Wir betreiben keinen eigenen Server und führen keine Nutzerkonten, auch keine
+      <strong>Kort-ID:</strong> Deine Kort-ID und die damit geteilten Ligen löschst du in der App unter Profil → Kort-ID →
+      „Kort-ID löschen“ oder auf <a href="/kort-id/loeschen/">kortform.at/kort-id/loeschen/</a> (Einzelheiten in Abschnitt 19).
+      Die Löschung wirkt sofort und endgültig auf unserem Server.
+    </p>
+    <p>
+      <strong>Bei Dienstleistern:</strong> Abgesehen von der optionalen Kort-ID (Abschnitt 19) führen wir keine Nutzerkonten, auch keine
       Zuordnung der Kennungen der Dienstleister zu deiner Person. Daten bei Google (Crashlytics, Analytics, AdMob) und
       RevenueCat sind an pseudonyme Kennungen gebunden. Ohne eine solche Kennung können wir dich dort nicht identifizieren
       und deshalb auch nichts gezielt löschen oder herausgeben (Art. 11 DSGVO). Schreib uns für eine Löschanfrage an
@@ -594,13 +604,71 @@
       bitte direkt an den ÖTV.
     </p>
 
-    <h2>19. Änderungen</h2>
+    <h2 id="kort-id">19. Kort-ID und geteilte Ligen (optional)</h2>
+    <p>
+      Die Kort-ID ist freiwillig und nur nötig, wenn du eine Liga gemeinsam mit weiteren Mannschaftsführenden planen
+      möchtest. Ohne Kort-ID nutzt du Kortform wie bisher ausschließlich lokal. Dieser Abschnitt gilt nur, wenn du eine
+      Kort-ID anlegst oder dich damit anmeldest.
+    </p>
+    <p><strong>Zweck:</strong> Mehrere Mannschaftsführende sehen und planen dieselbe Liga (gleiche Rechte, kein Besitzer). Dafür
+      gleichen die Geräte die geteilte Liga über einen Server ab.</p>
+    <p><strong>Welche Daten wir speichern:</strong></p>
+    <ul>
+      <li>deine E-Mail-Adresse (bei „Mit Apple anmelden“ gegebenenfalls die von Apple erzeugte Weiterleitungsadresse);</li>
+      <li>deinen Anzeigenamen (vorbelegt aus deinem ÖTV-Profil, du kannst ihn ändern);</li>
+      <li>dein verknüpftes ÖTV-Profil: Lizenznummer, Name und Verein;</li>
+      <li>die Daten der geteilten Ligen: Gruppe der Liga, deine Mannschaft, das Format, die Aufstellungen je Begegnung samt
+        Schaltern und Gegner*innen sowie manuell nachnominierte Spieler*innen (Name und die dafür nötigen Angaben);</li>
+      <li>Zeitpunkte: Beitritt zur Liga und letzte Aktivität; Einladungen (der Einladungslink wird nur als Prüfwert
+        gespeichert und ist 7 Tage gültig und nur einmal verwendbar);</li>
+      <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
+    </ul>
+    <p>
+      <strong>Nicht gespeichert werden</strong> deine Matches, dein ITN-Verlauf, dein Profil, die Tabelle, der Spielplan und
+      die Kader der Liga (die lädt jedes Gerät selbst) und nie deine ÖTV-Zugangsdaten.
+    </p>
+    <p>
+      <strong>Wer sieht was:</strong> Die anderen Mannschaftsführenden einer geteilten Liga sehen deinen Anzeigenamen, seit wann
+      du dabei bist, wann du zuletzt aktiv warst und die geteilten Inhalte der Liga. Deine E-Mail-Adresse sieht niemand sonst.
+    </p>
+    <p>
+      <strong>Anmeldung:</strong> Du meldest dich mit einem 6-stelligen Code an, den wir an deine E-Mail-Adresse schicken
+      (60 Minuten gültig), oder optional mit Google (Android und iPhone) bzw. Apple (iPhone). Dabei erhalten wir vom jeweiligen
+      Anbieter nur die bestätigte E-Mail-Adresse und eine Kennung; Google bzw. Apple erfahren, dass du dich bei Kortform anmeldest.
+      Gleiche bestätigte E-Mail-Adressen führen zur selben Kort-ID. Es gibt keine Passwörter.
+    </p>
+    <p>
+      <strong>Dienstleister:</strong> Anmeldung, Datenbank und Löschfunktion betreibt Supabase (Supabase, Inc.) in der
+      Region Frankfurt (EU). Den Code verschickt Resend (Resend, Inc.) über eine EU-Region; dort werden E-Mail-Adresse und Code
+      verarbeitet. Beide handeln als Auftragsverarbeiter nach unseren Weisungen. Die Einladungsseite
+      <code>liga.kortform.at</code> wird wie diese Website über GitHub Pages bereitgestellt (Abschnitt 13), setzt keine Cookies
+      und enthält keine Zählskripte; zur Anzeige der Einladung fragt dein Browser den Einladungslink bei Supabase ab.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der Kort-ID und der geteilten Ligen);
+      für technische Protokolldaten Art. 6 Abs. 1 lit. f DSGVO (Sicherheit und Stabilität des Dienstes).<br>
+      <strong>Speicherdauer:</strong> bis du deine Kort-ID löschst. Eine geteilte Liga wird gelöscht, sobald keine
+      Mannschaftsführung mehr dabei ist. Codes sind 60 Minuten gültig, Einladungen 7 Tage.
+    </p>
+    <p>
+      <strong>Löschen:</strong> In der App unter Profil → Kort-ID → „Kort-ID löschen“ oder auf
+      <a href="/kort-id/loeschen/">kortform.at/kort-id/loeschen/</a> mit E-Mail-Adresse und Code. Dabei werden deine Kort-ID
+      und dein Anzeigename endgültig gelöscht, du verlässt alle geteilten Ligen, und Ligen ohne weitere Mannschaftsführung
+      werden gelöscht. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung widerrufen. Matches, ITN und dein
+      Profil auf deinen Geräten bleiben. Du kannst dich auch nur abmelden, ohne zu löschen.
+    </p>
+    <p>
+      Da wir deine Kort-ID über deine E-Mail-Adresse zuordnen können, kannst du Auskunft, Berichtigung und die weiteren Rechte
+      aus Abschnitt 17 für diese Daten auch bei uns geltend machen (<a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>).
+    </p>
+
+    <h2>20. Änderungen</h2>
     <p>
       Wir passen diese Erklärung an, wenn sich die App oder die rechtlichen Vorgaben ändern. Es gilt die jeweils hier
       veröffentlichte Fassung.
     </p>
 
-    <h2>20. Kontakt</h2>
+    <h2>21. Kontakt</h2>
     <p>
       Fragen zum Datenschutz richte bitte an:
       <a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>
