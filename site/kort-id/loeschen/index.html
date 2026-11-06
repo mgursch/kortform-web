@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kort-ID löschen · Kortform</title>
+  <meta name="description" content="Lösche deine Kort-ID von Kortform direkt auf der Website: E-Mail, Code, bestätigen.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://kortform.at/kort-id/loeschen/">
+  <!-- connect-src: the Supabase projects of loeschen.js (dev + prod). Update the prod host when PROD_REF_TBD is replaced. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://pjccvfvaeyvqjldfwqje.supabase.co https://prod-ref-tbd.supabase.co; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="/favicon-small.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/kort-id/loeschen/loeschen.css">
+  <script src="/kort-id/loeschen/loeschen.js" defer></script>
+</head>
+<body class="kl">
+  <header class="kl-header">
+    <a class="kl-brand" href="/" aria-label="Kortform, zur Startseite">
+      <span class="kl-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 108 108" fill="none"><polyline stroke="#3ea56b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="18,38 24,38 30,45 36,45 42,34 48,34 54,52 60,52 66,62 72,62 78,57 84,57 90,72"></polyline></svg></span>
+      <span class="kl-wordmark">Kortform</span>
+    </a>
+    <span class="kl-sub">· Kort-ID löschen</span>
+  </header>
+
+  <main class="kl-main">
+    <div class="kl-cols">
+      <div class="kl-flow" id="flow">
+        <h1>Kort-ID löschen</h1>
+        <p class="kl-hint"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5"></path><path d="M12 8h.01"></path></svg><span>Am schnellsten geht’s in der App: Profil → Kort-ID → Kort-ID löschen.</span></p>
+
+        <noscript><p class="kl-error">Für das Löschen auf dieser Seite wird JavaScript benötigt. Alternativ löschst du die Kort-ID in der App: Profil → Kort-ID → Kort-ID löschen.</p></noscript>
+
+        <ol class="kl-steps" id="steps">
+          <li class="kl-step" id="step-1" data-state="active">
+            <span class="kl-dot" aria-hidden="true"></span>
+            <div class="kl-body">
+              <div class="kl-title" id="title-1">E-Mail</div>
+              <form class="kl-form" id="form-email" novalidate>
+                <div class="kl-field">
+                  <label for="email">E-Mail deiner Kort-ID</label>
+                  <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required>
+                </div>
+                <button type="submit" class="kl-btn" id="send-code">Code senden</button>
+              </form>
+              <p class="kl-msg" id="msg-1" role="alert" hidden></p>
+            </div>
+          </li>
+          <li class="kl-step" id="step-2" data-state="pending">
+            <span class="kl-dot" aria-hidden="true"></span>
+            <div class="kl-body">
+              <div class="kl-title" id="title-2">Code eingeben</div>
+              <div class="kl-detail" id="detail-2" hidden>
+                <p class="kl-note" id="code-note">Wir haben dir einen 6-stelligen Code per E-Mail geschickt. Er ist 60 Minuten gültig.</p>
+                <form class="kl-form" id="form-code" novalidate>
+                  <div class="kl-field">
+                    <label for="code">Code</label>
+                    <input id="code" name="code" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" spellcheck="false" required>
+                  </div>
+                  <button type="submit" class="kl-btn" id="verify-code">Bestätigen</button>
+                </form>
+                <p class="kl-links"><button type="button" class="kl-link" id="resend" disabled>Code erneut senden</button> · <button type="button" class="kl-link" id="change-email">Andere E-Mail</button></p>
+                <p class="kl-msg" id="msg-2" role="alert" hidden></p>
+              </div>
+            </div>
+          </li>
+          <li class="kl-step" id="step-3" data-state="pending">
+            <span class="kl-dot" aria-hidden="true"></span>
+            <div class="kl-body">
+              <div class="kl-title" id="title-3">Löschen bestätigen</div>
+              <div class="kl-detail" id="detail-3" hidden>
+                <ul class="kl-list kl-list-inline">
+                  <li>Deine Kort-ID wird endgültig gelöscht.</li>
+                  <li>Du verlässt alle Mannschaftsführungen. Wo du die einzige Mannschaftsführung bist, wird die geteilte Liga gelöscht.</li>
+                  <li>Matches, ITN und dein Profil auf deinen Geräten bleiben.</li>
+                  <li>Das lässt sich nicht rückgängig machen.</li>
+                </ul>
+                <button type="button" class="kl-btn kl-btn-danger" id="delete"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"></path><path d="M9 7V4h6v3"></path><path d="M6 7l1 13h10l1-13"></path></svg>Kort-ID endgültig löschen</button>
+                <p class="kl-msg" id="msg-3" role="alert" hidden></p>
+              </div>
+            </div>
+          </li>
+          <li class="kl-step" id="step-4" data-state="pending">
+            <span class="kl-dot" aria-hidden="true"></span>
+            <div class="kl-body"><div class="kl-title" id="title-4">Fertig</div></div>
+          </li>
+        </ol>
+      </div>
+
+      <aside class="kl-aside" aria-labelledby="aside-title">
+        <div class="kl-card">
+          <div class="kl-card-title" id="aside-title">Was passiert beim Löschen?</div>
+          <ul class="kl-list">
+            <li>Deine Kort-ID wird endgültig gelöscht.</li>
+            <li>Du verlässt alle Mannschaftsführungen. Wo du die einzige Mannschaftsführung bist, wird die geteilte Liga gelöscht.</li>
+            <li>Matches, ITN und dein Profil auf deinen Geräten bleiben.</li>
+            <li>Das lässt sich nicht rückgängig machen.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="kl-done" id="done" hidden tabindex="-1">
+        <span class="kl-check" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>
+        <h2>Deine Kort-ID wurde gelöscht.</h2>
+        <p>Matches, ITN und dein Profil auf deinen Geräten bleiben.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="kl-footer">
+    <span>kortform.at · keine Tracking-Cookies</span>
+    <a href="/datenschutz/">Datenschutz</a>
+  </footer>
+</body>
+</html>
