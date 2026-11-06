@@ -20,12 +20,19 @@
     rate: "Zu viele Versuche. Bitte warte einige Minuten und versuch es dann noch einmal.",
     invalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein.",
     noAccount: "Zu dieser E-Mail-Adresse gibt es keine Kort-ID.",
-    wrongCode: "Der Code ist falsch oder abgelaufen. Prüfe die Ziffern oder fordere einen neuen Code an.",
+    wrongCode: "Der Code stimmt nicht oder ist abgelaufen.",
     invalidCode: "Bitte gib den 6-stelligen Code aus der E-Mail ein.",
     expired: "Die Anmeldung ist abgelaufen. Bitte starte noch einmal bei Schritt 1.",
     notConfigured: "Das Löschen auf dieser Seite ist gerade nicht verfügbar. Bitte lösche die Kort-ID in der App: Profil → Kort-ID → Kort-ID löschen.",
-    deleteFailed: "Das Löschen hat nicht geklappt. Deine Kort-ID ist unverändert. Bitte versuch es später noch einmal."
+    deleteFailed: "Das Löschen hat nicht geklappt. Bitte versuch es noch einmal. Ein erneuter Versuch ist unbedenklich."
   };
+
+  // Never run inside a frame (clickjacking of the delete button); a meta CSP cannot set frame-ancestors.
+  if (window.top !== window.self) {
+    try { window.top.location.href = window.self.location.href; } catch (e) { /* cross-origin: fall through to hiding */ }
+    document.documentElement.hidden = true;
+    return;
+  }
 
   var params = new URLSearchParams(window.location.search);
   var env = ENVS[params.get("env") === "dev" ? "dev" : "prod"];
@@ -96,12 +103,16 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
+  function clock(seconds) {
+    return Math.floor(seconds / 60) + ":" + (seconds % 60 < 10 ? "0" : "") + (seconds % 60);
+  }
+
   function startResendCountdown() {
     var button = $("resend");
     var left = RESEND_SECONDS;
     if (resendTimer) clearInterval(resendTimer);
     button.disabled = true;
-    button.textContent = "Code erneut senden (" + left + " s)";
+    button.textContent = "Code erneut senden in " + clock(left);
     resendTimer = setInterval(function () {
       left -= 1;
       if (left <= 0) {
@@ -110,7 +121,7 @@
         button.disabled = false;
         button.textContent = "Code erneut senden";
       } else {
-        button.textContent = "Code erneut senden (" + left + " s)";
+        button.textContent = "Code erneut senden in " + clock(left);
       }
     }, 1000);
   }
@@ -145,15 +156,22 @@
     $("step-1").querySelector(".kl-form").hidden = true;
     setMsg(1, "");
     setState(2, "active");
-    $("title-2").style.fontWeight = "";
     $("detail-2").hidden = false;
     $("code").value = "";
     startResendCountdown();
     $("code").focus();
   }
 
-  function resetToStep1(message) {
+  /** Best effort: end the session created by the code check when the user backs out. */
+  function logoutQuietly() {
+    var token = accessToken;
     accessToken = null;
+    if (!token) return;
+    post("/auth/v1/logout", undefined, token).catch(function () { /* ignore */ });
+  }
+
+  function resetToStep1(message) {
+    logoutQuietly();
     stopResendCountdown();
     setState(1, "active");
     $("title-1").textContent = "E-Mail";
@@ -280,6 +298,7 @@
     $("form-code").addEventListener("submit", onSubmitCode);
     $("resend").addEventListener("click", onResend);
     $("change-email").addEventListener("click", function () { resetToStep1(""); });
+    $("cancel-delete").addEventListener("click", function () { if (!busy) resetToStep1(""); });
     $("delete").addEventListener("click", onDelete);
     $("email").addEventListener("input", function () { this.removeAttribute("aria-invalid"); });
     $("code").addEventListener("input", function () {
