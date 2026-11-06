@@ -63,7 +63,9 @@
       denen du folgst, deine Mannschaften und deine Einstellungen werden nur auf deinem Gerät gespeichert. Du brauchst
       <strong>kein Nutzerkonto bei uns</strong>. Nur wenn du freiwillig eine <strong>Kort-ID</strong> anlegst, um eine Liga mit
       weiteren Mannschaftsführenden zu teilen, speichern wir dafür Daten auf einem Server (Abschnitt 19). Ohne Kort-ID
-      landen keine Daten aus der App auf einem Server von uns.
+      landen keine Daten aus der App auf einem Server von uns. Öffnest du einen Einladungslink auf <code>liga.kortform.at</code>,
+      wird der Einladungscode im Link zusammen mit deiner IP-Adresse an Supabase übermittelt, um die Einladung anzuzeigen
+      (Abschnitt 19).
     </p>
     <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10 und 19 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
@@ -554,13 +556,15 @@
       Spielverläufe, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken, ohne die technische Markierung aus Abschnitt 3;
       die Werbe-Einwilligung bei Google bleibt bestehen) und einen gespeicherten
       ÖTV-Login samt Sitzung. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
-      Geräte-Backups siehe Abschnitt 12). Diese Funktion wirkt nur auf deinem Gerät. Daten, die bereits bei Diensten
+      Geräte-Backups siehe Abschnitt 12). Bist du mit einer Kort-ID angemeldet, löscht „Alle Daten löschen“ zuerst
+      deine Kort-ID auf unserem Server (Abschnitt 19) und danach die Daten auf dem Gerät. Das geht nur mit Internetverbindung;
+      ohne Verbindung wird nichts gelöscht. Ohne Kort-ID wirkt die Funktion nur auf deinem Gerät. Daten, die bereits bei Diensten
       außerhalb der App liegen, löscht sie nicht.
     </p>
     <p>
       <strong>Kort-ID:</strong> Deine Kort-ID und die damit geteilten Ligen löschst du in der App unter Profil → Kort-ID →
       „Kort-ID löschen“ oder auf <a href="/kort-id/loeschen/">kortform.at/kort-id/loeschen/</a> (Einzelheiten in Abschnitt 19).
-      Die Löschung wirkt sofort und endgültig auf unserem Server.
+      Die Löschung auf unserem Server erfolgt sofort; zu Protokolldaten des Dienstleisters siehe Abschnitt 19.
     </p>
     <p>
       <strong>Bei Dienstleistern:</strong> Abgesehen von der optionalen Kort-ID (Abschnitt 19) führen wir keine Nutzerkonten, auch keine
@@ -615,6 +619,10 @@
     <p><strong>Welche Daten wir speichern:</strong></p>
     <ul>
       <li>deine E-Mail-Adresse (bei „Mit Apple anmelden“ gegebenenfalls die von Apple erzeugte Weiterleitungsadresse);</li>
+      <li>bei Anmeldung mit Google oder Apple zusätzlich die Angaben, die der Anbieter im Anmeldenachweis mitschickt und die
+        Supabase in der Anmeldung speichert, soweit vorhanden: Name, Vor- und Nachname, Link zum Profilbild und die Kennung bei
+        Google bzw. Apple; bei Apple außerdem ein Aktualisierungs-Token, das wir nur speichern, um die Anmeldung bei der Löschung
+        der Kort-ID bei Apple widerrufen zu können;</li>
       <li>deinen Anzeigenamen (vorbelegt aus deinem ÖTV-Profil, du kannst ihn ändern);</li>
       <li>dein verknüpftes ÖTV-Profil: Lizenznummer, Name und Verein;</li>
       <li>die Daten der geteilten Ligen: Gruppe der Liga, deine Mannschaft, das Format, die Aufstellungen je Begegnung samt
@@ -629,7 +637,9 @@
     </p>
     <p>
       <strong>Wer sieht was:</strong> Die anderen Mannschaftsführenden einer geteilten Liga sehen deinen Anzeigenamen, seit wann
-      du dabei bist, wann du zuletzt aktiv warst und die geteilten Inhalte der Liga. Deine E-Mail-Adresse sieht niemand sonst.
+      du dabei bist, wann du zuletzt aktiv warst und die geteilten Inhalte der Liga. Sie sehen außerdem, wer die Liga importiert hat und wer Aufstellungen, Einstellungen und
+      nachnominierte Spieler*innen zuletzt gespeichert hat. Wer einen Einladungslink hat, sieht ohne Anmeldung den Anzeigenamen
+      der einladenden Person, die Mannschaft und die Liga. Deine E-Mail-Adresse sieht niemand sonst.
     </p>
     <p>
       <strong>Anmeldung:</strong> Du meldest dich mit einem 6-stelligen Code an, den wir an deine E-Mail-Adresse schicken
@@ -653,8 +663,10 @@
     <p>
       <strong>Löschen:</strong> In der App unter Profil → Kort-ID → „Kort-ID löschen“ oder auf
       <a href="/kort-id/loeschen/">kortform.at/kort-id/loeschen/</a> mit E-Mail-Adresse und Code. Dabei werden deine Kort-ID
-      und dein Anzeigename endgültig gelöscht, du verlässt alle geteilten Ligen, und Ligen ohne weitere Mannschaftsführung
-      werden gelöscht. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung widerrufen. Matches, ITN und dein
+      mit E-Mail-Adresse, Anmeldedaten und Anzeigename sowie deine Mitgliedschaften auf unserem Server sofort gelöscht, und
+      Ligen ohne weitere Mannschaftsführung werden gelöscht. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung
+      widerrufen. Technische Protokolle des Dienstleisters (z. B. Zeitpunkt, Ereignis und IP-Adresse von Anmeldungen) und
+      Sicherungskopien können nach dessen Vorgaben noch für begrenzte Zeit bestehen. Matches, ITN und dein
       Profil auf deinen Geräten bleiben. Du kannst dich auch nur abmelden, ohne zu löschen.
     </p>
     <p>

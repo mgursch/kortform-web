@@ -48,6 +48,7 @@
                 <button type="submit" class="kl-btn" id="send-code">Code senden</button>
               </form>
               <p class="kl-msg" id="msg-1" role="alert" hidden></p>
+              <p class="kl-note kl-note-small" id="apple-note">Mit „E-Mail verbergen“ bei Apple angemeldet? Dann kennst du die Weiterleitungsadresse nicht: Lösche die Kort-ID in der App (Profil → Kort-ID → Kort-ID löschen) oder schreib an <a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>.</p>
             </div>
           </li>
           <li class="kl-step" id="step-2" data-state="pending">
@@ -79,6 +80,7 @@
                   <li>Matches, ITN und dein Profil auf deinen Geräten bleiben.</li>
                   <li>Das lässt sich nicht rückgängig machen.</li>
                 </ul>
+                <p class="kl-links"><button type="button" class="kl-link" id="cancel-delete">Andere E-Mail</button></p>
                 <button type="button" class="kl-btn kl-btn-danger" id="delete"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"></path><path d="M9 7V4h6v3"></path><path d="M6 7l1 13h10l1-13"></path></svg>Kort-ID endgültig löschen</button>
                 <p class="kl-msg" id="msg-3" role="alert" hidden></p>
               </div>
@@ -105,7 +107,7 @@
 
       <div class="kl-done" id="done" hidden tabindex="-1">
         <span class="kl-check" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>
-        <h2>Deine Kort-ID wurde gelöscht.</h2>
+        <h1>Deine Kort-ID wurde gelöscht.</h1>
         <p>Matches, ITN und dein Profil auf deinen Geräten bleiben.</p>
       </div>
     </div>
