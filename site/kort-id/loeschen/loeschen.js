@@ -19,7 +19,6 @@
     generic: "Das hat nicht geklappt. Bitte versuch es später noch einmal.",
     rate: "Zu viele Versuche. Bitte warte einige Minuten und versuch es dann noch einmal.",
     invalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein.",
-    noAccount: "Zu dieser E-Mail-Adresse gibt es keine Kort-ID.",
     wrongCode: "Der Code stimmt nicht oder ist abgelaufen.",
     invalidCode: "Bitte gib den 6-stelligen Code aus der E-Mail ein.",
     expired: "Die Anmeldung ist abgelaufen. Bitte starte noch einmal bei Schritt 1.",
@@ -134,13 +133,15 @@
     button.textContent = "Code erneut senden";
   }
 
-  /** Send (or resend) the code. Resolves true when the mail was requested. */
+  /** Send (or resend) the code. Resolves true when the mail was requested.
+      An address without a Kort-ID continues exactly like a sent code (neutral note in step 2), so the page never reveals
+      whether an account exists; the code check then simply fails. */
   function sendCode(step) {
     return post("/auth/v1/otp", { email: email, create_user: false }).then(function (result) {
       if (result.status >= 200 && result.status < 300) return true;
       var code = errorCode(result);
       if (isRate(result)) setMsg(step, MSG.rate);
-      else if (code === "otp_disabled" || code === "user_not_found" || code === "signup_disabled") setMsg(step, MSG.noAccount);
+      else if (code === "otp_disabled" || code === "user_not_found" || code === "signup_disabled") return true;
       else if (code === "validation_failed" || code === "email_address_invalid") setMsg(step, MSG.invalidEmail);
       else setMsg(step, MSG.generic);
       return false;
