@@ -6,9 +6,9 @@
   "use strict";
 
   /* Public values only (project ref and publishable key, public by design). NEVER a secret key.
-     PROD_* are placeholders until the prod project exists (WP4); also update connect-src in index.html. */
+     Keep connect-src in index.html in sync when a ref changes. */
   var ENVS = {
-    prod: { ref: "PROD_REF_TBD", key: "PROD_PUBLISHABLE_KEY_TBD" },
+    prod: { ref: "sjkoqqcpfwegmwzavida", key: "sb_publishable_U9ZPvxm3mBNHcQsyQWkYcw_hfx70qnx" },
     dev: { ref: "pjccvfvaeyvqjldfwqje", key: "sb_publishable_XEYNBagKrxgkPbeQNuoWnQ_k7vOBJTJ" }
   };
   var TIMEOUT_MS = 15000;
