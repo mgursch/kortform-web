@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 6. November 2026</p>
+    <p class="updated">Stand: 8. November 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -67,7 +67,7 @@
       wird der Einladungscode im Link zusammen mit deiner IP-Adresse an Supabase übermittelt, um die Einladung anzuzeigen
       (Abschnitt 19).
     </p>
-    <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10 und 19 beschrieben sind (zur Website siehe Abschnitt 13):</p>
+    <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10, 19 und 20 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
       <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften,
         Import von Mannschaften, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
@@ -77,6 +77,7 @@
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
       <li>Abwicklung des Kaufs von Kortform Plus über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
       <li>nur mit Kort-ID: Anmeldung und geteilte Ligen über Supabase, Versand des Anmelde-Codes über Resend, optional Anmeldung über Google oder Apple (Abschnitt 19)</li>
+      <li>nur mit Kort-ID und Verfügbarkeitsabfrage: Abfrage und Antworten über Supabase (Abschnitt 20)</li>
     </ul>
     <p>
       Kortform fragt keine Standortberechtigung ab und greift weder auf GPS noch auf den genauen Standort deines Geräts zu.
@@ -483,7 +484,7 @@
           <tr><td>RevenueCat (Kaufverwaltung)</td><td>RevenueCat, Inc.</td><td>USA (Garantien nach Angaben von RevenueCat, siehe dessen Datenschutzhinweise)</td></tr>
           <tr><td>Android Auto-Backup</td><td>Google LLC</td><td>gemäß Google-Kontoeinstellungen</td></tr>
           <tr><td>iCloud-Backup</td><td>Apple Inc.</td><td>gemäß deinen iCloud-Einstellungen</td></tr>
-          <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion, Verfügbarkeitsabfrage (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
           <tr><td>Kort-ID: Versand des Anmelde-Codes per E-Mail (nur mit Kort-ID)</td><td>Resend, Inc.</td><td>EU-Region; soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Resend</td></tr>
           <tr><td>Kort-ID: Anmeldung mit Google oder Apple (optional)</td><td>Google Ireland Ltd. / Google LLC bzw. Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß deren Datenschutzbestimmungen</td></tr>
           <tr><td>Website-Hosting (GitHub Pages)</td><td>GitHub, Inc. / Microsoft</td><td>USA und weltweit (Garantien nach Angaben von GitHub)</td></tr>
@@ -674,13 +675,70 @@
       aus Abschnitt 17 für diese Daten auch bei uns geltend machen (<a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>).
     </p>
 
-    <h2>20. Änderungen</h2>
+        <h2 id="verfuegbarkeit">20. Verfügbarkeitsabfrage (optional)</h2>
+    <p>
+      Mannschaftsführende, die mit einer Kort-ID angemeldet sind (Abschnitt 19), können für eine geteilte Liga eine
+      Verfügbarkeitsabfrage starten und den Link an ihre Mannschaft schicken. Die Antworten gibst du ohne Konto ab.
+      Ohne Abfrage werden keine der unten genannten Daten gespeichert.
+    </p>
+    <p><strong>Zweck:</strong> Die Mannschaftsführung erfährt, wer an welchem Spieltag kann, und kann die Aufstellung
+      danach planen.</p>
+    <p><strong>Welche Daten wir speichern:</strong></p>
+    <ul>
+      <li><strong>Daten der Abfrage</strong> (von der Mannschaftsführung): Name der Mannschaft, die Begegnungen
+        (Datum, Gegner, die von der Mannschaftsführung eingegebene Adresse) und die Mannschaftsliste mit Vor- und Nachname,
+        ÖTV-Spielernummer bzw. Schlüssel und ITN-Wert der Spieler*innen. Das ist eine Momentaufnahme zum Zeitpunkt des Starts;
+        sie enthält Namen und Werte von Personen, die selbst nichts eingegeben haben und deren Werte beim ÖTV öffentlich
+        einsehbar sind;</li>
+      <li><strong>Antworten</strong> (von dir): Ja, Nein oder Vielleicht je Begegnung, ein optionaler Kommentar (höchstens
+        60 Zeichen), die gewählte Person aus der Mannschaftsliste oder ein selbst eingegebener Vor- und Nachname, sowie ob
+        du über die App oder die Webseite geantwortet hast;</li>
+      <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
+    </ul>
+    <p>
+      <strong>Wer sieht was:</strong> Wer den Link <code>liga.kortform.at/v/…</code> hat, sieht ohne Anmeldung die Momentaufnahme
+      der Abfrage, also Mannschaft, Begegnungen und die Namen samt ITN-Wert der Mannschaftsliste. Gib den Link deshalb nur an
+      deine Mannschaft weiter. Deine Antworten und Kommentare sehen nur die Mannschaftsführenden der Liga in der App; andere
+      Personen mit dem Link sehen sie nicht. Deine eigenen Antworten und die gewählte Identität speichert die App auf deinem
+      Gerät (Datenbank der App), die Webseite im lokalen Speicher deines Browsers (<code>localStorage</code>), damit du sie später
+      ändern kannst. Die Webseite setzt keine Cookies, enthält keine Zählskripte und keine Werbung, und wir erfassen dort keine
+      Nutzungsstatistik. Die App sendet zur Abfrage nur Analytics-Ereignisse ohne Kennungen und ohne personenbezogene Daten
+      (nur mit deiner Einwilligung, Abschnitt 8).
+    </p>
+    <p>
+      <strong>Dienstleister:</strong> Speicherung und Abruf erfolgen über Supabase in der Region Frankfurt (EU), die
+      Webseite wird wie die übrige Website über GitHub Pages bereitgestellt (Abschnitte 13 und 19). Supabase handelt als
+      Auftragsverarbeiter nach unseren Weisungen.
+    </p>
+    <p>
+      <strong>Kalender:</strong> Die App kann einen Termin an den Kalender deines Geräts übergeben. Dabei öffnet sich nur der
+      Kalender-Dialog deines Systems mit einem vorausgefüllten Termin; du speicherst ihn selbst. Kortform fragt keine
+      Kalenderberechtigung ab und liest nichts aus deinem Kalender.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Für die Mannschaftsführung, die die Abfrage startet, Art. 6 Abs. 1 lit. b DSGVO
+      (Bereitstellung der Funktion). Für die Mannschaftsliste und die Antworten Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+      Interesse der Mannschaft an einer einfachen Abstimmung der Spieltage; die Angaben sind freiwillig, du kannst auch
+      einen selbst gewählten Namen eingeben und den Kommentar weglassen); für technische Protokolldaten Art. 6 Abs. 1 lit. f DSGVO.
+      Du kannst der Verarbeitung nach Art. 21 DSGVO widersprechen (Kontakt in Abschnitt 22).<br>
+      <strong>Speicherdauer:</strong> Abfrage und Antworten werden 14 Tage nach der letzten Begegnung automatisch gelöscht,
+      sofort wenn die Mannschaftsführung die Abfrage beendet oder löscht oder die Liga entfernt. Setzt die Mannschaftsführung
+      den Link zurück, verliert der alte Link seine Gültigkeit. Daten in deinem Browser oder in der App löschst du, indem du
+      die Website-Daten bzw. die App-Daten löschst.
+    </p>
+    <p>
+      Da Antworten ohne Konto abgegeben werden, können wir sie nicht ohne Weiteres einer Person zuordnen. Für Auskunft,
+      Berichtigung oder Löschung deiner Antwort gib bitte Abfrage-Link, Namen und Datum der Antwort an; die einfachste Löschung
+      ist die Bitte an deine Mannschaftsführung, die Abfrage zu beenden.
+    </p>
+
+    <h2>21. Änderungen</h2>
     <p>
       Wir passen diese Erklärung an, wenn sich die App oder die rechtlichen Vorgaben ändern. Es gilt die jeweils hier
       veröffentlichte Fassung.
     </p>
 
-    <h2>21. Kontakt</h2>
+    <h2>22. Kontakt</h2>
     <p>
       Fragen zum Datenschutz richte bitte an:
       <a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>
