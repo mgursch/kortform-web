@@ -10,12 +10,12 @@
 /* Cropped screenshots */
 .crop { position: relative; overflow: hidden; background: #faf9f5; border: 1.5px solid var(--text); border-bottom: 1.5px dashed var(--text); border-radius: 22px 22px 0 0; }
 .crop img { display: block; width: 100%; height: auto; }
-.crop-rechner { aspect-ratio: 720 / 1180; }
-.crop-spieler { aspect-ratio: 720 / 1230; }
-.crop-mannschaft { aspect-ratio: 720 / 1160; }
-.crop-liga { aspect-ratio: 720 / 1190; }
-.crop-verlauf { aspect-ratio: 720 / 1220; }
-.crop-matches { aspect-ratio: 720 / 1116; }
+.crop-rechner { aspect-ratio: 720 / 1110; }
+.crop-abfrage { aspect-ratio: 720 / 1372; }
+.crop-spieler { aspect-ratio: 720 / 1250; }
+.crop-mannschaft { aspect-ratio: 720 / 1175; }
+.crop-liga { aspect-ratio: 720 / 1350; }
+.crop-verlauf { aspect-ratio: 720 / 1260; }
 
 /* Annotation tags sit in empty space next to what they point at (positions measured on the 720 px originals) */
 .tag, .legend-tag, .ref { display: inline-grid; place-items: center; background: #a64b27; color: #faf9f5; font-family: var(--font-mono); font-weight: 600; line-height: 1; }
@@ -33,7 +33,7 @@
 
 /* Hero */
 .hero { margin-top: 48px; display: grid; gap: 40px; }
-.hero h1 { font-size: clamp(72px, 20vw, 188px); line-height: 0.84; letter-spacing: -0.005em; }
+.hero h1 { font-size: clamp(56px, 14.5vw, 124px); line-height: 0.88; letter-spacing: -0.005em; }
 .lead { font-size: 19px; line-height: 1.5; max-width: 34em; margin: 32px 0 0; }
 /* Official App Store badge: unaltered, 48 px high (Apple minimum 40 px), clear space of a quarter of its height (12 px) around it. Its grey outline keeps it visible on the dark page. */
 .store { margin: 28px 0 0; padding: 12px 0; line-height: 0; }
@@ -87,6 +87,8 @@
   .step-2 { margin-top: 110px; }
   .follow-facts { grid-column: 1 / 13; margin-top: 16px; column-gap: 48px; }
 }
+
+.stairs-one { grid-template-columns: minmax(0, 300px); }
 
 /* Compact worked example on clay */
 .calc { margin-top: 96px; background-color: var(--clay); background-image: url("/img/court.svg"); background-repeat: no-repeat; background-size: 1300px auto; background-position: left -260px bottom -260px; color: var(--on-clay); padding: 48px 0 56px; }
