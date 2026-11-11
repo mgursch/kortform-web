@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 9. November 2026</p>
+    <p class="updated">Stand: 11. November 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -63,11 +63,11 @@
       denen du folgst, deine Mannschaften und deine Einstellungen werden nur auf deinem Gerät gespeichert. Du brauchst
       <strong>kein Nutzerkonto bei uns</strong>. Nur wenn du freiwillig eine <strong>Kort-ID</strong> anlegst, um eine Liga mit
       weiteren Mannschaftsführenden zu teilen, speichern wir dafür Daten auf einem Server (Abschnitt 19). Ohne Kort-ID
-      landen keine Daten aus der App auf einem Server von uns. Öffnest du einen Einladungslink auf <code>liga.kortform.at</code>,
+      landen, abgesehen von der Push-Registrierung jeder Installation (Abschnitt 11), keine Daten aus der App auf einem Server von uns. Öffnest du einen Einladungslink auf <code>liga.kortform.at</code>,
       wird der Einladungscode im Link zusammen mit deiner IP-Adresse an Supabase übermittelt, um die Einladung anzuzeigen
       (Abschnitt 19).
     </p>
-    <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 10, 19 und 20 beschrieben sind (zur Website siehe Abschnitt 13):</p>
+    <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 11, 19 und 20 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
       <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften,
         Import von Mannschaften, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
@@ -76,14 +76,15 @@
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
       <li>Abwicklung des Kaufs von Kortform Plus über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
+      <li>Push-Registrierung jeder Installation, auch ohne Kort-ID: Token für Push-Nachrichten, zufällige Installations-ID und weitere Angaben über Supabase und Firebase Cloud Messaging (Abschnitt 11)</li>
       <li>nur mit Kort-ID: Anmeldung und geteilte Ligen über Supabase, Versand des Anmelde-Codes über Resend, optional Anmeldung über Google oder Apple (Abschnitt 19)</li>
       <li>nur mit Kort-ID und Verfügbarkeitsabfrage: Abfrage und Antworten über Supabase (Abschnitt 20)</li>
     </ul>
     <p>
       Kortform fragt keine Standortberechtigung ab und greift weder auf GPS noch auf den genauen Standort deines Geräts zu.
       Google AdMob (Abschnitt 6) und Firebase Analytics (Abschnitt 8, nur mit deiner Einwilligung) leiten aus der IP-Adresse
-      jedoch einen ungefähren Standort (Land bzw. Region) ab. Kortform verschickt keine Push-Benachrichtigungen von unserem
-      Server (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
+      jedoch einen ungefähren Standort (Land bzw. Region) ab. Kortform verschickt derzeit keine Push-Benachrichtigungen von unserem
+      Server, bereitet sie aber vor (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
     </p>
     <div class="notice">
       <p>
@@ -127,7 +128,7 @@
     <p>
       Namen und weitere Angaben zu Spieler*innen stammen aus der öffentlichen ÖTV-Liste, den ÖTV-Spieldaten bzw. den
       Ligadaten des ÖTV und der Landesverbände. Diese Daten gehen nicht an uns; ohne Kort-ID gibt es keinen Kortform-Server, an den
-      sie übertragen würden. Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
+      sie übertragen würden. Einzige Ausnahme ist der Personenschlüssel der Push-Registrierung (deine Lizenznummer bzw. ÖTV-Spieler-ID, Abschnitt 11). Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
       System-Teilen-Menü; wohin du sie sendest, entscheidest du.
     </p>
     <p>
@@ -360,8 +361,8 @@
     <p>
       Kortform lädt über Firebase Remote Config (Google) Konfigurationswerte auf dein Gerät, u. a. den
       Zugangsschlüssel für die ÖTV-Schnittstelle (Abschnitt 4). So kann dieser ohne App-Update erneuert werden, falls der ÖTV
-      ihn ändert. Außerdem enthält die Konfiguration einen Schalter, mit dem wir den täglichen Login im Hintergrund (Abschnitt 5)
-      für alle abschalten können. Dafür verarbeitet Google die Firebase-Installations-ID sowie grundlegende Geräte- und
+      ihn ändert. Außerdem enthält die Konfiguration Schalter, mit denen wir den täglichen Login im Hintergrund (Abschnitt 5)
+      und die Push-Registrierung (Abschnitt 11) für alle abschalten können. Dafür verarbeitet Google die Firebase-Installations-ID sowie grundlegende Geräte- und
       App-Informationen (App-Version, Betriebssystem, Sprache, Land). Remote Config dient nicht der Nutzungsanalyse.
     </p>
     <p>
@@ -396,11 +397,10 @@
       Zahlungsabwickler; RevenueCat, Inc. als Auftragsverarbeiter.
     </p>
 
-    <h2>11. Lokale Benachrichtigungen</h2>
+    <h2 id="push">11. Benachrichtigungen und Push-Registrierung</h2>
     <p>
-      Kortform kann dich über lokale Benachrichtigungen informieren, etwa wenn sich dein Wert geändert hat oder mit einem
-      Wochenrückblick. Diese Benachrichtigungen entstehen vollständig auf deinem Gerät. Wir senden keine Push-Benachrichtigungen
-      über einen Server und verwenden kein Firebase Cloud Messaging. Ab Android 13 bzw. auf dem iPhone fragt das System nach deiner
+      <strong>Lokale Benachrichtigungen:</strong> Kortform kann dich über lokale Benachrichtigungen informieren, etwa wenn sich dein Wert geändert hat oder mit einem
+      Wochenrückblick. Diese Benachrichtigungen entstehen vollständig auf deinem Gerät. Ab Android 13 bzw. auf dem iPhone fragt das System nach deiner
       Erlaubnis, sobald du eine Benachrichtigung einschaltest; du kannst sie jederzeit in den App-Einstellungen oder in den
       Systemeinstellungen ausschalten. Unter Android zeigt die App außerdem während des Abgleichs mit deinem ÖTV-Login (Abschnitt 5)
       eine laufende Fortschrittsanzeige („Daten werden abgeglichen“) in der Benachrichtigungsleiste; sie verschwindet, sobald der
@@ -408,6 +408,54 @@
       Auf dem iPhone zeigt das System ab iOS 26 während des Abgleichs eine Fortschrittsanzeige („Spiele werden geladen“). Endet der Abgleich,
       während Kortform im Hintergrund ist, meldet eine lokale Benachrichtigung das Ergebnis, sofern du Benachrichtigungen erlaubt hast.
       Auch diese entstehen nur auf deinem Gerät.
+    </p>
+    <p>
+      <strong>Push-Registrierung (jede Installation, auch ohne Kort-ID):</strong> Damit wir dir künftig Push-Nachrichten schicken können
+      (etwa Hinweise auf App-Updates und Mitteilungen im Zusammenhang mit geteilten Ligen), meldet jede Installation von Kortform ihre
+      Adresse für Push-Nachrichten im Hintergrund bei uns an. Das geschieht ohne Rückfrage, auch wenn du keine Kort-ID hast und
+      auch ohne Einwilligung zu Nutzungsstatistiken; die Erlaubnis-Abfrage des Systems für Benachrichtigungen löst es nicht aus.
+      <strong>Wir verschicken derzeit keine Push-Nachrichten, und die App zeigt noch keine an.</strong>
+    </p>
+    <p><strong>Welche Daten wir speichern:</strong></p>
+    <ul>
+      <li>den Token für Push-Nachrichten (FCM-Token), den Firebase Cloud Messaging (Google) deiner Installation zuteilt;</li>
+      <li>die Plattform (Android oder iPhone), die App-Version und die Sprache;</li>
+      <li>eine zufällige Installations-ID sowie ein zufälliges Geheimnis, das nur dein Gerät kennt; wir speichern vom Geheimnis nur
+        einen Prüfwert (Hash), mit dem Aktualisierung und Löschung der Registrierung geschützt sind;</li>
+      <li>deinen Personenschlüssel, wenn du ein Profil verknüpft hast oder eingerichtet hast: deine ÖTV-Lizenznummer, ersatzweise die
+        ÖTV-Spieler-ID (mit dem Zusatz „nu:“); ohne Profil wird nichts gespeichert;</li>
+      <li>wenn du mit einer Kort-ID angemeldet bist (Abschnitt 19), zusätzlich deren Nutzerkennung; nach dem Abmelden wird sie gelöst;</li>
+      <li>Zeitpunkte: Anlage und letzte Meldung der Installation;</li>
+      <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
+    </ul>
+    <p>
+      Name, E-Mail-Adresse, Werte, Spiele und weitere Inhalte der App gehören nicht dazu. Die App meldet sich beim Start, wenn
+      sich etwas geändert hat (Token, Profil, Kort-ID-Anmeldung, App-Version, Sprache) und bei Nutzung spätestens nach 7 Tagen erneut. Zusätzlich abonniert die App
+      bei Firebase Cloud Messaging das Thema „app_updates“, über das wir allen Installationen Hinweise auf App-Updates
+      schicken können. Eine Kort-ID oder Person kann mehrere Installationen haben (etwa Handy und Tablet). Wir können die
+      Push-Registrierung und das Abonnement für alle über Firebase Remote Config abschalten (Abschnitt 9).
+    </p>
+    <p>
+      <strong>Dienstleister:</strong> Die Registrierung speichert Supabase (Supabase, Inc.) in der Region Frankfurt (EU), wie bei der
+      Kort-ID (Abschnitt 19). Push-Nachrichten stellt Firebase Cloud Messaging (Google) zu; auf dem iPhone läuft die Zustellung zusätzlich über den
+      Push-Dienst von Apple. Supabase und Google handeln als Auftragsverarbeiter nach unseren Weisungen, Apple verarbeitet die
+      Daten nach den eigenen Datenschutzbestimmungen.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, dich künftig über App-Updates und Ereignisse in
+      geteilten Ligen zu erreichen, ohne dass dafür ein Konto nötig ist). Die Registrierung hängt nicht von der Einwilligung zu Nutzungsstatistiken
+      (Abschnitt 8) ab.<br>
+      <strong>Speicherdauer:</strong> bis zur Löschung (siehe unten), spätestens 180 Tage nach der letzten Meldung der Installation; die App meldet sich bei Nutzung mindestens alle 7 Tage.<br>
+      <strong>Empfänger:</strong> Supabase, Inc. und Google LLC / Google Ireland Limited als Auftragsverarbeiter; auf dem iPhone außerdem Apple.
+    </p>
+    <p>
+      <strong>Löschen und Widerspruch:</strong> „Alle Daten löschen“ im Profil entfernt die Registrierung auf dem Server
+      (ohne Internetverbindung nur auf dem Gerät, die Serverzeile verfällt dann nach 180 Tagen). Danach legt die App,
+      solange sie installiert ist, mit einer neuen, anonymen Installations-ID eine neue Registrierung an. Löschst du deine Kort-ID (Abschnitt 19), entfernen wir die
+      Registrierungen deiner Kort-ID auf dem Server; Abmelden löst nur die Verknüpfung mit der Kort-ID. Deinstallierst du die App, meldet sie sich nicht
+      mehr, und die Registrierung verfällt nach 180 Tagen. Ohne Installations-ID können wir eine Registrierung nicht ohne Weiteres dir zuordnen (Art. 11 DSGVO);
+      wenn du uns schreibst und, soweit vorhanden, deine Lizenznummer nennst (Abschnitt 18), löschen wir die Registrierungen mit diesem Personenschlüssel.
+      Du kannst der Verarbeitung nach Art. 21 DSGVO widersprechen (Kontakt in Abschnitt 22).
     </p>
 
     <h2>12. Geräte-Backups</h2>
@@ -484,6 +532,9 @@
           <tr><td>RevenueCat (Kaufverwaltung)</td><td>RevenueCat, Inc.</td><td>USA (Garantien nach Angaben von RevenueCat, siehe dessen Datenschutzhinweise)</td></tr>
           <tr><td>Android Auto-Backup</td><td>Google LLC</td><td>gemäß Google-Kontoeinstellungen</td></tr>
           <tr><td>iCloud-Backup</td><td>Apple Inc.</td><td>gemäß deinen iCloud-Einstellungen</td></tr>
+          <tr><td>Push-Registrierung: Datenbank (jede Installation)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Push-Registrierung: Firebase Cloud Messaging (jede Installation)</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
+          <tr><td>Push-Dienst von Apple (iPhone)</td><td>Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß den Bedingungen von Apple</td></tr>
           <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion, Verfügbarkeitsabfrage (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
           <tr><td>Kort-ID: Versand des Anmelde-Codes per E-Mail (nur mit Kort-ID)</td><td>Resend, Inc.</td><td>EU-Region; soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Resend</td></tr>
           <tr><td>Kort-ID: Anmeldung mit Google oder Apple (optional)</td><td>Google Ireland Ltd. / Google LLC bzw. Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß deren Datenschutzbestimmungen</td></tr>
@@ -519,8 +570,8 @@
       <li><strong>Werbung:</strong> keine Abfrage der Einwilligung und keine App-Tracking-Abfrage; Anzeigenanfragen sind als
         Behandlung für Kinder gekennzeichnet, also ohne personalisierte Werbung und ohne Werbe-ID (Abschnitt 6).</li>
       <li><strong>Nutzungsstatistiken:</strong> Firebase Analytics bleibt aus und lässt sich nicht einschalten (Abschnitt 8).</li>
-      <li><strong>Unverändert:</strong> Crashlytics (Abschnitt 7), Remote Config (Abschnitt 9), die Abfrage bei RevenueCat (Abschnitt 10)
-        und die Abfragen beim ÖTV (Abschnitte 4 und 5), da sie nicht auf einer Einwilligung beruhen.</li>
+      <li><strong>Unverändert:</strong> Crashlytics (Abschnitt 7), Remote Config (Abschnitt 9), die Abfrage bei RevenueCat (Abschnitt 10),
+        die Push-Registrierung (Abschnitt 11) und die Abfragen beim ÖTV (Abschnitte 4 und 5), da sie nicht auf einer Einwilligung beruhen.</li>
     </ul>
     <p>
       Die freiwillige Funktion, den ÖTV-Login zu speichern (Abschnitt 5), sollten Personen unter 14 Jahren nur mit Zustimmung der
@@ -541,7 +592,7 @@
         Datenschutzbehörde: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a></li>
     </ul>
     <p>
-      Da die App-Daten (außer denen deiner Kort-ID, Abschnitt 19) nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
+      Da die App-Daten (außer denen deiner Kort-ID, Abschnitt 19, und der Push-Registrierung, Abschnitt 11) nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
       der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten (Google, RevenueCat, Apple)
       siehe <a href="/datenschutz/#loeschen">Abschnitt 18</a>; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
     </p>
@@ -559,7 +610,7 @@
       ÖTV-Login samt Sitzung. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
       Geräte-Backups siehe Abschnitt 12). Bist du mit einer Kort-ID angemeldet, löscht „Alle Daten löschen“ zuerst
       deine Kort-ID auf unserem Server (Abschnitt 19) und danach die Daten auf dem Gerät. Das geht nur mit Internetverbindung;
-      ohne Verbindung wird nichts gelöscht. Ohne Kort-ID wirkt die Funktion nur auf deinem Gerät. Daten, die bereits bei Diensten
+      ohne Verbindung wird nichts gelöscht. Ohne Kort-ID wirkt die Funktion auf deinem Gerät und löscht zusätzlich die Push-Registrierung auf unserem Server (Abschnitt 11). Daten, die bereits bei Diensten
       außerhalb der App liegen, löscht sie nicht.
     </p>
     <p>
@@ -592,6 +643,9 @@
       <li><strong>Google AdMob:</strong> Werbedaten verarbeitet Google als eigener Dienst. Wir erhalten keine Auswertung
         einzelner Personen und können dort nichts löschen. Auskunft und Löschung beantragst du direkt bei Google
         (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>).</li>
+      <li><strong>Push-Registrierung:</strong> Details zu Löschung und Widerspruch stehen in Abschnitt 11. Nenne uns für eine Löschung per E-Mail deine
+        ÖTV-Lizenznummer (bzw. die ÖTV-Spieler-ID, wenn du keine Lizenznummer hast), falls du ein Profil verknüpft hattest; ohne Profil können wir eine Registrierung nicht
+        zuordnen, sie verfällt nach spätestens 180 Tagen.</li>
       <li><strong>GoatCounter (Website):</strong> Es werden nur zusammengefasste Zahlen ohne Bezug zu einzelnen Personen gespeichert;
         eine Zuordnung zu dir ist daher nicht möglich (Art. 11 DSGVO).</li>
     </ul>
@@ -687,7 +741,7 @@
       <strong>Löschen:</strong> In der App unter Profil → Kort-ID → „Kort-ID löschen“ oder auf
       <a href="/kort-id/loeschen/">kortform.at/kort-id/loeschen/</a> mit E-Mail-Adresse und Code. Dabei werden deine Kort-ID
       mit E-Mail-Adresse, Anmeldedaten und Anzeigename sowie deine Mitgliedschaften auf unserem Server sofort gelöscht, und
-      Ligen ohne weitere Mannschaftsführung werden gelöscht. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung
+      Ligen ohne weitere Mannschaftsführung werden gelöscht; auch die Push-Registrierungen deiner Kort-ID (Abschnitt 11) werden entfernt. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung
       widerrufen. Technische Protokolle des Dienstleisters (z. B. Zeitpunkt, Ereignis und IP-Adresse von Anmeldungen) und
       Sicherungskopien können nach dessen Vorgaben noch für begrenzte Zeit bestehen. Matches, ITN und dein
       Profil auf deinen Geräten bleiben. Du kannst dich auch nur abmelden, ohne die Kort-ID zu löschen; dabei werden
