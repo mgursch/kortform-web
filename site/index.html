@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kortform - ITN Verwaltung AT</title>
-  <meta name="description" content="Kortform für Android und iPhone: Spieler*innen und Mannschaften folgen und ihre Werte automatisch aus der öffentlichen ÖTV-Liste mitverfolgen, Mannschaften per Liga-Link anlegen, deinen eigenen Verlauf sehen und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen. Deine Werte und Spiele bleiben auf deinem Gerät.">
+  <title>Kortform – Mannschaft &amp; ITN</title>
+  <meta name="description" content="Kortform für Mannschaftsführer*innen im Tennis: Verfügbarkeit per Link abfragen, Spieler*innen antworten ohne App, Aufstellung nach ITN planen, Liga-Prognose und gemeinsam mit der Co-Mannschaftsführung führen (mit Kortform Team). Dazu dein eigener ITN, der Match-Rechner und Widgets.">
   <link rel="canonical" href="https://kortform.at/">
   <meta name="apple-itunes-app" content="app-id=6826770040">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://swordistudios.goatcounter.com/count; font-src 'self'; base-uri 'none'; form-action 'none'">
@@ -21,14 +21,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kortform">
   <meta property="og:locale" content="de_AT">
-  <meta property="og:title" content="Kortform - ITN Verwaltung AT">
-  <meta property="og:description" content="Spieler*innen und Mannschaften folgen und ihre Werte automatisch mitverfolgen, Mannschaften aus der Liga importieren, deinen eigenen Wert im Blick behalten und vor jedem Match durchrechnen, was Sieg oder Niederlage bringen.">
+  <meta property="og:title" content="Kortform – Mannschaft &amp; ITN">
+  <meta property="og:description" content="Deine Mannschaft. Ein Link statt Gruppenchat: Verfügbarkeit abfragen, Spieler*innen antworten ohne App, Aufstellung nach ITN planen und die Liga-Prognose im Blick (mit Kortform Team). Dazu dein eigener ITN und der Match-Rechner.">
   <meta property="og:url" content="https://kortform.at/">
   <meta property="og:image" content="https://kortform.at/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kortform: Verlaufslinie im App-Icon und der Schriftzug Kortform">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kortform – Mannschaft &amp; ITN">
+  <meta name="twitter:description" content="Deine Mannschaft. Ein Link statt Gruppenchat: Verfügbarkeit abfragen, Spieler*innen antworten ohne App, Aufstellung nach ITN planen und die Liga-Prognose im Blick (mit Kortform Team). Dazu dein eigener ITN und der Match-Rechner.">
   <script data-goatcounter="https://swordistudios.goatcounter.com/count" async src="/count.js"></script>
 </head>
 <body class="home">
@@ -40,10 +42,10 @@
       <span>Kortform</span>
     </a>
     <nav class="index" aria-label="Auf dieser Seite">
-      <a href="#folgen">Folgen</a>
-      <a href="#verlauf">Verlauf</a>
-      <a href="#rechner">Rechner</a>
-      <a href="#widgets">Widgets</a>
+      <a href="#mannschaft">Mannschaft</a>
+      <a href="#spieler">Spieler*innen</a>
+      <a href="#preise">Preise</a>
+      <a href="/support/">Support</a>
     </nav>
   </header>
 
@@ -51,28 +53,16 @@
 
     <div class="wrap hero">
       <div class="hero-copy">
-        <h1>ITN<br>im Blick.</h1>
-        <p class="lead">Folge deinen Mitspieler*innen, Gegner*innen und deiner Mannschaft. Du siehst ihren ITN-Wert, wie er sich verändert und welche Spiele sie zuletzt gespielt haben. Deinen eigenen Wert natürlich auch.</p>
-        <p class="store"><a class="store-badge" href="https://apps.apple.com/at/app/kortform-tennis-wertung/id6826770040"><img src="/img/app-store-badge-de.svg" alt="Laden im App Store" width="120" height="40"></a></p>
-        <p class="status"><strong>Jetzt im App Store fürs iPhone, Android folgt in Kürze.</strong> Deine Werte und Spiele bleiben auf deinem Gerät.</p>
+        <h1>Deine Mannschaft.<br>Ein Link statt<br>Gruppenchat.</h1>
+        <p class="lead">„Wer kann am Samstag?“ Schick einen Link, deine Spieler*innen antworten ohne App, und du stellst nach ITN auf. Kortform zeigt dir die Siegchance je Position und eine Prognose für die Liga. Dazu dein eigener ITN und der Match-Rechner.</p>
+        <p class="store"><a class="store-badge" href="https://apps.apple.com/at/app/id6826770040"><img src="/img/app-store-badge-de.svg" alt="Laden im App Store" width="120" height="40"></a></p>
+        <p class="status"><strong>Jetzt im App Store fürs iPhone, Android folgt in Kürze.</strong> Abfrage, Aufstellung und Prognose gehören zu Kortform Team. Antworten ist für alle gratis.</p>
       </div>
 
       <figure class="hero-shot">
         <div class="crop crop-spieler">
-          <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" decoding="async" fetchpriority="high">
-          <span class="tag ts1" aria-hidden="true">A</span>
-          <span class="tag ts2" aria-hidden="true">B</span>
-          <span class="tag ts3" aria-hidden="true">C</span>
-          <span class="tag ts4" aria-hidden="true">D</span>
+          <img src="/img/app-verfuegbarkeit.webp" alt="Verfügbarkeitsabfrage der App aus Sicht der Mannschaftsführung: Kacheln mit Ja, Unter Umständen, Nein und Keine Antwort für den nächsten Spieltag" width="720" height="1616" decoding="async" fetchpriority="high">
         </div>
-        <figcaption>
-          <ol class="legend" type="A">
-            <li><span class="legend-tag" aria-hidden="true">A</span> Du bleibst oben angeheftet</li>
-            <li><span class="legend-tag" aria-hidden="true">B</span> Änderung durch das letzte Match</li>
-            <li><span class="legend-tag" aria-hidden="true">C</span> Letztes Spiel mit Datum und Ergebnis, mit ÖTV-Login</li>
-            <li><span class="legend-tag" aria-hidden="true">D</span> Form: die letzten fünf Spiele, mit ÖTV-Login</li>
-          </ol>
-        </figcaption>
       </figure>
     </div>
 
@@ -82,74 +72,171 @@
       </svg>
     </div>
 
-    <section class="wrap follow" aria-labelledby="folgen">
+    <section class="wrap follow" aria-labelledby="mannschaft">
       <div class="follow-copy">
-        <h2 id="folgen">Spieler*innen und Mannschaften folgen</h2>
-        <p class="follow-intro">Folge Spieler*innen, die dich interessieren, und leg deine Mannschaft an, selbst oder per Liga-Link. Ihre Werte kommen automatisch mit, du siehst auf einen Blick, wer sich verändert.</p>
+        <h2 id="mannschaft">So funktioniert’s</h2>
+        <p class="follow-intro">Von der Liga zur Aufstellung in drei Schritten, ohne dass jemand im Gruppenchat nachfragen muss.</p>
 
         <ol class="follow-list">
           <li>
-            <h3>Spieler*innen</h3>
-            <p>Such Mitspieler*innen und Gegner*innen und folg ihnen. Die Liste zeigt Wert und Änderung, mit ÖTV-Login auch letztes Spiel und die Form der letzten fünf Spiele. Du selbst bleibst oben angeheftet.</p>
+            <h3>Liga importieren</h3>
+            <p>Wähl deine Gruppe aus der Liste der laufenden Meisterschaften oder füg ihren Link ein. Kortform lädt Tabelle, Spielplan, Ergebnisse und alle Kader. Dafür brauchst du die kostenlose Kort-ID, ohne Passwort.</p>
           </li>
           <li>
-            <h3>Mannschaften</h3>
-            <p>Leg eine Mannschaft an und wähl ihre Spieler*innen aus. Du siehst den Schnitt der Mannschaft und jede Person mit Wert und, mit ÖTV-Login, letztem Spiel und Form, auch ohne ihr zu folgen. Mitglieder zählen nicht zum Limit fürs Folgen.</p>
+            <h3>Abfrage per Link <span class="plus">Team</span></h3>
+            <p>Starte eine Abfrage und teil den Link in den Gruppenchat. Deine Spieler*innen antworten je Spieltag im Browser, ohne App und ohne Konto.</p>
           </li>
           <li>
-            <h3>Aus der Liga importieren <span class="plus">Pro</span></h3>
-            <p>Füg den Link einer Ligagruppe von der Seite deines Landesverbands ein, etwa von tennis.wien, wähl die Mannschaft und prüf die Meldung in Rangfolge. Ändert sich die Meldung, zeigt dir Aktualisieren, wer neu ist und wer fehlt.</p>
+            <h3>Aufstellung festlegen <span class="plus">Team</span></h3>
+            <p>Die Antworten setzen die Verfügbarkeit, Kortform stellt Einzel und Doppel nach ITN auf. Du passt an und teilst die Aufstellung.</p>
           </li>
         </ol>
       </div>
 
       <div class="stairs">
         <figure class="step">
-          <div class="crop crop-mannschaft">
-            <img src="/img/app-mannschaft.webp" alt="Mannschaftsansicht der App: Mannschaft Hobbyrunde mit durchschnittlichem Wert 6,891 und ihren fünf Spieler*innen mit Wert, letztem Spiel und Form" width="720" height="1616" loading="lazy" decoding="async">
+          <div class="crop crop-liga">
+            <img src="/img/app-liga.webp" alt="Liga-Übersicht der App: Tabelle, Spielplan und Prognose für die eigene Mannschaft" width="720" height="1616" loading="lazy" decoding="async">
           </div>
-          <figcaption>Mannschaft mit Schnitt</figcaption>
+          <figcaption>Liga mit Prognose</figcaption>
         </figure>
         <figure class="step step-2">
-          <div class="crop crop-liga">
-            <img src="/img/app-liga-import.webp" alt="Liga-Import der App: Mannschaft Herren 41 mit acht gemeldeten Spieler*innen in Rangfolge, vor dem Anlegen prüfen" width="720" height="1616" loading="lazy" decoding="async">
+          <div class="crop crop-mannschaft">
+            <img src="/img/app-kader.webp" alt="Kader der Liga in der App: jede Spieler*in der Mannschaft mit ITN, Bilanz und Form" width="720" height="1616" loading="lazy" decoding="async">
           </div>
-          <figcaption>Liga-Import</figcaption>
+          <figcaption>Kader mit ITN</figcaption>
+        </figure>
+      </div>
+
+      <div class="follow-facts">
+        <div>
+          <h3>Gratis: die Liga</h3>
+          <p>Eine Liga mit Tabelle, Spielplan, Ergebnissen, Kader und Gegner*innen kostet nichts. Abfrage starten, Aufstellungsplaner und Prognose sind Funktionen von Kortform Team.</p>
+        </div>
+        <div>
+          <h3>Eine Mannschaft, eine Führung</h3>
+          <p>Jede Mannschaft hat in Kortform genau eine Mannschaftsführung, wer zuerst importiert. Weitere kommen per Einladung dazu, mehr dazu unter <a href="#gemeinsam">Gemeinsam führen</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="field" aria-labelledby="verfuegbarkeit">
+      <div class="wrap field-inner">
+        <div class="field-copy">
+          <h2 id="verfuegbarkeit">Deine Spieler*innen brauchen keine App.</h2>
+          <p>Die Abfrage startest du in Kortform, mit Kortform Team. Der Link öffnet eine Webseite: Ja, Nein oder Unter Umständen, optional mit Kommentar, ohne App und ohne Konto. Wer die App hat, antwortet auch dort.</p>
+          <p>Du siehst alle Antworten je Spieltag und Saison, erinnerst per Tipp, wer noch fehlt, und die Antworten fließen direkt in den Aufstellungsplaner.</p>
+          <p>Antworten ist immer gratis. Eine laufende Abfrage nimmt auch nach dem Ende von Team weiter Antworten an.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap follow" aria-labelledby="aufstellung">
+      <div class="follow-copy">
+        <h2 id="aufstellung">Aufstellung nach ITN. Mit Prognose.</h2>
+        <p class="follow-intro">Kortform rechnet mit den Werten der Liste und mit den Antworten deiner Spieler*innen. So siehst du vor dem Spieltag, wie gut deine Aufstellung steht.</p>
+
+        <ol class="follow-list">
+          <li>
+            <h3>Aufstellungsplaner <span class="plus">Team</span></h3>
+            <p>Einzel und Doppel nach ITN, auch im Mixed. Du schaltest Spieler*innen ein oder aus, trägst Nachnominierte ein und teilst die Aufstellung als Text.</p>
+          </li>
+          <li>
+            <h3>Siegchance je Position <span class="plus">Team</span></h3>
+            <p>Zu jeder Position zeigt Kortform die Siegchance, auch für künftige Begegnungen im Spielplan.</p>
+          </li>
+          <li>
+            <h3>Liga-Prognose <span class="plus">Team</span></h3>
+            <p>Der Saison-Forecast zeigt Endplatz sowie Auf- und Abstiegschance. Die Berechnung ist inoffiziell und unverbindlich.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="stairs stairs-one">
+        <figure class="step">
+          <div class="crop crop-verlauf">
+            <img src="/img/app-aufstellung.webp" alt="Aufstellungsplaner der App: Einzel und Doppel nach ITN mit Siegchance je Position" width="720" height="1616" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Aufstellung mit Siegchance</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap history" aria-labelledby="gemeinsam">
+      <div class="history-copy">
+        <h2 id="gemeinsam">Gemeinsam führen</h2>
+        <p>Lade deine Co-Mannschaftsführung per Link ein <span class="plus">Team</span>. Ihr plant dieselbe Liga mit gleichen Rechten, Änderungen sehen beide.</p>
+        <p>Wer eine Einladung annimmt, braucht dafür kein Abo: Annehmen ist nie gesperrt, und die geplante Aufstellung kannst du auch ohne Abo lesen. Mitplanen geht mit eigenem Team-Abo.</p>
+      </div>
+    </section>
+
+    <section class="calc" aria-labelledby="preise">
+      <div class="wrap calc-inner">
+        <div class="calc-copy">
+          <h2 id="preise">Gratis, Pro und Team.</h2>
+          <p>Die Liga und das Antworten auf Abfragen kosten nichts. Für die Mannschaftsführung gibt es Kortform Team, für alle anderen optional Pro. Gratis gibt es Werbung.</p>
+        </div>
+
+        <div class="sheet">
+          <p class="sheet-title">Preise <span>für Österreich, je Store</span></p>
+          <table class="ledger">
+            <caption class="visually-hidden">Gratis, Pro und Team im Überblick</caption>
+            <tbody>
+              <tr><th scope="row">Gratis: eine Liga mit Tabelle, Spielplan, Kader und Gegner*innen, 3 Spieler*innen folgen, dein ITN, Matches und Rechner. Antworten auf Abfragen immer.</th><td>0 €</td></tr>
+              <tr><th scope="row">Pro, einmalig: keine Werbung, bis 100 Spieler*innen und 50 Mannschaften, Mannschaft per Link übernehmen.</th><td>3,99 €</td></tr>
+              <tr class="ledger-mark"><th scope="row">Team, pro Jahr, die ersten 7 Tage gratis, enthält Pro: Abfrage starten, Aufstellungsplaner, Prognose, beliebig viele Ligen, Co-Mannschaftsführung einladen.</th><td>14,99 €</td></tr>
+            </tbody>
+          </table>
+          <p class="sheet-foot">Team ist ein Jahresabo, braucht die kostenlose Kort-ID und gilt auf allen deinen Geräten. Was gratis bleibt, steht in den <a href="/support/#team-kosten">häufigen Fragen</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap follow" aria-labelledby="spieler">
+      <div class="follow-copy">
+        <h2 id="spieler">Für Spieler*innen</h2>
+        <p class="follow-intro">Auch ohne Mannschaftsführung: dein eigener ITN, jeden Morgen aktuell, und die Werte aller, die dich interessieren.</p>
+
+        <ol class="follow-list">
+          <li>
+            <h3>Dein ITN im Verlauf</h3>
+            <p>Profil einmal suchen, ohne Login. Dein Wert als Kurve, mit der Änderung im gewählten Zeitraum. Mit ÖTV-Login kommen deine Matches dazu, jeweils mit Wert vorher und nachher.</p>
+          </li>
+          <li>
+            <h3>Spieler*innen und Mannschaften folgen</h3>
+            <p>Folg Mitspieler*innen, Gegner*innen und Mannschaften. Die Liste zeigt Wert und Änderung, mit ÖTV-Login auch letztes Spiel und die Form der letzten fünf Spiele. Du selbst bleibst oben angeheftet.</p>
+          </li>
+          <li>
+            <h3>Ohne App antworten, mit App mehr</h3>
+            <p>Hast du die App und ein verknüpftes ÖTV-Profil, siehst du aus der Abfrage deine kommenden Matches mit Adresse und trägst sie per Tipp in den Kalender ein.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="stairs">
+        <figure class="step">
+          <div class="crop crop-spieler">
+            <img src="/img/app-spieler.webp" alt="Spieler*innen-Liste der App: du und weitere Spieler*innen mit Wert, letztem Spiel, Wertänderung und den Ergebnissen der letzten fünf Spiele" width="720" height="1616" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Spieler*innen-Liste</figcaption>
+        </figure>
+        <figure class="step step-2">
+          <div class="crop crop-verlauf">
+            <img src="/img/app-verlauf.webp" alt="Verlauf-Ansicht der App: aktueller Wert 7,512, minus 0,270 seit 2. Jänner, Diagramm der Saison mit fallender Kurve und die Karte Letztes Match" width="720" height="1616" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Verlauf</figcaption>
         </figure>
       </div>
 
       <div class="follow-facts">
         <div>
           <h3>Automatisch aktuell</h3>
-          <p>Kortform holt die Werte aller Gefolgten und Mannschaftsmitglieder regelmäßig im Hintergrund aus der öffentlichen ÖTV-Liste. Ein Tipp auf Aktualisieren holt sie sofort.</p>
+          <p>Kortform holt die Werte deiner Gefolgten und deinen eigenen morgens im Hintergrund aus der öffentlichen ÖTV-Liste. Ein Tipp auf Aktualisieren holt sie sofort.</p>
         </div>
         <div>
-          <h3>Mit ÖTV-Login mehr</h3>
-          <p>Letztes Spiel, Form und Matches aller Gefolgten und Mitglieder gibt es mit deinem ÖTV-Login. Ohne ihn siehst du Wert und Änderung.</p>
+          <h3>Deine Daten</h3>
+          <p>Ohne Kort-ID bleiben Verlauf, Matches, Gefolgte und Mannschaften auf deinem Gerät. Was mit Kort-ID auf dem Server liegt, steht in den <a href="/support/#daten-kort-id">häufigen Fragen</a>.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="wrap history" aria-labelledby="verlauf">
-      <div class="history-copy">
-        <h2 id="verlauf">Verlauf und Matches</h2>
-        <p>Dein Wert als Kurve, mit der Änderung im gewählten <span class="nowrap">Zeitraum&nbsp;<span class="ref" aria-hidden="true">1</span></span>. Mit ÖTV-Login kommen deine Matches <span class="nowrap">dazu&nbsp;<span class="ref" aria-hidden="true">2</span></span>, jeweils mit Wert vorher und <span class="nowrap">nachher&nbsp;<span class="ref" aria-hidden="true">3</span></span>.</p>
-      </div>
-
-      <div class="history-shots">
-        <figure class="hist">
-          <div class="crop crop-verlauf">
-            <img src="/img/app-verlauf.webp" alt="Verlauf-Ansicht der App: aktueller Wert 7,512, minus 0,270 seit 2. Jänner, Diagramm der Saison mit fallender Kurve und die Karte Letztes Match" width="720" height="1616" loading="lazy" decoding="async">
-            <span class="tag tv1" aria-hidden="true">1</span>
-            <span class="tag tv2" aria-hidden="true">2</span>
-          </div>
-        </figure>
-        <figure class="hist hist-matches">
-          <div class="crop crop-matches">
-            <img src="/img/app-matches.webp" alt="Matches-Ansicht der App: Liste der Spiele mit Ergebnis, Gegner*in, Wert vorher und nachher und Änderung je Spiel" width="720" height="1616" loading="lazy" decoding="async">
-            <span class="tag tv3" aria-hidden="true">3</span>
-          </div>
-        </figure>
       </div>
     </section>
 
@@ -227,7 +314,7 @@
       <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
       <a href="/support/">Support</a>
     </nav>
-    <p class="footer-store">Kortform fürs iPhone: <a href="https://apps.apple.com/at/app/kortform-tennis-wertung/id6826770040">jetzt im App Store laden</a>. Android folgt in Kürze.</p>
+    <p class="footer-store">Kortform fürs iPhone: <a href="https://apps.apple.com/at/app/id6826770040">jetzt im App Store laden</a>. Android folgt in Kürze.</p>
     <p>Kortform ist ein inoffizielles Angebot und steht in keiner Verbindung zum Österreichischen Tennisverband (ÖTV). Die Berechnung ist unverbindlich, maßgeblich ist die Liste des ÖTV. ITN ist eine Marke des jeweiligen Rechteinhabers.</p>
     <p>© 2026 swordi.studios, Wien</p>
   </footer>

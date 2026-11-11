@@ -33,7 +33,7 @@
 
 /* Hero */
 .hero { margin-top: 48px; display: grid; gap: 40px; }
-.hero h1 { font-size: clamp(72px, 20vw, 188px); line-height: 0.84; letter-spacing: -0.005em; }
+.hero h1 { font-size: clamp(56px, 14.5vw, 124px); line-height: 0.88; letter-spacing: -0.005em; }
 .lead { font-size: 19px; line-height: 1.5; max-width: 34em; margin: 32px 0 0; }
 /* Official App Store badge: unaltered, 48 px high (Apple minimum 40 px), clear space of a quarter of its height (12 px) around it. Its grey outline keeps it visible on the dark page. */
 .store { margin: 28px 0 0; padding: 12px 0; line-height: 0; }
@@ -87,6 +87,8 @@
   .step-2 { margin-top: 110px; }
   .follow-facts { grid-column: 1 / 13; margin-top: 16px; column-gap: 48px; }
 }
+
+.stairs-one { grid-template-columns: minmax(0, 300px); }
 
 /* Compact worked example on clay */
 .calc { margin-top: 96px; background-color: var(--clay); background-image: url("/img/court.svg"); background-repeat: no-repeat; background-size: 1300px auto; background-position: left -260px bottom -260px; color: var(--on-clay); padding: 48px 0 56px; }
