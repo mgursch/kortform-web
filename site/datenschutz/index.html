@@ -71,11 +71,11 @@
     <ul>
       <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften,
         Import von Mannschaften, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
-      <li>Werbung über Google AdMob, solange Kortform Plus nicht aktiv ist (Abschnitt 6)</li>
+      <li>Werbung über Google AdMob, solange weder Kortform Pro noch Kortform Team aktiv ist (Abschnitt 6)</li>
       <li>Absturzberichte über Firebase Crashlytics, in der veröffentlichten App immer aktiv (Abschnitt 7)</li>
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
-      <li>Abwicklung des Kaufs von Kortform Plus über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
+      <li>Abwicklung des Kaufs von Kortform Pro und Kortform Team über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
       <li>Push-Registrierung jeder Installation, auch ohne Kort-ID: Token für Push-Nachrichten, zufällige Installations-ID und weitere Angaben über Supabase und Firebase Cloud Messaging (Abschnitt 11)</li>
       <li>nur mit Kort-ID: Anmeldung und geteilte Ligen über Supabase, Versand des Anmelde-Codes über Resend, optional Anmeldung über Google oder Apple (Abschnitt 19)</li>
       <li>nur mit Kort-ID und Verfügbarkeitsabfrage: Abfrage und Antworten über Supabase (Abschnitt 20)</li>
@@ -112,7 +112,7 @@
         Mannschaften (Datum, Ergebnis, Änderung
         des Werts, Namen, Werte, Lizenznummern und ÖTV-Spieler-IDs der Gegner*innen und Partner*innen);</li>
       <li>deine Einstellungen (z. B. Benachrichtigungen, Einwilligung zu Nutzungsstatistiken, bei einem Profil ohne ÖTV-Verknüpfung die
-        Angabe „Ich bin 11 bis 16 Jahre alt“) und der Kaufstatus von Kortform Plus;</li>
+        Angabe „Ich bin 11 bis 16 Jahre alt“) und der Kaufstatus von Kortform Pro und Kortform Team;</li>
       <li>eine Datei für die Widgets (siehe unten).</li>
     </ul>
     <p>
@@ -249,7 +249,7 @@
     <h2>6. Werbung (Google AdMob) und Einwilligung</h2>
     <p>
       Kortform zeigt Werbung über Google AdMob (Google Ireland Limited bzw. Google LLC), solange
-      Kortform Plus nicht aktiv ist. Anzeigen sind mit „Anzeige“ gekennzeichnet. Mit Kortform Plus
+      weder Kortform Pro noch Kortform Team aktiv ist. Anzeigen sind mit „Anzeige“ gekennzeichnet. Mit Kortform Pro oder Kortform Team
       (Abschnitt 10) werden keine Anzeigen mehr angefragt.
     </p>
     <ul>
@@ -339,7 +339,7 @@
     <ul>
       <li><strong>Folgen und Mannschaften:</strong> wenn du jemandem folgst oder nicht mehr folgst (auch das Rückgängigmachen), allen
         Spieler*innen einer importierten Mannschaft auf einmal folgst, eine Mannschaft anlegst oder löschst. Dazu kommen, wo die Aktion
-        stattfand (z. B. Suche oder Mannschaftsdetail), ob Kortform Plus aktiv ist, ob das Folgen direkt nach dem Kauf von Plus geschah, wie vielen Personen du danach folgst bzw. wie viele
+        stattfand (z. B. Suche oder Mannschaftsdetail), welche Stufe aktiv ist (Gratis, Pro, Team oder Team-Testphase), ob das Folgen direkt nach dem Kauf von Pro geschah, wie vielen Personen du danach folgst bzw. wie viele
         Mitglieder die Mannschaft hat und ob sie von Hand angelegt oder aus der Liga importiert wurde.</li>
       <li><strong>Abgleich mit dem ÖTV-Login:</strong> Start und Ende eines Abgleichs (Art, ob du ihn gestartet hast oder der tägliche
         Hintergrundlauf, Ergebnis, Dauer je Abschnitt und wie viele Spielverläufe von Spieler*innen angefragt und geladen wurden).</li>
@@ -347,6 +347,9 @@
         Ergebnis (Erfolg, abgelehnte Zugangsdaten, Fehler oder nicht versucht) mit einem Code für den Schritt und die Art eines
         Fehlers, woher die Anmeldung kam (Formular, gespeicherter Login, Hintergrund), in welchem Bereich der App sie
         stattfand und wie lange sie dauerte. Nie E-Mail-Adresse, Passwort, Cookies oder Namen.</li>
+      <li><strong>Paywall:</strong> wenn dir eine Paywall für Pro oder Team gezeigt wird, welche es war und was sie ausgelöst hat
+        (z. B. das Limit beim Folgen), sowie das Ergebnis eines Kaufversuchs oder einer Wiederherstellung (Erfolg, abgebrochen,
+        fehlgeschlagen, nichts gefunden). Nie Preise, Kaufbelege oder Store-Texte.</li>
       <li><strong>App-Updates (nur Android):</strong> ob ein Update-Hinweis von Google Play angezeigt, angenommen oder abgelehnt und
         ob das Update installiert wurde, mit Art, Priorität und Versionsnummer des Updates.</li>
     </ul>
@@ -373,24 +376,33 @@
       <strong>Empfänger:</strong> Google LLC / Google Ireland Limited als Auftragsverarbeiter.
     </p>
 
-    <h2>10. Kortform Plus (Google Play / App Store, RevenueCat)</h2>
+    <h2>10. Kortform Pro und Team (Google Play / App Store, RevenueCat)</h2>
     <p>
-      Kortform Plus gibt es als monatliches Abo und als einmaligen Kauf (Lifetime); beides entfernt die Werbung, hebt die Grenzen beim Folgen und bei Mannschaften auf und schaltet den Liga-Import frei. Der Kauf wird auf Android vollständig über Google Play und auf
+      Kortform ist gratis nutzbar, mit Werbung und Grenzen beim Folgen, bei Mannschaften und Ligen. <strong>Kortform Pro</strong> ist ein einmaliger Kauf; er entfernt die Werbung,
+      erweitert die Grenzen beim Folgen und bei Mannschaften und schaltet den Mannschaftsimport per Link frei. <strong>Kortform Team</strong> ist ein Jahresabo
+      (mit einer Testphase von 7 Tagen für berechtigte Konten); es enthält Pro und schaltet zusätzlich Funktionen für die Liga frei
+      und braucht eine Kort-ID (Abschnitt 19). Der Kauf wird auf Android vollständig über Google Play und auf
       dem iPhone vollständig über den App Store von Apple abgewickelt. Zahlungsdaten (Kreditkarte etc.) verarbeiten
       ausschließlich Google bzw. Apple im Rahmen deines Kontos; wir erhalten und speichern <strong>keine Zahlungsdaten</strong>.
     </p>
     <p>
       Zur Prüfung und Verwaltung des Kaufs (Freischaltung, „Kauf wiederherstellen“, Geltung auf allen Geräten mit demselben
-      Store-Konto) nutzt die App den Dienst RevenueCat (RevenueCat, Inc., USA). <strong>Das gilt bei jedem App-Start für alle
+      Store-Konto bzw. derselben Kort-ID) nutzt die App den Dienst RevenueCat (RevenueCat, Inc., USA). <strong>Das gilt bei jedem App-Start für alle
       Nutzer*innen, auch ohne Kauf:</strong> Die App initialisiert RevenueCat und fragt dort den Kundenstatus und das Angebot
-      (Produkt und Preis) ab. RevenueCat verarbeitet dabei eine von RevenueCat vergebene pseudonyme Nutzer-Kennung, bei einem
-      Kauf oder einer Wiederherstellung zusätzlich den Kaufbeleg des Stores, bei einem Abo auch dessen Status (Verlängerungs- bzw. Ablaufdatum, Kündigung, Zahlungsprobleme), außerdem Angaben zu Gerät, App-Version und
-      Betriebssystem sowie die IP-Adresse. Wir verknüpfen die Kennung nicht mit deinem Namen, deinem Profil oder deinen ÖTV-Daten.
-      Lokal speichert die App nur, ob Kortform Plus freigeschaltet ist.
+      (Produkte und Preise) ab. RevenueCat verarbeitet dabei eine Nutzer-Kennung, bei einem
+      Kauf oder einer Wiederherstellung zusätzlich den Kaufbeleg des Stores, bei einem Abo auch dessen Status (Verlängerungs- bzw. Ablaufdatum, Kündigung, Zahlungsprobleme, Testphase), außerdem Angaben zu Gerät, App-Version und
+      Betriebssystem sowie die IP-Adresse. Ohne Kort-ID ist die Kennung eine von RevenueCat vergebene pseudonyme Kennung. Meldest du dich mit
+      einer Kort-ID an, verwendet die App stattdessen die Nutzerkennung deiner Kort-ID (eine zufällige Kennung, ohne E-Mail-Adresse), damit Pro und Team auf allen Geräten
+      gelten, auf denen du angemeldet bist; nach dem Abmelden gilt wieder eine anonyme Kennung. Wir verknüpfen die Kennung nicht mit deinem Namen, deinem Profil oder deinen ÖTV-Daten.
+      Lokal speichert die App nur, ob Pro bzw. Team freigeschaltet ist.
+    </p>
+    <p>
+      <strong>Team-Abo und Kort-ID löschen:</strong> Das Abo gehört zu deinem Store-Konto. Das Löschen der Kort-ID (Abschnitt 19) beendet oder erstattet es nicht,
+      und wir können es nicht kündigen; kündige es vorher im Store. Die App weist beim Löschen darauf hin.
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Für den Kauf und die Wiederherstellung Art. 6 Abs. 1 lit. b DSGVO (Erfüllung des
-      Kaufvertrags über die Zusatzfunktion). Für die Abfrage bei jedem App-Start, auch ohne Kauf, Art. 6 Abs. 1 lit. f DSGVO
+      Kaufvertrags über die Zusatzfunktionen). Für die Abfrage bei jedem App-Start, auch ohne Kauf, Art. 6 Abs. 1 lit. f DSGVO
       (berechtigtes Interesse, den Kaufstatus zu prüfen, das Angebot mit aktuellem Preis anzuzeigen und gekaufte Funktionen
       zuverlässig freizuschalten).<br>
       <strong>Empfänger:</strong> Google Ireland Limited / Google LLC bzw. Apple Distribution International Ltd. / Apple Inc. als
@@ -635,7 +647,7 @@
         nach der in Abschnitt 8 genannten Frist. Nach einem Widerruf der Einwilligung erfasst Analytics nichts mehr; nach
         einer Neuinstallation vergibt Firebase neue Kennungen, neue Daten werden also nicht mit alten verbunden.</li>
       <li><strong>RevenueCat und Käufe:</strong> die RevenueCat-App-User-ID (eine von RevenueCat zufällig vergebene, pseudonyme Kennung) oder die
-        Bestellnummer bzw. Transaktions-ID deines Kaufs von Kortform Plus aus Google Play oder dem App Store samt Kaufdatum.
+        Bestellnummer bzw. Transaktions-ID deines Kaufs von Kortform Pro oder Kortform Team aus Google Play oder dem App Store samt Kaufdatum.
         Damit können wir den Kundendatensatz bei RevenueCat suchen und dessen Löschung veranlassen, soweit dies technisch und
         rechtlich möglich ist. Nach einer Löschung legt RevenueCat beim nächsten Start der App oder bei einer Wiederherstellung
         wieder einen Datensatz an, solange die App installiert ist. Der Kauf selbst und die dazugehörigen Zahlungs- und Kontodaten liegen bei Google bzw. Apple; dort gelten
