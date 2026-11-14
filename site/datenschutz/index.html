@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 11. November 2026</p>
+    <p class="updated">Stand: 14. November 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -63,7 +63,9 @@
       denen du folgst, deine Mannschaften und deine Einstellungen werden nur auf deinem Gerät gespeichert. Du brauchst
       <strong>kein Nutzerkonto bei uns</strong>. Nur wenn du freiwillig eine <strong>Kort-ID</strong> anlegst, um eine Liga mit
       weiteren Mannschaftsführenden zu teilen, speichern wir dafür Daten auf einem Server (Abschnitt 19). Ohne Kort-ID
-      landen, abgesehen von der Push-Registrierung jeder Installation (Abschnitt 11), keine Daten aus der App auf einem Server von uns. Öffnest du einen Einladungslink auf <code>liga.kortform.at</code>,
+      landen nur zwei Dinge aus der App auf einem Server von uns: die Push-Registrierung jeder Installation (Abschnitt 11) und,
+      wenn deine Mannschaft die Verfügbarkeit über Kortform abstimmt, die Suche nach deinen Mannschaften und deine Antworten
+      (Abschnitt 20). Öffnest du einen Einladungslink auf <code>liga.kortform.at</code>,
       wird der Einladungscode im Link zusammen mit deiner IP-Adresse an Supabase übermittelt, um die Einladung anzuzeigen
       (Abschnitt 19).
     </p>
@@ -76,15 +78,17 @@
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
       <li>Abwicklung des Kaufs von Kortform Pro und Kortform Team über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
-      <li>Push-Registrierung jeder Installation, auch ohne Kort-ID: Token für Push-Nachrichten, zufällige Installations-ID und weitere Angaben über Supabase und Firebase Cloud Messaging (Abschnitt 11)</li>
+      <li>Push-Registrierung jeder Installation, auch ohne Kort-ID: Token für Push-Nachrichten, zufällige Installations-ID und weitere Angaben über Supabase und Firebase Cloud Messaging;
+        darüber kommt die Erinnerung der Mannschaftsführung an offene Verfügbarkeiten (Abschnitt 11)</li>
       <li>nur mit Kort-ID: Anmeldung und geteilte Ligen über Supabase, Versand des Anmelde-Codes über Resend, optional Anmeldung über Google oder Apple (Abschnitt 19)</li>
-      <li>nur mit Kort-ID und Verfügbarkeitsabfrage: Abfrage und Antworten über Supabase (Abschnitt 20)</li>
+      <li>Verfügbarkeit je Saison: Die Mannschaftsführung (mit Kort-ID) legt Spielplan und Mannschaftsliste über Supabase ab; Spieler*innen antworten
+        ohne Konto in der App oder im Browser, und die App sucht mit deiner Lizenznummer nach deinen Mannschaften (Abschnitt 20)</li>
     </ul>
     <p>
       Kortform fragt keine Standortberechtigung ab und greift weder auf GPS noch auf den genauen Standort deines Geräts zu.
       Google AdMob (Abschnitt 6) und Firebase Analytics (Abschnitt 8, nur mit deiner Einwilligung) leiten aus der IP-Adresse
-      jedoch einen ungefähren Standort (Land bzw. Region) ab. Kortform verschickt derzeit keine Push-Benachrichtigungen von unserem
-      Server, bereitet sie aber vor (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
+      jedoch einen ungefähren Standort (Land bzw. Region) ab. Von unserem Server verschickt Kortform derzeit nur eine
+      Push-Benachrichtigung: die Erinnerung, die eine Mannschaftsführung an Spieler*innen mit offener Verfügbarkeit auslöst (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
     </p>
     <div class="notice">
       <p>
@@ -96,7 +100,7 @@
 
     <h2>3. Daten auf deinem Gerät</h2>
     <p>
-      Folgende Daten speichert die App ausschließlich lokal auf deinem Gerät:
+      Folgende Daten speichert die App lokal auf deinem Gerät, mit Ausnahme der Verfügbarkeit (letzter Punkt vor den Widgets) ausschließlich dort:
     </p>
     <ul>
       <li>das von dir gewählte Profil: Name, Lizenznummer, Verein, Landesverband, ITN und, soweit beim ÖTV vorhanden,
@@ -113,6 +117,9 @@
         des Werts, Namen, Werte, Lizenznummern und ÖTV-Spieler-IDs der Gegner*innen und Partner*innen);</li>
       <li>deine Einstellungen (z. B. Benachrichtigungen, Einwilligung zu Nutzungsstatistiken, bei einem Profil ohne ÖTV-Verknüpfung die
         Angabe „Ich bin 11 bis 16 Jahre alt“) und der Kaufstatus von Kortform Pro und Kortform Team;</li>
+      <li>die Verfügbarkeits-Saisons deiner Mannschaften (Abschnitt 20) als Kopie zum Lesen ohne Verbindung: Mannschaft, Spieltage mit Adressen,
+        Namen der Mannschaftsliste, die Antworten der Mannschaft, deine eigenen Antworten mit Kommentar und Verlauf sowie ein Vermerk,
+        welche Spieltage du an deinen Kalender übergeben hast (diese Daten liegen, bis auf den Kalender-Vermerk, zugleich auf unserem Server, siehe Abschnitt 20);</li>
       <li>eine Datei für die Widgets (siehe unten).</li>
     </ul>
     <p>
@@ -128,7 +135,9 @@
     <p>
       Namen und weitere Angaben zu Spieler*innen stammen aus der öffentlichen ÖTV-Liste, den ÖTV-Spieldaten bzw. den
       Ligadaten des ÖTV und der Landesverbände. Diese Daten gehen nicht an uns; ohne Kort-ID gibt es keinen Kortform-Server, an den
-      sie übertragen würden. Einzige Ausnahme ist der Personenschlüssel der Push-Registrierung (deine Lizenznummer bzw. ÖTV-Spieler-ID, Abschnitt 11). Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
+      sie übertragen würden. Ausnahmen: dein eigener Personenschlüssel (deine Lizenznummer bzw. ÖTV-Spieler-ID) für die Push-Registrierung
+      (Abschnitt 11) und für die Suche nach deinen Mannschaften (Abschnitt 20) sowie, bei Mannschaftsführenden mit Kort-ID, die Namen
+      und Personenschlüssel der eigenen Mannschaftsliste für die Verfügbarkeit (Abschnitt 20). Wenn du deinen Verlauf als CSV-Datei exportierst, übergibt die App die Datei an das
       System-Teilen-Menü; wohin du sie sendest, entscheidest du.
     </p>
     <p>
@@ -417,16 +426,29 @@
       Systemeinstellungen ausschalten. Unter Android zeigt die App außerdem während des Abgleichs mit deinem ÖTV-Login (Abschnitt 5)
       eine laufende Fortschrittsanzeige („Daten werden abgeglichen“) in der Benachrichtigungsleiste; sie verschwindet, sobald der
       Abgleich beendet ist, und entsteht ebenfalls nur auf deinem Gerät.
+      Steht deine Mannschaft in einer Verfügbarkeits-Saison (Abschnitt 20), plant die App außerdem 14 Tage vor jedem Spieltag eine lokale
+      Erinnerung („Nächstes Match in … Tagen“). Dafür fragt sie nicht eigens nach der Erlaubnis; die Erinnerung erscheint nur, wenn du
+      Benachrichtigungen erlaubt hast, und hat keinen eigenen Schalter in der App (ausschalten über die Systemeinstellungen).
       Auf dem iPhone zeigt das System ab iOS 26 während des Abgleichs eine Fortschrittsanzeige („Spiele werden geladen“). Endet der Abgleich,
       während Kortform im Hintergrund ist, meldet eine lokale Benachrichtigung das Ergebnis, sofern du Benachrichtigungen erlaubt hast.
       Auch diese entstehen nur auf deinem Gerät.
     </p>
     <p>
-      <strong>Push-Registrierung (jede Installation, auch ohne Kort-ID):</strong> Damit wir dir künftig Push-Nachrichten schicken können
-      (etwa Hinweise auf App-Updates und Mitteilungen im Zusammenhang mit geteilten Ligen), meldet jede Installation von Kortform ihre
+      <strong>Push-Registrierung (jede Installation, auch ohne Kort-ID):</strong> Damit wir dir Push-Nachrichten schicken können
+      (die Erinnerung an offene Verfügbarkeiten, künftig etwa Hinweise auf App-Updates und weitere Mitteilungen deiner Mannschaft), meldet jede Installation von Kortform ihre
       Adresse für Push-Nachrichten im Hintergrund bei uns an. Das geschieht ohne Rückfrage, auch wenn du keine Kort-ID hast und
       auch ohne Einwilligung zu Nutzungsstatistiken; die Erlaubnis-Abfrage des Systems für Benachrichtigungen löst es nicht aus.
-      <strong>Wir verschicken derzeit keine Push-Nachrichten, und die App zeigt noch keine an.</strong>
+    </p>
+    <p>
+      <strong>Welche Push-Nachrichten wir verschicken:</strong> Derzeit nur eine, die <strong>Erinnerung an offene Verfügbarkeiten</strong>.
+      Sie entsteht nicht automatisch: Eine Mannschaftsführung tippt in der Verfügbarkeit eines Spieltags auf „Offene erinnern“ (Abschnitt 20).
+      Unser Server sucht dann die Personen der Mannschaftsliste, die für diesen Spieltag noch nicht geantwortet haben, und schickt die
+      Nachricht an die Installationen, die mit dem Personenschlüssel dieser Personen registriert sind (höchstens 10 Installationen je Person).
+      Die Nachricht enthält nur die Mannschaft, den Gegner und den Tag des Spiels („Verfügbarkeit offen“), keine Namen von Personen und keinen Link.
+      Der Personenschlüssel einer Registrierung ist nicht geprüft; wer sich mit einer fremden Lizenznummer registriert, könnte diese Erinnerung
+      mitbekommen, deshalb steht nichts Persönliches darin. Je Spieltag ist eine Erinnerung in 12 Stunden möglich, je Liga höchstens 10 am Tag.
+      Die App zeigt die Erinnerung auch an, während sie geöffnet ist; ein Tipp öffnet dein Profil mit der Karte zur Verfügbarkeit.
+      Bekommen kannst du sie nur, wenn du Kortform mit einem Profil nutzt und Benachrichtigungen erlaubt hast.
     </p>
     <p><strong>Welche Daten wir speichern:</strong></p>
     <ul>
@@ -435,7 +457,8 @@
       <li>eine zufällige Installations-ID sowie ein zufälliges Geheimnis, das nur dein Gerät kennt; wir speichern vom Geheimnis nur
         einen Prüfwert (Hash), mit dem Aktualisierung und Löschung der Registrierung geschützt sind;</li>
       <li>deinen Personenschlüssel, wenn du ein Profil verknüpft hast oder eingerichtet hast: deine ÖTV-Lizenznummer, ersatzweise die
-        ÖTV-Spieler-ID (mit dem Zusatz „nu:“); ohne Profil wird nichts gespeichert;</li>
+        ÖTV-Spieler-ID (mit dem Zusatz „nu:“); ohne Profil wird nichts gespeichert. Über ihn finden wir die Installationen für die
+        Erinnerung an offene Verfügbarkeiten;</li>
       <li>wenn du mit einer Kort-ID angemeldet bist (Abschnitt 19), zusätzlich deren Nutzerkennung; nach dem Abmelden wird sie gelöst;</li>
       <li>Zeitpunkte: Anlage und letzte Meldung der Installation;</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
@@ -445,7 +468,20 @@
       sich etwas geändert hat (Token, Profil, Kort-ID-Anmeldung, App-Version, Sprache) und bei Nutzung spätestens nach 7 Tagen erneut. Zusätzlich abonniert die App
       bei Firebase Cloud Messaging das Thema „app_updates“, über das wir allen Installationen Hinweise auf App-Updates
       schicken können. Eine Kort-ID oder Person kann mehrere Installationen haben (etwa Handy und Tablet). Wir können die
-      Push-Registrierung und das Abonnement für alle über Firebase Remote Config abschalten (Abschnitt 9).
+      Push-Registrierung und das Abonnement für alle über Firebase Remote Config abschalten (Abschnitt 9); bestehende Registrierungen
+      löscht dieser Schalter nicht, sie können bis zu ihrem Verfall weiter Erinnerungen bekommen. Installations-ID und Geheimnis dienen
+      außerdem als Ausweis, wenn die App nach deinen Mannschaften sucht (Abschnitt 20).
+    </p>
+    <p>
+      <strong>Erinnerungen der Mannschaftsführung:</strong> Zu jeder gesendeten Erinnerung speichern wir je Spieltag, wann zuletzt erinnert
+      wurde, von welcher Kort-ID, an wie viele Installationen und wie oft, außerdem einen Tageszähler je Liga. Damit setzen wir die oben
+      genannten Grenzen durch. Diese Angaben werden mit der Verfügbarkeits-Saison gelöscht (Abschnitt 20), der Tageszähler nach wenigen Tagen.
+      Für den Versand übergeben wir Firebase Cloud Messaging den Token und den Text der Nachricht.
+    </p>
+    <p>
+      <strong>Benachrichtigungen ausschalten:</strong> Push-Nachrichten und die lokale Erinnerung an die Verfügbarkeit schaltest du aus, indem du
+      Kortform in den Systemeinstellungen deines Geräts die Benachrichtigungen entziehst; dann wird nichts angezeigt. Die Registrierung
+      selbst lässt sich in der App nicht abschalten (siehe „Löschen und Widerspruch“).
     </p>
     <p>
       <strong>Dienstleister:</strong> Die Registrierung speichert Supabase (Supabase, Inc.) in der Region Frankfurt (EU), wie bei der
@@ -454,8 +490,8 @@
       Daten nach den eigenen Datenschutzbestimmungen.
     </p>
     <p>
-      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, dich künftig über App-Updates und Ereignisse in
-      geteilten Ligen zu erreichen, ohne dass dafür ein Konto nötig ist). Die Registrierung hängt nicht von der Einwilligung zu Nutzungsstatistiken
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, dich über Ereignisse in deiner Mannschaft,
+      derzeit offene Verfügbarkeiten, und künftig über App-Updates zu erreichen, ohne dass dafür ein Konto nötig ist). Die Registrierung hängt nicht von der Einwilligung zu Nutzungsstatistiken
       (Abschnitt 8) ab.<br>
       <strong>Speicherdauer:</strong> bis zur Löschung (siehe unten), spätestens 180 Tage nach der letzten Meldung der Installation; die App meldet sich bei Nutzung mindestens alle 7 Tage.<br>
       <strong>Empfänger:</strong> Supabase, Inc. und Google LLC / Google Ireland Limited als Auftragsverarbeiter; auf dem iPhone außerdem Apple.
@@ -465,7 +501,8 @@
       (ohne Internetverbindung nur auf dem Gerät, die Serverzeile verfällt dann nach 180 Tagen). Danach legt die App,
       solange sie installiert ist, mit einer neuen, anonymen Installations-ID eine neue Registrierung an. Löschst du deine Kort-ID (Abschnitt 19), entfernen wir die
       Registrierungen deiner Kort-ID auf dem Server; Abmelden löst nur die Verknüpfung mit der Kort-ID. Deinstallierst du die App, meldet sie sich nicht
-      mehr, und die Registrierung verfällt nach 180 Tagen. Ohne Installations-ID können wir eine Registrierung nicht ohne Weiteres dir zuordnen (Art. 11 DSGVO);
+      mehr, und die Registrierung verfällt nach 180 Tagen. Meldet Firebase Cloud Messaging beim Versand einer Erinnerung, dass ein Token
+      nicht mehr gültig ist, löschen wir die Registrierung mit diesem Token sofort. Ohne Installations-ID können wir eine Registrierung nicht ohne Weiteres dir zuordnen (Art. 11 DSGVO);
       wenn du uns schreibst und, soweit vorhanden, deine Lizenznummer nennst (Abschnitt 18), löschen wir die Registrierungen mit diesem Personenschlüssel.
       Du kannst der Verarbeitung nach Art. 21 DSGVO widersprechen (Kontakt in Abschnitt 22).
     </p>
@@ -544,10 +581,12 @@
           <tr><td>RevenueCat (Kaufverwaltung)</td><td>RevenueCat, Inc.</td><td>USA (Garantien nach Angaben von RevenueCat, siehe dessen Datenschutzhinweise)</td></tr>
           <tr><td>Android Auto-Backup</td><td>Google LLC</td><td>gemäß Google-Kontoeinstellungen</td></tr>
           <tr><td>iCloud-Backup</td><td>Apple Inc.</td><td>gemäß deinen iCloud-Einstellungen</td></tr>
-          <tr><td>Push-Registrierung: Datenbank (jede Installation)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
-          <tr><td>Push-Registrierung: Firebase Cloud Messaging (jede Installation)</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
+          <tr><td>Push-Registrierung und Versand der Erinnerung: Datenbank und Serverfunktion (jede Installation)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Push-Registrierung und Zustellung der Erinnerung: Firebase Cloud Messaging (jede Installation)</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
           <tr><td>Push-Dienst von Apple (iPhone)</td><td>Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß den Bedingungen von Apple</td></tr>
-          <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion, Verfügbarkeitsabfrage (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Verfügbarkeit je Saison: Datenbank (Saison durch die Mannschaftsführung mit Kort-ID; Antworten und Suche auch ohne Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Antwortseite der Verfügbarkeit und Einladungsseite (<code>liga.kortform.at</code>)</td><td>GitHub, Inc. / Microsoft</td><td>USA und weltweit (Garantien nach Angaben von GitHub)</td></tr>
           <tr><td>Kort-ID: Versand des Anmelde-Codes per E-Mail (nur mit Kort-ID)</td><td>Resend, Inc.</td><td>EU-Region; soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Resend</td></tr>
           <tr><td>Kort-ID: Anmeldung mit Google oder Apple (optional)</td><td>Google Ireland Ltd. / Google LLC bzw. Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß deren Datenschutzbestimmungen</td></tr>
           <tr><td>Website-Hosting (GitHub Pages)</td><td>GitHub, Inc. / Microsoft</td><td>USA und weltweit (Garantien nach Angaben von GitHub)</td></tr>
@@ -583,7 +622,7 @@
         Behandlung für Kinder gekennzeichnet, also ohne personalisierte Werbung und ohne Werbe-ID (Abschnitt 6).</li>
       <li><strong>Nutzungsstatistiken:</strong> Firebase Analytics bleibt aus und lässt sich nicht einschalten (Abschnitt 8).</li>
       <li><strong>Unverändert:</strong> Crashlytics (Abschnitt 7), Remote Config (Abschnitt 9), die Abfrage bei RevenueCat (Abschnitt 10),
-        die Push-Registrierung (Abschnitt 11) und die Abfragen beim ÖTV (Abschnitte 4 und 5), da sie nicht auf einer Einwilligung beruhen.</li>
+        die Push-Registrierung (Abschnitt 11), die Verfügbarkeit (Abschnitt 20) und die Abfragen beim ÖTV (Abschnitte 4 und 5), da sie nicht auf einer Einwilligung beruhen.</li>
     </ul>
     <p>
       Die freiwillige Funktion, den ÖTV-Login zu speichern (Abschnitt 5), sollten Personen unter 14 Jahren nur mit Zustimmung der
@@ -604,7 +643,7 @@
         Datenschutzbehörde: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a></li>
     </ul>
     <p>
-      Da die App-Daten (außer denen deiner Kort-ID, Abschnitt 19, und der Push-Registrierung, Abschnitt 11) nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
+      Da die App-Daten (außer denen deiner Kort-ID, Abschnitt 19, der Push-Registrierung, Abschnitt 11, und der Verfügbarkeit, Abschnitt 20) nur auf deinem Gerät liegen, kannst du die meisten dieser Rechte direkt in
       der App ausüben (Daten ansehen, ändern, löschen, Einwilligungen widerrufen). Für Daten bei den genannten Diensten (Google, RevenueCat, Apple)
       siehe <a href="/datenschutz/#loeschen">Abschnitt 18</a>; du kannst dich auch direkt an den jeweiligen Anbieter wenden.
     </p>
@@ -622,7 +661,9 @@
       ÖTV-Login samt Sitzung. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
       Geräte-Backups siehe Abschnitt 12). Bist du mit einer Kort-ID angemeldet, löscht „Alle Daten löschen“ zuerst
       deine Kort-ID auf unserem Server (Abschnitt 19) und danach die Daten auf dem Gerät. Das geht nur mit Internetverbindung;
-      ohne Verbindung wird nichts gelöscht. Ohne Kort-ID wirkt die Funktion auf deinem Gerät und löscht zusätzlich die Push-Registrierung auf unserem Server (Abschnitt 11). Daten, die bereits bei Diensten
+      ohne Verbindung wird nichts gelöscht. Ohne Kort-ID wirkt die Funktion auf deinem Gerät und löscht zusätzlich die Push-Registrierung auf unserem Server (Abschnitt 11).
+      Die auf dem Gerät gespeicherten Verfügbarkeits-Saisons und geplante Erinnerungen werden dabei entfernt; deine Antworten zur Verfügbarkeit
+      auf unserem Server bleiben bestehen, weil sie zur Saison deiner Mannschaft gehören (Abschnitt 20). Daten, die bereits bei Diensten
       außerhalb der App liegen, löscht sie nicht.
     </p>
     <p>
@@ -658,6 +699,8 @@
       <li><strong>Push-Registrierung:</strong> Details zu Löschung und Widerspruch stehen in Abschnitt 11. Nenne uns für eine Löschung per E-Mail deine
         ÖTV-Lizenznummer (bzw. die ÖTV-Spieler-ID, wenn du keine Lizenznummer hast), falls du ein Profil verknüpft hattest; ohne Profil können wir eine Registrierung nicht
         zuordnen, sie verfällt nach spätestens 180 Tagen.</li>
+      <li><strong>Verfügbarkeit:</strong> Antworten gibst du ohne Konto ab. Nenne uns die Mannschaft (oder den Link), deinen Namen und,
+        soweit vorhanden, deine ÖTV-Lizenznummer; Einzelheiten zu Speicherdauer und Löschung stehen in Abschnitt 20.</li>
       <li><strong>GoatCounter (Website):</strong> Es werden nur zusammengefasste Zahlen ohne Bezug zu einzelnen Personen gespeichert;
         eine Zuordnung zu dir ist daher nicht möglich (Art. 11 DSGVO).</li>
     </ul>
@@ -677,8 +720,8 @@
 
     <h2 id="kort-id">19. Kort-ID und geteilte Ligen (optional)</h2>
     <p>
-      Die Kort-ID ist freiwillig und nur nötig, wenn du eine Liga gemeinsam mit weiteren Mannschaftsführenden planen
-      möchtest. Ohne Kort-ID nutzt du Kortform wie bisher ausschließlich lokal. Dieser Abschnitt gilt nur, wenn du eine
+      Die Kort-ID ist freiwillig und nur nötig, wenn du als Mannschaftsführer*in eine Liga in Kortform führen, also importieren und allein oder gemeinsam mit weiteren Mannschaftsführenden planen
+      möchtest. Ohne Kort-ID nutzt du Kortform wie bisher lokal (zu Push-Registrierung und Verfügbarkeit siehe Abschnitte 11 und 20). Dieser Abschnitt gilt nur, wenn du eine
       Kort-ID anlegst oder dich damit anmeldest.
     </p>
     <p><strong>Zweck:</strong> Mehrere Mannschaftsführende sehen und planen dieselbe Liga (gleiche Rechte, kein Besitzer). Dafür
@@ -695,22 +738,26 @@
         der Kort-ID bei Apple widerrufen zu können;</li>
       <li>deinen Anzeigenamen (vorbelegt aus deinem ÖTV-Profil, du kannst ihn ändern);</li>
       <li>dein verknüpftes ÖTV-Profil: Lizenznummer, Name und Verein;</li>
-      <li>die Daten der geteilten Ligen: Gruppe der Liga, deine Mannschaft, das Format, die Aufstellungen je Begegnung samt
+      <li>die Daten der geteilten Ligen: Gruppe der Liga, deine Mannschaft, ein optionaler Kurzname der Mannschaft (Alias), das Format,
+        die von der Mannschaftsführung eingegebenen Adressen (Heimanlage, Adresse je Spieltag), die Aufstellungen je Begegnung samt
         Schaltern und Gegner*innen sowie manuell nachnominierte Spieler*innen (Name und die dafür nötigen Angaben);</li>
+      <li>zu jeder Liga die Verfügbarkeits-Saison: Spielplan und Mannschaftsliste deiner Mannschaft samt Antworten (Abschnitt 20);</li>
       <li>Zeitpunkte: Beitritt zur Liga und letzte Aktivität; Einladungen (der Einladungslink wird nur als Prüfwert
         gespeichert und ist 7 Tage gültig und nur einmal verwendbar);</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
     </ul>
     <p>
-      <strong>Nicht gespeichert werden</strong> deine Matches, dein ITN-Verlauf, dein Profil, die Tabelle, der Spielplan und
-      die Kader der Liga (die lädt jedes Gerät selbst) und nie deine ÖTV-Zugangsdaten.
+      <strong>Nicht gespeichert werden</strong> deine Matches, dein ITN-Verlauf, dein Profil, die Tabelle und
+      die Kader der anderen Mannschaften der Liga (die lädt jedes Gerät selbst) und nie deine ÖTV-Zugangsdaten. Vom Spielplan und
+      vom Kader deiner eigenen Mannschaft liegt nur das auf dem Server, was die Verfügbarkeit braucht (Abschnitt 20: Spieltage,
+      Namen und Personenschlüssel, kein ITN).
     </p>
     <p>
       <strong>Wer sieht was:</strong> Die anderen Mannschaftsführenden einer geteilten Liga sehen deinen Anzeigenamen (bei Anmeldung mit Google
       auch dein Profilbild), seit wann
       du dabei bist, wann du zuletzt aktiv warst und die geteilten Inhalte der Liga. Sie sehen außerdem, wer die Liga importiert hat und wer Aufstellungen, Einstellungen und
       nachnominierte Spieler*innen zuletzt gespeichert hat. Wer einen Einladungslink hat, sieht ohne Anmeldung den Anzeigenamen
-      der einladenden Person, die Mannschaft und die Liga. Deine E-Mail-Adresse sieht niemand sonst.
+      der einladenden Person, die Mannschaft (samt Alias) und die Liga. Deine E-Mail-Adresse sieht niemand sonst.
     </p>
     <p>
       <strong>Profilbild:</strong> Hast du dich mit Google angemeldet, speichern wir den Link, den Google zu deinem Profilbild
@@ -747,17 +794,17 @@
       Einladung bitten können);
       für technische Protokolldaten Art. 6 Abs. 1 lit. f DSGVO (Sicherheit und Stabilität des Dienstes).<br>
       <strong>Speicherdauer:</strong> bis du deine Kort-ID löschst. Eine geteilte Liga wird gelöscht, sobald keine
-      Mannschaftsführung mehr dabei ist. Codes sind 10 Minuten gültig, Einladungen 7 Tage.
+      Mannschaftsführung mehr dabei ist, und mit ihr die Verfügbarkeits-Saison samt Antworten (Abschnitt 20). Codes sind 10 Minuten gültig, Einladungen 7 Tage.
     </p>
     <p>
       <strong>Löschen:</strong> In der App unter Profil → Kort-ID → „Kort-ID löschen“ oder auf
       <a href="/kort-id/loeschen/">kortform.at/kort-id/loeschen/</a> mit E-Mail-Adresse und Code. Dabei werden deine Kort-ID
       mit E-Mail-Adresse, Anmeldedaten und Anzeigename sowie deine Mitgliedschaften auf unserem Server sofort gelöscht, und
-      Ligen ohne weitere Mannschaftsführung werden gelöscht; auch die Push-Registrierungen deiner Kort-ID (Abschnitt 11) werden entfernt. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung
+      Ligen ohne weitere Mannschaftsführung werden samt ihrer Verfügbarkeits-Saison und allen Antworten (Abschnitt 20) gelöscht; auch die Push-Registrierungen deiner Kort-ID (Abschnitt 11) werden entfernt. Bei einer Anmeldung mit Apple wird zusätzlich die Apple-Anmeldung
       widerrufen. Technische Protokolle des Dienstleisters (z. B. Zeitpunkt, Ereignis und IP-Adresse von Anmeldungen) und
       Sicherungskopien können nach dessen Vorgaben noch für begrenzte Zeit bestehen. Matches, ITN und dein
       Profil auf deinen Geräten bleiben. Du kannst dich auch nur abmelden, ohne die Kort-ID zu löschen; dabei werden
-      Ligen, in denen du allein bist, auf dem Server gelöscht (die Mannschaft wird wieder frei), geteilte Ligen bleiben für die
+      Ligen, in denen du allein bist, auf dem Server gelöscht (die Mannschaft wird wieder frei, ihre Verfügbarkeits-Saison und die Antworten werden mitgelöscht), geteilte Ligen bleiben für die
       anderen bestehen, und alle Ligen werden von diesem Gerät entfernt. Nach der erneuten Anmeldung erscheinen die geteilten Ligen wieder.
     </p>
     <p>
@@ -765,61 +812,118 @@
       aus Abschnitt 17 für diese Daten auch bei uns geltend machen (<a href="mailto:swordistudios@gmail.com">swordistudios@gmail.com</a>).
     </p>
 
-        <h2 id="verfuegbarkeit">20. Verfügbarkeitsabfrage (optional)</h2>
+    <h2 id="verfuegbarkeit">20. Verfügbarkeit je Saison</h2>
     <p>
-      Mannschaftsführende, die mit einer Kort-ID angemeldet sind (Abschnitt 19), können für eine geteilte Liga eine
-      Verfügbarkeitsabfrage starten und den Link an ihre Mannschaft schicken. Die Antworten gibst du ohne Konto ab.
-      Ohne Abfrage werden keine der unten genannten Daten gespeichert.
+      Mit der Verfügbarkeit stimmt eine Mannschaft ab, wer an welchem Spieltag spielen kann. Für jede Liga, die eine mit
+      Kort-ID angemeldete Mannschaftsführung in Kortform führt (Abschnitt 19), legt die App dazu automatisch eine
+      Verfügbarkeits-Saison auf unserem Server an und hält sie aktuell; die Mannschaftsführung muss nichts starten. Die
+      Spieler*innen antworten <strong>ohne Konto</strong>, in der App oder im Browser über den Link der Mannschaft. Die frühere
+      „Verfügbarkeitsabfrage“, die eine Mannschaftsführung von Hand gestartet hat, gibt es nicht mehr; ihre Daten werden mit der Umstellung vom Server gelöscht.
     </p>
     <p><strong>Zweck:</strong> Die Mannschaftsführung erfährt, wer an welchem Spieltag kann, und kann die Aufstellung
-      danach planen.</p>
+      danach planen. Die Spieler*innen sehen ihre Spieltage und tragen ihre Verfügbarkeit ein.</p>
     <p><strong>Welche Daten wir speichern:</strong></p>
     <ul>
-      <li><strong>Daten der Abfrage</strong> (von der Mannschaftsführung): Name der Mannschaft, die Begegnungen
-        (Datum, Gegner, die von der Mannschaftsführung eingegebene Adresse) und die Mannschaftsliste mit Vor- und Nachname,
-        ÖTV-Spielernummer bzw. Schlüssel und ITN-Wert der Spieler*innen. Das ist eine Momentaufnahme zum Zeitpunkt des Starts;
-        sie enthält Namen und Werte von Personen, die selbst nichts eingegeben haben und deren Werte beim ÖTV öffentlich
-        einsehbar sind;</li>
-      <li><strong>Antworten</strong> (von dir): Ja, Nein oder Vielleicht je Begegnung, ein optionaler Kommentar (höchstens
-        60 Zeichen), die gewählte Person aus der Mannschaftsliste oder ein selbst eingegebener Vor- und Nachname, sowie ob
-        du über die App oder die Webseite geantwortet hast;</li>
+      <li><strong>Saison</strong> (von der App der Mannschaftsführung): Name der Mannschaft, ein optionaler Kurzname (Alias), Verein,
+        Saison, Gruppe und Format der Liga sowie eine zufällige öffentliche Kennung, aus der der Link entsteht;</li>
+      <li><strong>Spielplan:</strong> die Spieltage der Mannschaft mit Datum und Uhrzeit, Runde, Heim oder Auswärts, Gegner und der
+        von der Mannschaftsführung eingegebenen Adresse; abgesagte Spieltage bleiben als abgesagt gespeichert;</li>
+      <li><strong>Mannschaftsliste</strong> (Kader): je Person Vor- und Nachname und der Personenschlüssel (ÖTV-Lizenznummer
+        und bzw. oder ÖTV-Spieler-ID mit dem Zusatz „nu:“) sowie die Angabe, ob sie nachnominiert wurde. <strong>ITN-Wert und
+        Geschlecht liegen nicht auf dem Server.</strong> Die Liste enthält auch Personen, die Kortform nicht nutzen und selbst nichts
+        eingegeben haben; ihre Namen stammen aus den öffentlich einsehbaren Ligadaten des ÖTV und der Landesverbände. Fällt eine
+        Person aus dem Kader, wird sie als entfernt markiert, ihre Antworten bleiben bis zur Löschung der Saison gespeichert;</li>
+      <li><strong>Antworten:</strong> je Spieltag und Person Ja, Vielleicht oder Nein, ein optionaler Kommentar (höchstens 60 Zeichen),
+        die Quelle der Antwort (App, Webseite oder Mannschaftsführung) und die Zeitpunkte der Antwort und der letzten Bestätigung („Passt noch“);</li>
+      <li><strong>Verlauf:</strong> Jede Antwort, jede Bestätigung und jedes Entfernen einer Antwort wird zusätzlich als Ereignis mit
+        Zeitpunkt, Quelle, Antwort und Kommentar aufgehoben. Ändert jemand eine Antwort, gilt die neueste; die früheren bleiben im Verlauf, bis die Saison gelöscht wird;</li>
+      <li><strong>Suche nach deinen Mannschaften</strong> (nur App, siehe unten): ein Zähler der Suchanfragen je Installation und Tag;</li>
+      <li>zur Erinnerung der Mannschaftsführung die in Abschnitt 11 genannten Angaben;</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
     </ul>
     <p>
-      <strong>Wer sieht was:</strong> Wer den Link <code>liga.kortform.at/v/…</code> hat, sieht ohne Anmeldung die Momentaufnahme
-      der Abfrage, also Mannschaft, Begegnungen und die Namen samt ITN-Wert der Mannschaftsliste. Gib den Link deshalb nur an
-      deine Mannschaft weiter. Deine Antworten und Kommentare sehen nur die Mannschaftsführenden der Liga in der App; andere
-      Personen mit dem Link sehen sie nicht. Deine eigenen Antworten und die gewählte Identität speichert die App auf deinem
-      Gerät (Datenbank der App), die Webseite im lokalen Speicher deines Browsers (<code>localStorage</code>), damit du sie später
-      ändern kannst. Die Webseite setzt keine Cookies, enthält keine Zählskripte und keine Werbung, und wir erfassen dort keine
-      Nutzungsstatistik. Die App sendet zur Abfrage nur Analytics-Ereignisse ohne Kennungen und ohne personenbezogene Daten
-      (nur mit deiner Einwilligung, Abschnitt 8).
+      <strong>Suche nach deinen Mannschaften (App, ohne Link):</strong> Hast du in der App ein ÖTV-Profil verknüpft, fragt sie unseren Server,
+      in welchen Saisons du auf der Mannschaftsliste stehst. Dazu sendet sie die Installations-ID und das Geheimnis der Push-Registrierung
+      (Abschnitt 11) als Ausweis sowie deine eigenen Personenschlüssel (Lizenznummer und ÖTV-Spieler-ID, höchstens zwei). Das geschieht ohne
+      Rückfrage beim Start der App, wenn du das Profil von Hand aktualisierst, und im täglichen Hintergrundlauf (dort höchstens alle 6 Stunden).
+      Gefundene Saisons lädt die App und speichert sie auf deinem Gerät; so erscheinen die Karte am Profil und „Meine Spieltage“ ohne Link.
+      Ohne verknüpftes Profil oder ohne Push-Registrierung findet keine Suche statt; dann funktioniert nur der Link. Die Suche ist auf
+      20 Anfragen je Installation und Tag begrenzt.
     </p>
     <p>
-      <strong>Dienstleister:</strong> Speicherung und Abruf erfolgen über Supabase in der Region Frankfurt (EU), die
-      Webseite wird wie die übrige Website über GitHub Pages bereitgestellt (Abschnitte 13 und 19). Supabase handelt als
-      Auftragsverarbeiter nach unseren Weisungen.
+      <strong>Antworten über den Link:</strong> Der Link hat die Form <code>liga.kortform.at/s/…</code> und gilt für eine Mannschaft.
+      Im Browser und, wenn die App dich nicht über dein Profil in der Mannschaftsliste findet, auch in der App wählst du selbst aus der
+      Liste, wer du bist („Wer bist du?“). Es gibt dabei keine Anmeldung und keine Prüfung: Wer den Link hat, kann für jede Person der
+      Mannschaftsliste antworten. Antworten sind bis zum Beginn des Spiels möglich.
     </p>
     <p>
-      <strong>Kalender:</strong> Die App kann einen Termin an den Kalender deines Geräts übergeben. Dabei öffnet sich nur der
+      <strong>Wer sieht was:</strong>
+    </p>
+    <ul>
+      <li><strong>Wer den Link hat</strong> (und die Apps der Spieler*innen der Mannschaft), sieht ohne Anmeldung die Mannschaft mit Alias, Verein,
+        Saison und Gruppe, die Spieltage mit Gegner und Adresse, die Namen der Mannschaftsliste und die Antworten aller (Ja, Vielleicht, Nein;
+        technisch samt Zeitpunkt und Quelle). Gib den Link deshalb nur an deine Mannschaft weiter.</li>
+      <li><strong>Kommentare</strong> sieht nur die Mannschaftsführung, dazu jede Person ihren eigenen. Fremde Kommentare gibt unser Server
+        über den Link und die Suche gar nicht heraus. Deinen eigenen Verlauf sehen du und die Mannschaftsführung. Beachte: Weil die Auswahl
+        „Wer bist du?“ nicht geprüft wird, kann jemand mit dem Link, der dich in der Liste auswählt, auch deinen Kommentar und deinen
+        Verlauf sehen. Schreib in den Kommentar deshalb nichts, was nur die Mannschaftsführung lesen soll.</li>
+      <li><strong>Die Mannschaftsführenden der Liga</strong> (angemeldet mit Kort-ID) sehen in der App alle Antworten mit Kommentar, Quelle,
+        Zeitpunkt und Verlauf. Sie können für Personen der Mannschaftsliste Antworten eintragen, ändern und entfernen (Quelle
+        „Mannschaftsführung“), auch nach Spielbeginn. Den ITN-Wert sehen sie nur aus den Daten auf ihrem eigenen Gerät.</li>
+      <li><strong>Wer deine Lizenznummer kennt:</strong> Die Personenschlüssel bei der Suche werden nicht geprüft; wir können nicht feststellen,
+        ob eine Lizenznummer wirklich zur Person am Gerät gehört. Wer deine Lizenznummer oder ÖTV-Spieler-ID kennt (beim ÖTV öffentlich
+        einsehbar) und Kortform installiert hat, kann deshalb die Saison deiner Mannschaft finden und sieht dann dasselbe wie mit dem Link.
+        Dagegen begrenzen wir die Suche (20 Anfragen je Installation und Tag, höchstens zwei Schlüssel je Anfrage,
+        eine Obergrenze für alle Installationen zusammen). Ist ein Link in falsche Hände geraten, können wir ihn auf Wunsch der
+        Mannschaftsführung durch einen neuen ersetzen (Kontakt in Abschnitt 22); der alte Link wird ungültig, die Antworten bleiben.</li>
+    </ul>
+    <p>
+      <strong>Auf deinem Gerät und im Browser:</strong> Die App speichert die Saisons deiner Mannschaften, die Antworten und deinen eigenen
+      Verlauf in ihrer Datenbank (Abschnitt 3), damit du sie ohne Verbindung lesen kannst; geschrieben wird immer zuerst auf dem Server.
+      Einen geöffneten Link merkt sie sich höchstens 24 Stunden, bis feststeht, wer du bist. Die Webseite speichert im lokalen Speicher
+      deines Browsers (<code>localStorage</code>) nur den Personenschlüssel der gewählten Person, damit du beim nächsten Besuch nicht neu
+      wählen musst; „Nicht du? Person wechseln“ löscht ihn. Die Webseite setzt keine Cookies, enthält keine Zählskripte und keine Werbung,
+      und wir erfassen dort keine Nutzungsstatistik. Auch die App sendet zur Verfügbarkeit derzeit keine eigenen Analytics-Ereignisse.
+    </p>
+    <p>
+      <strong>Erinnerungen:</strong> Die App erinnert dich 14 Tage vor einem Spieltag mit einer Karte am Profil und einer lokalen
+      Benachrichtigung, die nur auf deinem Gerät entsteht. Zusätzlich kann die Mannschaftsführung allen, die für einen Spieltag noch nicht
+      geantwortet haben, eine Push-Nachricht schicken („Offene erinnern“). Was dabei verarbeitet wird und wie du Benachrichtigungen
+      ausschaltest, steht in <a href="/datenschutz/#push">Abschnitt 11</a>.
+    </p>
+    <p>
+      <strong>Dienstleister:</strong> Speicherung und Abruf erfolgen über Supabase (Supabase, Inc.) in der Region Frankfurt (EU), wie bei der
+      Kort-ID (Abschnitt 19). Die Webseite <code>liga.kortform.at</code> wird wie die übrige Website über GitHub Pages bereitgestellt
+      (Abschnitt 13); die Daten der Saison fragt dein Browser direkt bei Supabase ab. Supabase handelt als Auftragsverarbeiter nach unseren
+      Weisungen. Zum Versand der Erinnerung über Firebase Cloud Messaging siehe Abschnitt 11.
+    </p>
+    <p>
+      <strong>Kalender und Karten:</strong> Die App kann einen Spieltag an den Kalender deines Geräts übergeben. Dabei öffnet sich nur der
       Kalender-Dialog deines Systems mit einem vorausgefüllten Termin; du speicherst ihn selbst. Kortform fragt keine
-      Kalenderberechtigung ab und liest nichts aus deinem Kalender.
+      Kalenderberechtigung ab und liest nichts aus deinem Kalender; die App merkt sich nur auf dem Gerät, dass du einen Spieltag übergeben hast.
+      Tippst du auf die Adresse eines Spieltags, öffnet sich die Karten-App deines Geräts mit dieser Adresse.
     </p>
     <p>
-      <strong>Rechtsgrundlage:</strong> Für die Mannschaftsführung, die die Abfrage startet, Art. 6 Abs. 1 lit. b DSGVO
-      (Bereitstellung der Funktion). Für die Mannschaftsliste und die Antworten Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-      Interesse der Mannschaft an einer einfachen Abstimmung der Spieltage; die Angaben sind freiwillig, du kannst auch
-      einen selbst gewählten Namen eingeben und den Kommentar weglassen); für technische Protokolldaten Art. 6 Abs. 1 lit. f DSGVO.
+      <strong>Rechtsgrundlage:</strong> Für die Mannschaftsführung mit Kort-ID Art. 6 Abs. 1 lit. b DSGVO
+      (Bereitstellung der Funktion). Für die Mannschaftsliste, die Antworten samt Verlauf und die Suche nach deinen Mannschaften
+      Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse der Mannschaft an einer einfachen Abstimmung der Spieltage und daran, dass
+      Spieler*innen ihre Mannschaft in der App ohne Link finden; Antwort und Kommentar sind freiwillig); für technische Protokolldaten
+      Art. 6 Abs. 1 lit. f DSGVO.
       Du kannst der Verarbeitung nach Art. 21 DSGVO widersprechen (Kontakt in Abschnitt 22).<br>
-      <strong>Speicherdauer:</strong> Abfrage und Antworten werden 14 Tage nach der letzten Begegnung automatisch gelöscht,
-      sofort wenn die Mannschaftsführung die Abfrage beendet oder löscht oder die Liga entfernt. Setzt die Mannschaftsführung
-      den Link zurück, verliert der alte Link seine Gültigkeit. Daten in deinem Browser oder in der App löschst du, indem du
-      die Website-Daten bzw. die App-Daten löschst.
+      <strong>Speicherdauer:</strong> Eine Saison läuft 30 Tage nach ihrem letzten Spieltag ab. Ab dann nimmt sie keine Antworten mehr an und
+      ist über den Link nicht mehr abrufbar; ein täglicher Löschlauf entfernt sie samt Spielplan, Mannschaftsliste, Antworten und Verlauf vom
+      Server. Sofort gelöscht wird sie, wenn die Liga auf dem Server gelöscht wird: wenn die letzte Mannschaftsführung die Liga entfernt, sich
+      abmeldet oder ihre Kort-ID löscht (Abschnitt 19). Verlässt nur eine von mehreren Mannschaftsführenden die Liga, läuft die Saison für
+      die anderen weiter. Die Zähler der Suche werden nach wenigen Tagen gelöscht. Auf deinem Gerät entfernst du die gespeicherten Saisons mit
+      „Alle Daten löschen“ oder der Deinstallation der App, im Browser, indem du die Website-Daten löschst; die Antworten auf dem Server
+      bleiben davon unberührt.
     </p>
     <p>
       Da Antworten ohne Konto abgegeben werden, können wir sie nicht ohne Weiteres einer Person zuordnen. Für Auskunft,
-      Berichtigung oder Löschung deiner Antwort gib bitte Abfrage-Link, Namen und Datum der Antwort an; die einfachste Löschung
-      ist die Bitte an deine Mannschaftsführung, die Abfrage zu beenden.
+      Berichtigung oder Löschung nenne uns bitte die Mannschaft (oder den Link), deinen Namen und, soweit vorhanden, deine
+      ÖTV-Lizenznummer. Deine Antwort kannst du bis zum Spielbeginn jederzeit selbst ändern; deine Mannschaftsführung kann sie
+      entfernen. Im Verlauf bleiben frühere Antworten bis zur Löschung der Saison stehen. Möchtest du nicht auf der Mannschaftsliste
+      einer Saison stehen, wende dich an deine Mannschaftsführung oder an uns.
     </p>
 
     <h2>21. Änderungen</h2>
