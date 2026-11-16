@@ -35,8 +35,8 @@
 .hero { margin-top: 48px; display: grid; gap: 40px; }
 .hero h1 { font-size: clamp(56px, 14.5vw, 124px); line-height: 0.88; letter-spacing: -0.005em; }
 .lead { font-size: 19px; line-height: 1.5; max-width: 34em; margin: 32px 0 0; }
-/* Official App Store badge: unaltered, 48 px high (Apple minimum 40 px), clear space of a quarter of its height (12 px) around it. Its grey outline keeps it visible on the dark page. */
-.store { margin: 28px 0 0; padding: 12px 0; line-height: 0; }
+/* Official App Store and Google Play badges (Google PNG/WebP already trimmed of transparent margin):  unaltered, 48 px high (Apple minimum 40 px), clear space of a quarter of its height (12 px) around it. Its grey outline keeps it visible on the dark page. */
+.store { margin: 28px 0 0; padding: 12px 0; line-height: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .store-badge { display: inline-block; line-height: 0; border-radius: 9px; }
 .store-badge img { display: block; height: 48px; width: auto; }
 .store-badge:focus-visible { outline-offset: 4px; }
