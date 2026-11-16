@@ -1,0 +1,4 @@
+/* Install page (/app): the two store buttons side by side, stacked when they do not fit.
+   Tokens, fonts, .btn and the page frame come from /styles.css. */
+
+.legal .install-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 24px; }

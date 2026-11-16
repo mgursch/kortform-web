@@ -12,6 +12,7 @@ site/                     wird 1:1 veröffentlicht
   impressum/index.html    /impressum/
   datenschutz/index.html  /datenschutz/
   support/index.html      /support/ (Hilfe, FAQ, Kontakt)
+  app/index.html          /app (Installationsseite: Store-Weiterleitung nach User-Agent, mit app/redirect.js und app/app.css; siehe Hinweise)
   nutzungsbedingungen.html  /nutzungsbedingungen.html (flache Datei, URL so vom Betreiber vorgegeben; vom Plus-Sheet der App verlinkt)
   styles.css              gemeinsames Stylesheet (hell + dunkel)
   fonts/                  Barlow Condensed, IBM Plex Sans/Mono (WOFF, aus dem App-Repo, SIL OFL)
@@ -28,6 +29,14 @@ Hinweise:
 
 - Pfade sind root-absolut (`/styles.css`), weil die Seite auf der eigenen Domain liegt. Lokale Vorschau daher über
   den Befehl unten, nicht per Doppelklick auf die Datei.
+- Installationsseite `https://kortform.at/app`: der Installationslink im „Einladen“-Text der Verfügbarkeit der
+  Mannschaftsführung in der Kortform-App. Wer die App noch nicht hat, kommt von dort in den richtigen Store und öffnet
+  danach den Link zur Mannschaft noch einmal. `site/app/redirect.js` (blockierend im `<head>`, `location.replace`):
+  User-Agent enthält `iPhone`, `iPad` oder `iPod` → App Store; sonst enthält er `Android` → Google Play; alles andere
+  (Desktop, unbekannt, iPadOS-Safari, das sich als Macintosh meldet) bleibt auf der Seite mit beiden Buttons. Ohne
+  JavaScript sind beide Buttons sichtbar (einfache Links). Die Store-URLs stehen in `app/index.html` und
+  `app/redirect.js`: nur gemeinsam ändern. Die Seite ist `noindex` und steht bewusst nicht in `sitemap.xml`. GitHub Pages
+  leitet `/app` auf `/app/` weiter; die lokale Vorschau ebenso.
 - Impressum und Datenschutz sind von Kortscore abgeleitet und an die tatsächliche Datenverarbeitung der App angepasst;
   bei App-Änderungen (neue SDKs, neue Datenflüsse) die Datenschutzerklärung nachziehen.
 - GoatCounter: `site/count.js` ist eine selbst gehostete Kopie von `public/count.js` aus
