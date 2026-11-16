@@ -37,7 +37,7 @@
 
   <main class="wrap legal">
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Stand: 14. November 2026</p>
+    <p class="updated">Stand: 16. November 2026</p>
 
     <h2>1. Verantwortlicher</h2>
     <div class="card">
@@ -438,6 +438,8 @@
       (die Erinnerung an offene Verfügbarkeiten, künftig etwa Hinweise auf App-Updates und weitere Mitteilungen deiner Mannschaft), meldet jede Installation von Kortform ihre
       Adresse für Push-Nachrichten im Hintergrund bei uns an. Das geschieht ohne Rückfrage, auch wenn du keine Kort-ID hast und
       auch ohne Einwilligung zu Nutzungsstatistiken; die Erlaubnis-Abfrage des Systems für Benachrichtigungen löst es nicht aus.
+      Aus der Registrierung leiten wir außerdem für die Mannschaftsführung deiner eigenen Mannschaft den Hinweis ab, dass du die App nutzt
+      (siehe „Hinweis ‚Hat die App‘“ weiter unten).
     </p>
     <p>
       <strong>Welche Push-Nachrichten wir verschicken:</strong> Derzeit nur eine, die <strong>Erinnerung an offene Verfügbarkeiten</strong>.
@@ -458,7 +460,8 @@
         einen Prüfwert (Hash), mit dem Aktualisierung und Löschung der Registrierung geschützt sind;</li>
       <li>deinen Personenschlüssel, wenn du ein Profil verknüpft hast oder eingerichtet hast: deine ÖTV-Lizenznummer, ersatzweise die
         ÖTV-Spieler-ID (mit dem Zusatz „nu:“); ohne Profil wird nichts gespeichert. Über ihn finden wir die Installationen für die
-        Erinnerung an offene Verfügbarkeiten;</li>
+        Erinnerung an offene Verfügbarkeiten, und aus ihm leiten wir den Hinweis „Hat die App“ für die Mannschaftsführung deiner
+        Mannschaft ab (siehe unten);</li>
       <li>wenn du mit einer Kort-ID angemeldet bist (Abschnitt 19), zusätzlich deren Nutzerkennung; nach dem Abmelden wird sie gelöst;</li>
       <li>Zeitpunkte: Anlage und letzte Meldung der Installation;</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
@@ -479,6 +482,19 @@
       Für den Versand übergeben wir Firebase Cloud Messaging den Token und den Text der Nachricht.
     </p>
     <p>
+      <strong>Hinweis „Hat die App“ für die Mannschaftsführung:</strong> Stehst du auf der Mannschaftsliste einer Verfügbarkeits-Saison
+      (Abschnitt 20), sieht die Mannschaftsführung deiner eigenen Mannschaft in ihrer App hinter deinem Namen ein kleines Symbol, wenn
+      unter deinem Personenschlüssel eine Installation von Kortform registriert ist, die sich in den letzten 60 Tagen bei uns gemeldet hat.
+      So erkennt sie, wen eine Erinnerung über die App voraussichtlich erreicht. Unser Server prüft das bei jedem Abruf neu und gibt nur
+      Ja oder Nein heraus; Token, Installations-ID, Plattform, App-Version, Sprache und Zeitpunkte der Registrierung sieht die
+      Mannschaftsführung nicht. Den Hinweis sehen nur die mit Kort-ID angemeldeten Mannschaftsführenden der Liga deiner Mannschaft
+      (Abschnitt 20), nicht die anderen Spieler*innen und niemand über den Link. Der Hinweis ist nicht geprüft: Weil der
+      Personenschlüssel einer Registrierung nicht geprüft wird, kann er auch erscheinen, wenn sich jemand anderes mit deiner Lizenznummer
+      registriert hat, und er fehlt, wenn du die App ohne Profil nutzt oder deine Installation keinen Token für Push-Nachrichten hat.
+      Ob du Benachrichtigungen erlaubt hast, erfährt die Mannschaftsführung daraus nicht. Nach einer Deinstallation verschwindet der
+      Hinweis spätestens 60 Tage nach der letzten Meldung der Installation.
+    </p>
+    <p>
       <strong>Benachrichtigungen ausschalten:</strong> Push-Nachrichten und die lokale Erinnerung an die Verfügbarkeit schaltest du aus, indem du
       Kortform in den Systemeinstellungen deines Geräts die Benachrichtigungen entziehst; dann wird nichts angezeigt. Die Registrierung
       selbst lässt sich in der App nicht abschalten (siehe „Löschen und Widerspruch“).
@@ -491,10 +507,12 @@
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, dich über Ereignisse in deiner Mannschaft,
-      derzeit offene Verfügbarkeiten, und künftig über App-Updates zu erreichen, ohne dass dafür ein Konto nötig ist). Die Registrierung hängt nicht von der Einwilligung zu Nutzungsstatistiken
+      derzeit offene Verfügbarkeiten, und künftig über App-Updates zu erreichen, ohne dass dafür ein Konto nötig ist; für den Hinweis
+      „Hat die App“ das berechtigte Interesse der Mannschaft, dass die Mannschaftsführung erkennt, wen eine Erinnerung über die App erreichen kann). Die Registrierung hängt nicht von der Einwilligung zu Nutzungsstatistiken
       (Abschnitt 8) ab.<br>
       <strong>Speicherdauer:</strong> bis zur Löschung (siehe unten), spätestens 180 Tage nach der letzten Meldung der Installation; die App meldet sich bei Nutzung mindestens alle 7 Tage.<br>
       <strong>Empfänger:</strong> Supabase, Inc. und Google LLC / Google Ireland Limited als Auftragsverarbeiter; auf dem iPhone außerdem Apple.
+      Die Mannschaftsführung deiner eigenen Mannschaft erhält nur den Hinweis „Hat die App“ (Ja oder Nein), nie den Token oder andere Daten der Registrierung.
     </p>
     <p>
       <strong>Löschen und Widerspruch:</strong> „Alle Daten löschen“ im Profil entfernt die Registrierung auf dem Server
@@ -504,6 +522,8 @@
       mehr, und die Registrierung verfällt nach 180 Tagen. Meldet Firebase Cloud Messaging beim Versand einer Erinnerung, dass ein Token
       nicht mehr gültig ist, löschen wir die Registrierung mit diesem Token sofort. Ohne Installations-ID können wir eine Registrierung nicht ohne Weiteres dir zuordnen (Art. 11 DSGVO);
       wenn du uns schreibst und, soweit vorhanden, deine Lizenznummer nennst (Abschnitt 18), löschen wir die Registrierungen mit diesem Personenschlüssel.
+      Mit der Registrierung entfällt auch der Hinweis „Hat die App“ bei deiner Mannschaftsführung, sobald unter deinem Personenschlüssel
+      keine Installation mehr registriert ist, die sich in den letzten 60 Tagen gemeldet hat; einen eigenen Schalter für den Hinweis gibt es in der App nicht.
       Du kannst der Verarbeitung nach Art. 21 DSGVO widersprechen (Kontakt in Abschnitt 22).
     </p>
 
@@ -869,7 +889,10 @@
         Verlauf sehen. Schreib in den Kommentar deshalb nichts, was nur die Mannschaftsführung lesen soll.</li>
       <li><strong>Die Mannschaftsführenden der Liga</strong> (angemeldet mit Kort-ID) sehen in der App alle Antworten mit Kommentar, Quelle,
         Zeitpunkt und Verlauf. Sie können für Personen der Mannschaftsliste Antworten eintragen, ändern und entfernen (Quelle
-        „Mannschaftsführung“), auch nach Spielbeginn. Den ITN-Wert sehen sie nur aus den Daten auf ihrem eigenen Gerät.</li>
+        „Mannschaftsführung“), auch nach Spielbeginn. Den ITN-Wert sehen sie nur aus den Daten auf ihrem eigenen Gerät.
+        Zusätzlich sehen sie hinter dem Namen einer Person der Mannschaftsliste den Hinweis „Hat die App“, wenn unter deren Personenschlüssel
+        in den letzten 60 Tagen eine Installation von Kortform registriert war (Ja oder Nein, nicht geprüft; Einzelheiten in
+        <a href="/datenschutz/#push">Abschnitt 11</a>). Wer nur den Link hat, und die Apps der anderen Spieler*innen, bekommen diesen Hinweis nicht.</li>
       <li><strong>Wer deine Lizenznummer kennt:</strong> Die Personenschlüssel bei der Suche werden nicht geprüft; wir können nicht feststellen,
         ob eine Lizenznummer wirklich zur Person am Gerät gehört. Wer deine Lizenznummer oder ÖTV-Spieler-ID kennt (beim ÖTV öffentlich
         einsehbar) und Kortform installiert hat, kann deshalb die Saison deiner Mannschaft finden und sieht dann dasselbe wie mit dem Link.
