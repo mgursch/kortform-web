@@ -60,9 +60,10 @@
       Kortform ist eine App für Android und iPhone, mit der du deinen eigenen Wert aus der ÖTV-Liste
       (ITN) täglich mitverfolgen und vor einem Match durchrechnen kannst, was Sieg oder Niederlage
       bringen. Die App arbeitet im Kern lokal auf deinem Gerät. Dein Profil, dein Verlauf, deine Spiele, die Spieler*innen,
-      denen du folgst, deine Mannschaften und deine Einstellungen werden nur auf deinem Gerät gespeichert. Du brauchst
-      <strong>kein Nutzerkonto bei uns</strong>. Nur wenn du freiwillig eine <strong>Kort-ID</strong> anlegst, um eine Liga mit
-      weiteren Mannschaftsführenden zu teilen, speichern wir dafür Daten auf einem Server (Abschnitt 19). Ohne Kort-ID
+      denen du folgst, und deine Einstellungen werden nur auf deinem Gerät gespeichert. Du brauchst
+      <strong>kein Nutzerkonto bei uns</strong>. Nur wenn du freiwillig eine <strong>Kort-ID</strong> anlegst, um als
+      Mannschaftsführer*in eine Liga in Kortform zu führen (allein oder mit weiteren Mannschaftsführenden), speichern wir dafür
+      Daten auf einem Server (Abschnitt 19). Ohne Kort-ID
       landen nur zwei Dinge aus der App auf einem Server von uns: die Push-Registrierung jeder Installation (Abschnitt 11) und,
       wenn deine Mannschaft die Verfügbarkeit über Kortform abstimmt, die Suche nach deinen Mannschaften und deine Antworten
       (Abschnitt 20). Öffnest du einen Einladungslink auf <code>liga.kortform.at</code>,
@@ -71,15 +72,16 @@
     </p>
     <p>Daten verlassen dein Gerät nur in den folgenden Fällen, die in den Abschnitten 4 bis 11, 19 und 20 beschrieben sind (zur Website siehe Abschnitt 13):</p>
     <ul>
-      <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften,
-        Import von Mannschaften, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
+      <li>Abfragen beim ÖTV: Profilsuche, tägliche Aktualisierung deines Werts und der Werte von Spieler*innen, denen du folgst,
+        Import und Aktualisierung von Ligen, optionaler ÖTV-Login, auch im täglichen Hintergrundlauf (Abschnitte 4 und 5)</li>
       <li>Werbung über Google AdMob, solange weder Kortform Pro noch Kortform Team aktiv ist (Abschnitt 6)</li>
       <li>Absturzberichte über Firebase Crashlytics, in der veröffentlichten App immer aktiv (Abschnitt 7)</li>
       <li>Nutzungsstatistiken über Firebase Analytics, nur mit deiner Einwilligung (Abschnitt 8)</li>
       <li>Konfiguration über Firebase Remote Config (Abschnitt 9)</li>
       <li>Abwicklung des Kaufs von Kortform Pro und Kortform Team über Google Play bzw. den App Store und RevenueCat (Abschnitt 10)</li>
       <li>Push-Registrierung jeder Installation, auch ohne Kort-ID: Token für Push-Nachrichten, zufällige Installations-ID und weitere Angaben über Supabase und Firebase Cloud Messaging;
-        darüber kommt die Erinnerung der Mannschaftsführung an offene Verfügbarkeiten (Abschnitt 11)</li>
+        darüber kommen die Erinnerung der Mannschaftsführung an offene Verfügbarkeiten und, an Mannschaftsführende mit Kort-ID, die Meldung
+        geänderter Verfügbarkeiten (Abschnitt 11)</li>
       <li>nur mit Kort-ID: Anmeldung und geteilte Ligen über Supabase, Versand des Anmelde-Codes über Resend, optional Anmeldung über Google oder Apple (Abschnitt 19)</li>
       <li>Verfügbarkeit je Saison: Die Mannschaftsführung (mit Kort-ID) legt Spielplan und Mannschaftsliste über Supabase ab; Spieler*innen antworten
         ohne Konto in der App oder im Browser, und die App sucht mit deiner Lizenznummer nach deinen Mannschaften (Abschnitt 20)</li>
@@ -87,8 +89,9 @@
     <p>
       Kortform fragt keine Standortberechtigung ab und greift weder auf GPS noch auf den genauen Standort deines Geräts zu.
       Google AdMob (Abschnitt 6) und Firebase Analytics (Abschnitt 8, nur mit deiner Einwilligung) leiten aus der IP-Adresse
-      jedoch einen ungefähren Standort (Land bzw. Region) ab. Von unserem Server verschickt Kortform derzeit nur eine
-      Push-Benachrichtigung: die Erinnerung, die eine Mannschaftsführung an Spieler*innen mit offener Verfügbarkeit auslöst (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
+      jedoch einen ungefähren Standort (Land bzw. Region) ab. Von unserem Server verschickt Kortform derzeit zwei Arten
+      von Push-Benachrichtigungen: die Erinnerung, die eine Mannschaftsführung an Spieler*innen mit offener Verfügbarkeit auslöst, und die
+      Meldung an die Mannschaftsführung, dass Spieler*innen ihre Verfügbarkeit geändert haben (siehe Abschnitt 11). Zu Werbung, die auch Daten über App-Grenzen hinweg verarbeiten kann, siehe Abschnitt 6.
     </p>
     <div class="notice">
       <p>
@@ -107,14 +110,20 @@
         Jahrgang, Geschlecht, Staatsangehörigkeit, Ranglistenposition, die ÖTV-Spieler-ID und die Verein-ID;</li>
       <li>der Verlauf deiner Werte sowie selbst eingetragene Werte mit Notizen;</li>
       <li>bei ÖTV-Login zusätzlich deine Spiele (Datum, Ergebnis, Namen, Werte, Lizenznummern und ÖTV-Spieler-IDs der Gegner*innen und Partner*innen, Änderung des Werts);</li>
-      <li>Spieler*innen, denen du folgst, und die Mitglieder deiner Mannschaften: Name, Verein, Landesverband, Jahrgang, Staatsangehörigkeit,
+      <li>Spieler*innen, denen du folgst: Name, Verein, Landesverband, Jahrgang, Staatsangehörigkeit,
         Lizenznummer, soweit vorhanden die ÖTV-Spieler-ID, und der Verlauf ihrer Werte (ITN);</li>
       <li>die bis zu zehn zuletzt gesuchten Personen (Name, Verein, Landesverband, Jahrgang, Staatsangehörigkeit, Lizenznummer, ÖTV-Spieler-ID und ITN aus dem Treffer);</li>
-      <li>Mannschaften, die du selbst anlegst oder importierst: Name, Bewerb, Verein und bei importierten Mannschaften der gespeicherte Liga-Link
-        sowie die zuletzt gelesene Meldung der Liga (Lizenznummer bzw. ÖTV-Spieler-ID und Rang, auch von Personen, die du nicht übernommen hast);</li>
-      <li>bei ÖTV-Login zusätzlich die vollständigen Spielverläufe der Spieler*innen, denen du folgst, und der Mitglieder deiner
-        Mannschaften (Datum, Ergebnis, Änderung
-        des Werts, Namen, Werte, Lizenznummern und ÖTV-Spieler-IDs der Gegner*innen und Partner*innen);</li>
+      <li>deine Ligen (Tab „Liga“): Link und Namen der Gruppe, Tabelle, Spielplan mit Ergebnissen, die Meldungen (Kader) aller
+        Mannschaften der Gruppe (je Person Name, Verein, Jahrgang, Staatsangehörigkeit, Lizenznummer, ÖTV-Spieler-ID, Rang, ITN und
+        Saisonbilanz), die Spielberichte der gespielten Begegnungen (Aufstellungen mit diesen Angaben, ITN zum Spielzeitpunkt,
+        Ergebnisse), die Adressen der Spielstätten (Halle bzw. Plätze) sowie deine Angaben zur Liga (eigene Mannschaft, Format, Alias,
+        Adressen, Aufstellungen, nachnominierte Spieler*innen), die daraus berechneten Prognosen und Forecasts und bei geteilten Ligen
+        die Mannschaftsführenden mit Anzeigename und gegebenenfalls dem Link zum Profilbild; bei Mixed-Ligen zusätzlich das Geschlecht der
+        Personen, soweit es aus den Spielberichten oder über den ÖTV-Login (Abschnitt 5) bekannt ist. Bei Ligen, die du mit
+        Kort-ID führst, liegt ein Teil davon zugleich auf unserem Server (Abschnitt 19);</li>
+      <li>bei ÖTV-Login zusätzlich die vollständigen Spielverläufe der Spieler*innen, denen du folgst (Datum, Ergebnis, Änderung
+        des Werts, Namen, Werte, Lizenznummern und ÖTV-Spieler-IDs der Gegner*innen und Partner*innen), sowie das Geschlecht laut
+        ÖTV von Spieler*innen, denen du folgst, und von Personen deiner Ligen;</li>
       <li>deine Einstellungen (z. B. Benachrichtigungen, Einwilligung zu Nutzungsstatistiken, bei einem Profil ohne ÖTV-Verknüpfung die
         Angabe „Ich bin 11 bis 16 Jahre alt“) und der Kaufstatus von Kortform Pro und Kortform Team;</li>
       <li>die Verfügbarkeits-Saisons deiner Mannschaften (Abschnitt 20) als Kopie zum Lesen ohne Verbindung: Mannschaft, Spieltage mit Adressen,
@@ -143,9 +152,14 @@
     <p>
       Du kannst die Daten jederzeit im Profil unter „Alle Daten löschen“ entfernen. Sie werden außerdem mit der Deinstallation
       der App gelöscht, sofern kein Geräte-Backup (siehe Abschnitt 12) wiederhergestellt wird. Die Daten zu einer Person
-      einschließlich ihres Spielverlaufs bleiben gespeichert, solange du ihr folgst oder sie einer deiner Mannschaften angehört.
-      Folgst du ihr nicht mehr und gehört sie keiner deiner Mannschaften mehr an (etwa weil du die Mannschaft gelöscht hast),
-      löscht die App alle Daten zu ihr nach einer Frist von 24 Stunden (so lange lässt sich das rückgängig machen).
+      einschließlich ihres Spielverlaufs bleiben gespeichert, solange du ihr folgst oder sie zu einer deiner Ligen gehört (Kader
+      oder Spielbericht). Entfernst du eine Liga, löscht die App deren Daten (Tabelle, Spielplan, Kader, Spielberichte, Aufstellungen)
+      sofort. Folgst du einer Person nicht mehr und gehört sie zu keiner deiner Ligen mehr (etwa weil du die Liga entfernt oder dich von
+      der Kort-ID abgemeldet hast), löscht die App alle Daten zu ihr frühestens nach 24 Stunden (so lange lässt sich das Entfolgen
+      rückgängig machen), und zwar bei der nächsten Aktualisierung der Spieler*innen, denen du folgst (Abschnitt 4). Folgst du
+      niemandem, bleiben diese Daten gespeichert, bis du „Alle Daten löschen“ wählst oder die App deinstallierst.
+      Frühere Versionen von Kortform kannten selbst angelegte Mannschaften; Personen, die nur als deren Mitglieder gespeichert
+      waren, hat die App mit dem Update, das diese Mannschaften entfernt hat, samt ihren Daten gelöscht.
       „Alle Daten löschen“ nimmt auch
       eine erteilte Einwilligung zu Nutzungsstatistiken (Abschnitt 8) zurück. Eine technische Markierung, mit welcher Alterskategorie
       (Abschnitt 16) die Werbeabfrage zuletzt lief, bleibt dabei bewusst erhalten. Die Werbe-Einwilligung selbst speichert Googles UMP auf dem Gerät; „Alle Daten löschen“
@@ -154,40 +168,52 @@
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der von dir genutzten
-      Funktionen der App).
+      Funktionen der App). Für die Daten anderer Personen (Spieler*innen, denen du folgst, Kader und Spielberichte deiner Ligen,
+      Gegner*innen und Partner*innen in Spielverläufen, das abgeleitete Geschlecht in Mixed-Ligen) Art. 6 Abs. 1 lit. f DSGVO
+      (berechtigtes Interesse, die Funktionen der App für Spieler*innen und für die Liga bereitzustellen; die Interessen der
+      Betroffenen wiegen gering, weil es nur um Daten geht, die beim ÖTV öffentlich bzw. für die Teilnehmenden der Liga sichtbar sind,
+      und die hier genannten Daten nur auf deinem Gerät liegen; zu den Daten auf unserem Server siehe Abschnitte 19 und 20).
     </p>
 
-    <h2>4. Abfragen beim ÖTV (Profilsuche, tägliche Aktualisierung, Mannschaften)</h2>
+    <h2>4. Abfragen beim ÖTV (Profilsuche, tägliche Aktualisierung, Ligen)</h2>
     <p>
       Kortform ruft öffentlich zugängliche Daten der ÖTV-Website (<code>oetv.at</code>) direkt von deinem
       Gerät ab, ohne dass wir dazwischengeschaltet sind:
     </p>
     <ul>
-      <li><strong>Profilsuche:</strong> Wenn du dein Profil, eine Gegnerin bzw. einen Gegner oder Spieler*innen zum Folgen oder für
-        eine Mannschaft suchst, werden der eingegebene Nachname, Vorname und/oder die Lizenznummer an den ÖTV übermittelt; die gewählte Region
+      <li><strong>Profilsuche:</strong> Wenn du dein Profil, eine Gegnerin bzw. einen Gegner oder Spieler*innen zum Folgen oder zum
+        Nachnominieren in deiner Liga suchst, werden der eingegebene Nachname, Vorname und/oder die Lizenznummer an den ÖTV übermittelt; die gewählte Region
         filtert die Treffer nur auf deinem Gerät. Die Treffer
         (Name, Verein, Landesverband, Jahrgang, Staatsangehörigkeit, Lizenznummer, ÖTV-Spieler-ID, ITN) kommen zurück in die App.</li>
       <li><strong>Tägliche Aktualisierung:</strong> Ist ein Profil verknüpft, ruft die App deinen aktuellen Wert über die
-        öffentliche Spielersuche des ÖTV ab. Folgst du Spieler*innen oder hast du Mannschaften angelegt, ruft sie auf demselben
+        öffentliche Spielersuche des ÖTV ab. Folgst du Spieler*innen, ruft sie auf demselben
         Weg auch deren öffentlich einsehbaren Wert ab. Dabei werden nur deine Lizenznummer sowie die Lizenznummern dieser
-        Spieler*innen und der Mitglieder deiner Mannschaften gesendet; bei Personen ohne Lizenznummer ihr Vor- und Nachname. Das geschieht einmal pro Tag im
+        Spieler*innen gesendet; bei Personen ohne Lizenznummer ihr Vor- und Nachname. Das geschieht einmal pro Tag im
         Hintergrund (frühestens ab etwa 6 Uhr). Beim Start der App wird eine Aktualisierung nachgeholt, wenn seit 6 Uhr noch
-        keine erfolgreich war; mit dem Aktualisieren-Symbol im Verlauf, in den Matches, bei den Spieler*innen oder im Mannschaftsdetail kannst du sie jederzeit selbst auslösen;
+        keine erfolgreich war; mit dem Aktualisieren-Symbol im Verlauf, in den Matches oder bei den Spieler*innen kannst du sie jederzeit selbst auslösen;
         sie läuft auch sofort, wenn du neue Spieler*innen hinzufügst. Ohne
-        verknüpftes Profil und ohne gefolgte Spieler*innen oder Mannschaften findet keine Aktualisierung statt.
+        verknüpftes Profil und ohne gefolgte Spieler*innen findet keine Aktualisierung statt. Die Werte der Personen deiner Ligen
+        aktualisiert die App nicht auf diesem Weg; sie stammen aus den Ligadaten (nächster Punkt). Öffnest du die Seite einer
+        Spieler*in (etwa aus der Suche, deinen Matches oder dem Kader einer Liga), ruft die App deren aktuellen Wert auf demselben Weg ab.
         Hast du in Kortform einen ÖTV-Login gespeichert, meldet sich die App in diesem täglichen Lauf zusätzlich beim ÖTV an und
         lädt deine Spiele (Abschnitt 5).</li>
-      <li><strong>Mannschaften importieren:</strong> Wenn du eine Mannschaft über den Link einer Ligagruppe von einer
-        Landesverbandsseite importierst (<code>tennis.wien</code>, <code>noetv.at</code>, <code>ooetv.at</code>,
+      <li><strong>Ligen importieren und aktualisieren:</strong> Als Mannschaftsführer*in kannst du deine Liga in Kortform importieren
+        (dafür brauchst du eine Kort-ID, Abschnitt 19). Die Gruppe wählst du aus einer Liste der laufenden Meisterschaften oder über
+        den Link einer Ligagruppe von einer Landesverbandsseite (<code>tennis.wien</code>, <code>noetv.at</code>, <code>ooetv.at</code>,
         <code>sttv.oetv.at</code>, <code>tenniskaernten.at</code>, <code>salzburgtennis.at</code>, <code>tennistirol.at</code>,
-        <code>vorarlbergtennis.at</code>, <code>tennisburgenland.at</code> oder <code>oetv.at</code>) oder eine importierte
-        Mannschaft aktualisierst, lädt die App die Mannschaft und ihre gemeldeten Spieler*innen (Name, Jahrgang,
-        Staatsangehörigkeit, Lizenznummer, ÖTV-Spieler-ID, Rang, ITN) aus den Ligadaten des ÖTV und der Landesverbände.
-        Die Daten werden immer über <code>oetv.at</code> abgerufen, egal von welcher Seite der Link stammt; die Landesverbandsseite
-        selbst ruft die App dabei nicht auf. Gesendet werden nur die Kennung der Ligagruppe aus dem Link und die Kennungen ihrer
-        Mannschaften. Das geschieht nur, wenn du den Import oder die Aktualisierung selbst auslöst.
-        Über „Link öffnen“ im Mannschaftsdetail öffnest du den Liga-Link im Browser deines Geräts; dort gelten die
-        Datenschutzbestimmungen der jeweiligen Seite.</li>
+        <code>vorarlbergtennis.at</code>, <code>tennisburgenland.at</code> oder <code>oetv.at</code>). Für die Liste ruft die App die
+        Saisons, Meisterschaften, Bewerbe und Gruppen des gewählten Landesverbands ab (ohne Personendaten). Für die gewählte Gruppe lädt
+        sie aus den Ligadaten des ÖTV und der Landesverbände die Tabelle, den Spielplan mit Ergebnissen, die Meldungen aller Mannschaften
+        der Gruppe (Name, Jahrgang, Staatsangehörigkeit, Lizenznummer, ÖTV-Spieler-ID, Rang, ITN, Saisonbilanz), die Spielberichte der
+        gespielten Begegnungen (Aufstellungen mit diesen Angaben, ITN zum Spielzeitpunkt, Ergebnisse); aus den Vereinsdaten übernimmt
+        sie nur die Adressen von Halle und Plätzen. Die Daten werden immer über <code>oetv.at</code> abgerufen, egal von welcher Seite der Link
+        stammt; die Landesverbandsseite selbst ruft die App dabei nicht auf. Gesendet werden nur Kennungen (Landesverband, Saison und
+        Meisterschaft für die Liste, Gruppe, Mannschaften, Begegnungen und Vereine), keine Daten über dich. Aktualisiert wird eine
+        Liga, wenn du das selbst auslöst, und im Hintergrund einmal pro Tag, unter Android zusätzlich abends am Spieltag und am Tag
+        danach, bis die Ergebnisse eingetragen sind (auf dem iPhone je Hintergrundlauf nur eine Liga, abwechselnd, und ohne die
+        Meldungen); abgeschlossene Ligen aktualisiert die App im Hintergrund nicht mehr. Ohne Ligen
+        findet keiner dieser Abrufe statt. Öffnest du den Link einer Gruppe im Browser deines Geräts (etwa über „Gruppenseite
+        öffnen“), gelten dort die Datenschutzbestimmungen der jeweiligen Seite.</li>
     </ul>
     <p>
       Wie bei jedem Abruf einer Website erhält der ÖTV dabei technisch bedingt deine IP-Adresse und
@@ -196,49 +222,66 @@
       Datenschutzbestimmungen.
     </p>
     <p>
-      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (die von dir gewünschte Funktion).<br>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (die von dir gewünschte Funktion). Soweit dabei Daten anderer
+      Personen abgefragt und übernommen werden (Spieler*innen, denen du folgst, Kader und Spielberichte deiner Ligen), Art. 6 Abs. 1
+      lit. f DSGVO (berechtigtes Interesse, die Funktionen der App für Spieler*innen und für die Liga bereitzustellen; die Interessen der
+      Betroffenen wiegen gering, weil diese Daten beim ÖTV öffentlich einsehbar sind).<br>
       <strong>Empfänger:</strong> Österreichischer Tennisverband (ÖTV) als eigenständig Verantwortlicher.
     </p>
 
     <h2>5. Optionaler ÖTV-Login (deine Spiele)</h2>
     <p>
       Mit einem ÖTV-Login (nuLiga-ID) kann Kortform deine Spiele und deinen Werteverlauf aus der
-      Vergangenheit laden, außerdem die Spielverläufe der Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften.
-      Der Login ist freiwillig; die App
+      Vergangenheit laden, außerdem die Spielverläufe der Spieler*innen, denen du folgst, und von Spieler*innen, deren Seite du
+      öffnest, sowie für Mixed-Ligen das Geschlecht der Personen deiner Ligen. Der Login ist freiwillig; die App
       funktioniert auch ohne.
     </p>
     <ul>
       <li><strong>Anmeldung beim ÖTV:</strong> Die Anmeldung führt die App selbst aus, ohne eingebettete Browseransicht (WebView). Im Onboarding, im Profil unter
-        „ÖTV-Login“ und beim Laden der Spiele und der Spielverläufe (Matches, Spieler*innen, Mannschaften) gibst du E-Mail-Adresse
+        „ÖTV-Login“ und beim Laden der Spiele und der Spielverläufe (Matches, Spieler*innen) gibst du E-Mail-Adresse
         und Passwort in Eingabefeldern der App ein. Die App sendet sie per verschlüsselter Verbindung (HTTPS) direkt an die
         Anmeldeseite von nuLiga (<code>tenat-id.liga.nu</code>) und ruft dabei Seiten des ÖTV (<code>oetv.at</code>) und von nuLiga
         (<code>liga.nu</code>) wie ein Browser auf; andere Adressen ruft sie dabei nicht auf. Das gilt auch, wenn du „Login merken“ nicht gewählt hast.
         Ohne „Login merken“ halten wir die Eingaben nur im Arbeitsspeicher für diese eine Anmeldung und verwerfen sie danach.
         Die Zugangsdaten gehen ausschließlich an die ÖTV- bzw. nuLiga-Anmeldeseite, nicht an uns.</li>
       <li><strong>Anmeldesitzung „auf Abruf“:</strong> Nach der Anmeldung erhält die App vom ÖTV eine kurzlebige Sitzung (Cookies der ÖTV-Seite) und holt
-        damit deine Spiele. Folgst du Spieler*innen oder hast du Mannschaften angelegt, sendet sie in derselben Sitzung auch
-        die ÖTV-Spieler-IDs dieser Spieler*innen und der Mitglieder deiner Mannschaften an den ÖTV, um ihre Spielverläufe zu laden. Der ÖTV kann dadurch sehen, welche Spieler*innen du über deinen Login abrufst.
-        Die Sitzung wird nur bis zum Ende dieses Abrufs auf dem Gerät gehalten und danach gelöscht; weitere Cookies der Anmeldung behält die App nicht.
+        damit deine Spiele. Folgst du Spieler*innen, sendet sie in derselben Sitzung auch
+        die ÖTV-Spieler-IDs dieser Spieler*innen an den ÖTV, um ihre Spielverläufe zu laden. Hast du eine Mixed-Liga (Damen und Herren
+        gemeinsam), sendet sie außerdem die ÖTV-Spieler-IDs von Personen dieser Liga (eigene Mannschaft und Gegner*innen), deren
+        Geschlecht noch nicht bekannt ist, und übernimmt aus der Antwort nur Geschlecht und Staatsangehörigkeit, nicht den Spielverlauf.
+        Der ÖTV kann dadurch sehen, welche Spieler*innen du über deinen Login abrufst.
+        Die Sitzung wird nur bis zum Ende dieses Abrufs auf dem Gerät gehalten und danach gelöscht (Ausnahme: Seite einer Spieler*in,
+        siehe unten); weitere Cookies der Anmeldung behält die App nicht.
         Die Sitzung des ÖTV selbst läuft dort von allein nach einigen Stunden ab.</li>
       <li><strong>„Login merken“ (optional):</strong> Wenn du das wählst, speichert die App deine E-Mail-Adresse und dein
         Passwort für die ÖTV-Anmeldung verschlüsselt auf deinem Gerät (Android Keystore bzw. iOS-Schlüsselbund) und verwendet sie
         bei jedem weiteren Login wie oben beschrieben. Gespeichert wird erst, nachdem der ÖTV die Anmeldung bestätigt hat;
         ein falsches oder nicht angenommenes Passwort wird nicht gespeichert. Mit gespeichertem Login und verknüpftem Profil meldet sich die App beim Aktualisieren
-        (Aktualisieren-Symbol im Verlauf, in den Matches, bei den Spieler*innen oder im Mannschaftsdetail) und nachdem du Spieler*innen hinzugefügt hast
-        außerdem automatisch beim ÖTV an und lädt neue Spiele und die Spielverläufe der Spieler*innen, denen du folgst, und der Mitglieder deiner Mannschaften. Unter Android werden diese
+        (Aktualisieren-Symbol im Verlauf, in den Matches oder bei den Spieler*innen) und nachdem du Spieler*innen hinzugefügt hast
+        außerdem automatisch beim ÖTV an und lädt neue Spiele und die Spielverläufe der Spieler*innen, denen du folgst. Importierst du
+        eine Mixed-Liga oder stellst eine Liga auf Mixed um, meldet sich die App mit dem gespeicherten Login ebenfalls an und lädt
+        gleich die fehlenden Geschlechter dieser Liga (wie unter „Anmeldesitzung“ beschrieben). Unter Android werden diese
         Daten nicht in Geräte-Backups aufgenommen; unter iOS lässt sich der verschlüsselte Wert nicht auf einem anderen Gerät
         entschlüsseln.</li>
       <li><strong>Täglicher Login im Hintergrund:</strong> Mit gespeichertem Login meldet sich die App zusätzlich einmal pro Tag
         im Rahmen der täglichen Aktualisierung (Abschnitt 4, frühestens ab etwa 6 Uhr) automatisch im Hintergrund beim ÖTV an, ohne dass du
-        etwas tun musst, und lädt deine neuen Spiele sowie die Spielverläufe der Spieler*innen, denen du folgst, und der Mitglieder
-        deiner Mannschaften. Pro Tag gibt es höchstens eine bestätigte Anmeldung und höchstens zwei Versuche. Lehnt der ÖTV deine
+        etwas tun musst, und lädt deine neuen Spiele sowie die Spielverläufe der Spieler*innen, denen du folgst, und für Mixed-Ligen
+        fehlende Geschlechter. Lief seit 6 Uhr noch kein solcher Abgleich, geschieht dasselbe beim Start der App, ohne Rückfrage und ohne
+        Anzeige. Pro Tag gibt es (Hintergrund und App-Start zusammen) höchstens eine bestätigte Anmeldung und höchstens zwei Versuche. Lehnt der ÖTV deine
         gespeicherten Zugangsdaten ab (etwa nach einer Passwortänderung), meldet sich die App nicht mehr von selbst an, bis du
-        deinen Login neu eingibst. Wir können diesen Hintergrund-Login für alle Nutzer*innen über Firebase Remote Config
+        deinen Login neu eingibst. Wir können diesen automatischen Login (im Hintergrund und beim App-Start) für alle Nutzer*innen über Firebase Remote Config
         abschalten (Abschnitt 9), etwa wenn der ÖTV oder nuLiga bei wiederholten Anmeldungen Sicherheitsmeldungen auslöst; vom
         Hintergrund-Login unberührt bleibt jede Anmeldung, die du selbst startest. Ohne gespeicherten Login findet keine
         Anmeldung im Hintergrund statt. Du kannst ihn jederzeit beenden, indem du den gespeicherten Login löschst (siehe „Löschen“).</li>
+      <li><strong>Seite einer Spieler*in:</strong> Öffnest du mit gespeichertem Login („Login merken“) die Seite einer Person, etwa aus der
+        Suche, deinen Matches, dem Kader deiner Liga oder einer Gegner*innen-Mannschaft, lädt die App deren Spielverlauf beim ÖTV und
+        sendet dafür deren ÖTV-Spieler-ID. Die Sitzung dafür hält die App nur im Arbeitsspeicher, bis die App beendet wird, und
+        verwendet sie für weitere Seiten wieder; auf dem Gerät gespeichert wird sie nicht. Hat die App keine Sitzung oder lehnt der
+        ÖTV sie ab, meldet sie sich mit dem gespeicherten Login einmal neu an. Den Spielverlauf speichert die App nur für
+        Spieler*innen, denen du folgst; bei allen anderen hält sie ihn nur im Arbeitsspeicher, bis die App beendet wird. Geschlecht und
+        Staatsangehörigkeit aus der Antwort übernimmt sie auch für Personen deiner Ligen.</li>
       <li><strong>Löschen:</strong> Im Profil unter „ÖTV-Login“ kannst du den gespeicherten Login jederzeit löschen
-        („ÖTV-Login löschen“); dabei werden auch eine noch gespeicherte Sitzung und Anmeldedaten früherer App-Versionen entfernt. Auch „Alle Daten löschen“ und der
+        („ÖTV-Login löschen“); dabei werden auch eine noch gespeicherte oder im Arbeitsspeicher gehaltene Sitzung und Anmeldedaten früherer App-Versionen entfernt. Auch „Alle Daten löschen“ und der
         Wechsel zu einer anderen Person entfernen den Login. Frühere Versionen von Kortform nutzten für die Anmeldung eine
         eingebettete Browseransicht; deren Cookies für <code>oetv.at</code> und <code>liga.nu</code> löscht die App nach dem Update einmalig
         (unter Android alle Cookies der Browseransicht der App, auf dem iPhone die für <code>oetv.at</code> und <code>liga.nu</code>).</li>
@@ -248,9 +291,14 @@
       und nicht weitergegeben.
     </p>
     <p>
-      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (die von dir gewünschte Funktion).<br>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (die von dir gewünschte Funktion). Soweit die App dabei
+      ÖTV-Spieler-IDs anderer Personen an den ÖTV bzw. nuLiga sendet und deren Spielverläufe oder Geschlecht übernimmt (Spieler*innen,
+      denen du folgst, Seite einer Spieler*in, Mixed-Ligen), Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, die Funktionen der App
+      für Spieler*innen und für die Liga bereitzustellen; die Interessen der Betroffenen wiegen gering, weil es um Spieldaten geht, die
+      beim ÖTV für angemeldete Spieler*innen bzw. für die Teilnehmenden der Liga sichtbar sind).<br>
       <strong>Speicherdauer:</strong> Zugangsdaten nur mit „Login merken“, bis du sie löschst (Profil, „Alle Daten löschen“,
-      Wechsel der Person, Deinstallation); die Sitzung nur bis zum Ende des jeweiligen Abrufs.<br>
+      Wechsel der Person, Deinstallation); die Sitzung nur bis zum Ende des jeweiligen Abrufs, für die Seite einer Spieler*in nur im
+      Arbeitsspeicher bis zum Beenden der App.<br>
       <strong>Empfänger:</strong> ÖTV bzw. nuLiga als eigenständig Verantwortliche für die Anmeldung und als Anbieter deines
       eigenen ÖTV-Kontos; wir erhalten deine Zugangsdaten nicht.
     </p>
@@ -325,16 +373,16 @@
     <p>
       Firebase Analytics (Google) ist in Kortform <strong>standardmäßig aus</strong> und wird erst nach deiner ausdrücklichen
       Einwilligung aktiviert: über das Kontrollkästchen „Nutzungsstatistiken teilen, um die App zu verbessern“ im Onboarding oder den Schalter
-      „Nutzungsstatistiken teilen“ im Profil unter „Datenschutz“. Das Kontrollkästchen erscheint nur im Onboarding-Schritt
-      zum ÖTV-Login; wer diesen Schritt nicht sieht (etwa beim Start ohne Profil), kann sie im Profil oder beim ÖTV-Login aus dem Matches-Bereich erteilen.
+      „Nutzungsstatistiken teilen“ im Profil unter „Datenschutz“. Das Kontrollkästchen erscheint im Onboarding-Schritt
+      zum ÖTV-Login und beim Start ohne Profil; außerdem kannst du die Einwilligung im Profil oder beim ÖTV-Login aus dem Matches-Bereich erteilen.
       Du kannst sie dort jederzeit widerrufen; auch „Alle Daten löschen“ nimmt sie zurück. Für Profile unter 14 (Abschnitt 16)
       ist Firebase Analytics nicht verfügbar: Es gibt dann weder das Kontrollkästchen noch den Schalter, und eine früher erteilte
       Einwilligung wird zurückgenommen.
     </p>
     <p>
       Erfasst werden die automatischen Standard-Ereignisse des Firebase-SDKs (z. B. erster Start, Sitzungsbeginn,
-      App- und Betriebssystem-Update, Bildschirmaufrufe, Nutzungsdauer, unter Android das Entfernen der App) und einige
-      wenige eigene Ereignisse (siehe unten), zusammen mit
+      App- und Betriebssystem-Update, Nutzungsdauer, unter Android das Entfernen der App) sowie eigene Ereignisse und
+      Nutzereigenschaften (siehe unten), zusammen mit
       Geräte-, Betriebssystem- und App-Version, einem ungefähren Standort (Land bzw. Region, aus der IP-Adresse abgeleitet), der App-Instanz-ID und, nach deiner Einwilligung, der Werbe-ID
       (Android: Advertising ID; iPhone: IDFA, nur wenn du die App-Tracking-Erlaubnis erteilt hast). Kortform setzt keine Nutzer-ID;
       Inhalte der App (Werte, Spiele, ÖTV-Login) werden nicht übertragen. Die Daten sind pseudonym: Über die
@@ -342,25 +390,56 @@
       damit nicht anonym.
     </p>
     <p>
-      Die eigenen Ereignisse enthalten nur Codes und Zahlen, nie Namen, Lizenznummern, Spieler-IDs, Mannschaftsnamen, Links oder
-      Zugangsdaten:
+      Die eigenen Ereignisse und Nutzereigenschaften enthalten nur Codes und Zahlen, nie Namen, Lizenznummern, Spieler-IDs,
+      Personenschlüssel, Mannschafts- oder Liganamen, Kennungen von Ligen oder Begegnungen, ITN-Werte, Suchtexte, Kommentare, E-Mail-Adressen,
+      Links oder Zugangsdaten. Die meisten Ereignisse tragen zusätzlich die gerade aktive Stufe (Gratis, Pro, Team oder Team-Testphase):
     </p>
     <ul>
-      <li><strong>Folgen und Mannschaften:</strong> wenn du jemandem folgst oder nicht mehr folgst (auch das Rückgängigmachen), allen
-        Spieler*innen einer importierten Mannschaft auf einmal folgst, eine Mannschaft anlegst oder löschst. Dazu kommen, wo die Aktion
-        stattfand (z. B. Suche oder Mannschaftsdetail), welche Stufe aktiv ist (Gratis, Pro, Team oder Team-Testphase), ob das Folgen direkt nach dem Kauf von Pro geschah, wie vielen Personen du danach folgst bzw. wie viele
-        Mitglieder die Mannschaft hat und ob sie von Hand angelegt oder aus der Liga importiert wurde.</li>
-      <li><strong>Abgleich mit dem ÖTV-Login:</strong> Start und Ende eines Abgleichs (Art, ob du ihn gestartet hast oder der tägliche
-        Hintergrundlauf, Ergebnis, Dauer je Abschnitt und wie viele Spielverläufe von Spieler*innen angefragt und geladen wurden).</li>
+      <li><strong>Bildschirmaufrufe:</strong> der feste Name des aufgerufenen Bildschirms (z. B. Verlauf, Liga-Übersicht,
+        Aufstellungsplaner), die Größenklasse des Fensters und ob er in der rechten Spalte eines breiten Layouts steht.</li>
+      <li><strong>Einrichtung und Konto:</strong> Ergebnis einer Profilsuche (Treffer, keine Treffer, Fehler), Verknüpfen eines Profils
+        (auch ein gescheitertes) oder Start ohne Profil, Überspringen des ÖTV-Logins, Speichern und Löschen des gespeicherten ÖTV-Logins, das Ergebnis von „Alle
+        Daten löschen“ und wo du in Nutzungsstatistiken eingewilligt hast.</li>
+      <li><strong>Folgen:</strong> wenn du jemandem folgst oder nicht mehr folgst (auch das Rückgängigmachen). Dazu kommen, wo die Aktion
+        stattfand (z. B. Suche, Spieler*innen-Liste oder Seite einer Spieler*in), ob das Folgen direkt nach dem Kauf von Pro geschah und
+        wie vielen Personen du danach folgst.</li>
+      <li><strong>Abgleich mit dem ÖTV-Login:</strong> Start und Ende eines Abgleichs (Art, ob er vom Bildschirm bzw. App-Start oder vom
+        täglichen Hintergrundlauf kam, Ergebnis, Dauer je Abschnitt und wie viele Spielverläufe von Spieler*innen angefragt und geladen wurden).</li>
       <li><strong>ÖTV-Anmeldung:</strong> bei jeder Anmeldung beim ÖTV (Formular, gespeicherter Login, täglicher Hintergrundlauf) das
         Ergebnis (Erfolg, abgelehnte Zugangsdaten, Fehler oder nicht versucht) mit einem Code für den Schritt und die Art eines
-        Fehlers, woher die Anmeldung kam (Formular, gespeicherter Login, Hintergrund), in welchem Bereich der App sie
-        stattfand und wie lange sie dauerte. Nie E-Mail-Adresse, Passwort, Cookies oder Namen.</li>
+        Fehlers, woher die Anmeldung kam (Formular, gespeicherter Login, Hintergrund, Seite einer Spieler*in, Geschlechter einer
+        Mixed-Liga), in welchem Bereich der App sie stattfand und wie lange sie dauerte. Nie E-Mail-Adresse, Passwort, Cookies oder Namen.</li>
+      <li><strong>Benachrichtigungen:</strong> ob du die Abfrage des Systems nach der Erlaubnis für Benachrichtigungen erlaubt oder
+        abgelehnt hast und wo in der App sie gestellt wurde.</li>
       <li><strong>Paywall:</strong> wenn dir eine Paywall für Pro oder Team gezeigt wird, welche es war und was sie ausgelöst hat
-        (z. B. das Limit beim Folgen), sowie das Ergebnis eines Kaufversuchs oder einer Wiederherstellung (Erfolg, abgebrochen,
+        (z. B. das Limit beim Folgen oder eine Funktion der Liga), sowie das Ergebnis eines Kaufversuchs oder einer Wiederherstellung (Erfolg, abgebrochen,
         fehlgeschlagen, nichts gefunden). Nie Preise, Kaufbelege oder Store-Texte.</li>
+      <li><strong>Liga:</strong> Import einer Liga (Landesverband als Code, Format, Zahl der Mannschaften und der gespielten Runden,
+        woher das Format stammt, Weg über Liste oder Link) oder dessen Fehlschlag (Grund), Speichern und Teilen einer Aufstellung (Runde, Zahl der Plätze,
+        gewählte Schalter), Öffnen des Saison-Forecasts oder einer Gegner*innen-Mannschaft, eine selbst ausgelöste Aktualisierung
+        (Auslöser, Ergebnis), Ein- und Ausschalten der Benachrichtigungen einer Liga, Ändern des Formats und Entfernen einer Liga.</li>
+      <li><strong>Kort-ID und Mannschaftsführung:</strong> Beginn, Erfolg oder Fehlschlag einer Anmeldung (Anmeldeweg E-Mail, Google
+        oder Apple, Auslöser, Fehlercode), Abmelden, Löschen der Kort-ID, Erzeugen, erneutes Teilen, Zurückziehen, Öffnen (Status) und
+        Annehmen einer Einladung, Entfernen einer Person aus der Mannschaftsführung, Verlassen einer Liga, Laden der Ligen deiner
+        Kort-ID (Anzahl) sowie der Hinweis, dass eine Mannschaft schon eine Mannschaftsführung hat, und ein Tipp auf „Schreib uns“ darin.</li>
+      <li><strong>Verfügbarkeit:</strong> deine eigene Antwort (Ja, Vielleicht oder Nein, wo du sie gegeben hast, ob sie eine frühere
+        ersetzt und ob ein Kommentar dabei ist, nie der Kommentar selbst), „Passt noch“, eine nicht gespeicherte Antwort (Fehlercode),
+        das Öffnen eines Links der Mannschaft (Ergebnis und ob die App dich erkannt hat oder du dich ausgewählt hast), die Übergabe
+        eines Spieltags an den Kalender (Ergebnis), eine Antwort, die die Mannschaftsführung für eine Person einträgt oder entfernt
+        (nur der Status), eine Erinnerung der Mannschaftsführung (Ergebnis, Zahl der Erinnerten) und das Kopieren oder Teilen des Links bzw. das Teilen
+        einer Einladung zur App.</li>
+      <li><strong>Rechner, Suche, Links, Aktualisieren und Bewertung:</strong> wenn der Rechner ein neues Ergebnis zeigt (Einzel oder
+        Doppel, ob du selbst mitspielst) oder du ein Ergebnis übernimmst (Sieg oder Niederlage, Erfolg), das Ergebnis einer
+        Spieler*innensuche (wo gesucht wurde, Treffer, keine Treffer, Fehler), das Öffnen eines App-Links oder einer Benachrichtigung
+        (Ziel als Code, Benachrichtigung oder Link), eine selbst ausgelöste Aktualisierung (Bereich, Ergebnis) und eine Bitte der App
+        an das System um eine Bewertung im Store (Auslöser, ob das System sie angenommen hat).</li>
       <li><strong>App-Updates (nur Android):</strong> ob ein Update-Hinweis von Google Play angezeigt, angenommen oder abgelehnt und
         ob das Update installiert wurde, mit Art, Priorität und Versionsnummer des Updates.</li>
+      <li><strong>Nutzereigenschaften</strong> (der aktuelle Stand, den Firebase an spätere Ereignisse hängt): Art des Profils (keines,
+        verknüpft, ohne Profil), Stand des gespeicherten ÖTV-Logins, ob deine Spiele schon einmal geladen wurden, ob du mit einer
+        Kort-ID angemeldet bist und mit welchem Anmeldeweg, die Stufe, die Zahl deiner Ligen und der Spieler*innen, denen du folgst
+        (jeweils in Stufen), die Zahl der Verfügbarkeits-Saisons, in denen du stehst, ob du dort selbst geantwortet hast, die
+        Erlaubnis für Benachrichtigungen und ob ein Widget auf dem Startbildschirm liegt.</li>
     </ul>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO und § 165 Abs. 3 TKG 2021 (deine Einwilligung).<br>
@@ -373,8 +452,8 @@
     <p>
       Kortform lädt über Firebase Remote Config (Google) Konfigurationswerte auf dein Gerät, u. a. den
       Zugangsschlüssel für die ÖTV-Schnittstelle (Abschnitt 4). So kann dieser ohne App-Update erneuert werden, falls der ÖTV
-      ihn ändert. Außerdem enthält die Konfiguration Schalter, mit denen wir den täglichen Login im Hintergrund (Abschnitt 5)
-      und die Push-Registrierung (Abschnitt 11) für alle abschalten können. Dafür verarbeitet Google die Firebase-Installations-ID sowie grundlegende Geräte- und
+      ihn ändert. Außerdem enthält die Konfiguration Schalter, mit denen wir den automatischen Login (Abschnitt 5), die
+      Aktualisierung der Ligen im Hintergrund (Abschnitt 4) und die Push-Registrierung (Abschnitt 11) für alle abschalten können. Dafür verarbeitet Google die Firebase-Installations-ID sowie grundlegende Geräte- und
       App-Informationen (App-Version, Betriebssystem, Sprache, Land). Remote Config dient nicht der Nutzungsanalyse.
     </p>
     <p>
@@ -387,9 +466,9 @@
 
     <h2>10. Kortform Pro und Team (Google Play / App Store, RevenueCat)</h2>
     <p>
-      Kortform ist gratis nutzbar, mit Werbung und Grenzen beim Folgen, bei Mannschaften und Ligen. <strong>Kortform Pro</strong> ist ein einmaliger Kauf; er entfernt die Werbung,
-      erweitert die Grenzen beim Folgen und bei Mannschaften und schaltet den Mannschaftsimport per Link frei. <strong>Kortform Team</strong> ist ein Jahresabo
-      (mit einer Testphase von 7 Tagen für berechtigte Konten); es enthält Pro und schaltet zusätzlich Funktionen für die Liga frei
+      Kortform ist gratis nutzbar, mit Werbung und Grenzen beim Folgen und bei Ligen. <strong>Kortform Pro</strong> ist ein einmaliger Kauf; er entfernt die Werbung
+      und erweitert die Grenze beim Folgen. <strong>Kortform Team</strong> ist ein Jahresabo
+      (mit einer Testphase von 14 Tagen für berechtigte Konten); es enthält Pro und schaltet zusätzlich Funktionen für die Liga frei
       und braucht eine Kort-ID (Abschnitt 19). Der Kauf wird auf Android vollständig über Google Play und auf
       dem iPhone vollständig über den App Store von Apple abgewickelt. Zahlungsdaten (Kreditkarte etc.) verarbeiten
       ausschließlich Google bzw. Apple im Rahmen deines Kontos; wir erhalten und speichern <strong>keine Zahlungsdaten</strong>.
@@ -435,15 +514,16 @@
     </p>
     <p>
       <strong>Push-Registrierung (jede Installation, auch ohne Kort-ID):</strong> Damit wir dir Push-Nachrichten schicken können
-      (die Erinnerung an offene Verfügbarkeiten, künftig etwa Hinweise auf App-Updates und weitere Mitteilungen deiner Mannschaft), meldet jede Installation von Kortform ihre
+      (die Erinnerung an offene Verfügbarkeiten, die Meldung geänderter Verfügbarkeiten an die Mannschaftsführung, künftig etwa Hinweise auf
+      App-Updates und weitere Mitteilungen deiner Mannschaft), meldet jede Installation von Kortform ihre
       Adresse für Push-Nachrichten im Hintergrund bei uns an. Das geschieht ohne Rückfrage, auch wenn du keine Kort-ID hast und
       auch ohne Einwilligung zu Nutzungsstatistiken; die Erlaubnis-Abfrage des Systems für Benachrichtigungen löst es nicht aus.
       Aus der Registrierung leiten wir außerdem für die Mannschaftsführung deiner eigenen Mannschaft den Hinweis ab, dass du die App nutzt
       (siehe „Hinweis ‚Hat die App‘“ weiter unten).
     </p>
     <p>
-      <strong>Welche Push-Nachrichten wir verschicken:</strong> Derzeit nur eine, die <strong>Erinnerung an offene Verfügbarkeiten</strong>.
-      Sie entsteht nicht automatisch: Eine Mannschaftsführung tippt in der Verfügbarkeit eines Spieltags auf „Offene erinnern“ (Abschnitt 20).
+      <strong>Welche Push-Nachrichten wir verschicken:</strong> Derzeit zwei. Die <strong>Erinnerung an offene Verfügbarkeiten</strong>
+      entsteht nicht automatisch: Eine Mannschaftsführung tippt in der Verfügbarkeit eines Spieltags auf „Offene erinnern“ (Abschnitt 20).
       Unser Server sucht dann die Personen der Mannschaftsliste, die für diesen Spieltag noch nicht geantwortet haben, und schickt die
       Nachricht an die Installationen, die mit dem Personenschlüssel dieser Personen registriert sind (höchstens 10 Installationen je Person).
       Die Nachricht enthält nur die Mannschaft, den Gegner und den Tag des Spiels („Verfügbarkeit offen“), keine Namen von Personen und keinen Link.
@@ -451,6 +531,19 @@
       mitbekommen, deshalb steht nichts Persönliches darin. Je Spieltag ist eine Erinnerung in 12 Stunden möglich, je Liga höchstens 10 am Tag.
       Die App zeigt die Erinnerung auch an, während sie geöffnet ist; ein Tipp öffnet dein Profil mit der Karte zur Verfügbarkeit.
       Bekommen kannst du sie nur, wenn du Kortform mit einem Profil nutzt und Benachrichtigungen erlaubt hast.
+    </p>
+    <p>
+      Die <strong>Meldung geänderter Verfügbarkeiten</strong> geht an die Mannschaftsführung und entsteht automatisch: Haben Spieler*innen
+      ihre Antwort für einen kommenden Spieltag gegeben, geändert oder entfernt (auch eine Änderung nur am Kommentar), prüft unser Server
+      stündlich und schickt allen Mannschaftsführenden der Liga eine Benachrichtigung. Sie geht an die Installationen, die mit der Kort-ID
+      der jeweiligen Mannschaftsführung angemeldet registriert sind (über die Nutzerkennung der Kort-ID, nicht über den Personenschlüssel;
+      höchstens 5 Installationen je Person, die sich in den letzten 60 Tagen gemeldet haben), unabhängig davon, ob Kortform Team aktiv ist.
+      Sie enthält nur den Namen bzw. Kurznamen (Alias) der Mannschaft und eine Zahl („3 Spieler*innen haben ihre Verfügbarkeit geändert.“,
+      bei genau einem betroffenen Spieltag mit dessen Datum), keine Namen, Kommentare oder Personenschlüssel; ein Tipp öffnet die Liga in der
+      App. Sie kommt höchstens einmal pro Stunde, nur zwischen 8 und 21 Uhr, höchstens 6-mal am Tag je Liga und meldet jede Änderung nur
+      einmal und nur, wenn die Mannschaftsführende sie noch nicht in der App gesehen hat. Was sie selbst eingetragen hat, wird ihr nicht
+      gemeldet; „Passt noch“ und Änderungen an Kader oder Spielplan zählen nicht. Einen Schalter dafür gibt es in der App nicht
+      (ausschalten siehe unten).
     </p>
     <p><strong>Welche Daten wir speichern:</strong></p>
     <ul>
@@ -462,7 +555,8 @@
         ÖTV-Spieler-ID (mit dem Zusatz „nu:“); ohne Profil wird nichts gespeichert. Über ihn finden wir die Installationen für die
         Erinnerung an offene Verfügbarkeiten, und aus ihm leiten wir den Hinweis „Hat die App“ für die Mannschaftsführung deiner
         Mannschaft ab (siehe unten);</li>
-      <li>wenn du mit einer Kort-ID angemeldet bist (Abschnitt 19), zusätzlich deren Nutzerkennung; nach dem Abmelden wird sie gelöst;</li>
+      <li>wenn du mit einer Kort-ID angemeldet bist (Abschnitt 19), zusätzlich deren Nutzerkennung; über sie erreicht dich als
+        Mannschaftsführer*in die Meldung geänderter Verfügbarkeiten; nach dem Abmelden wird sie gelöst;</li>
       <li>Zeitpunkte: Anlage und letzte Meldung der Installation;</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
     </ul>
@@ -472,7 +566,7 @@
       bei Firebase Cloud Messaging das Thema „app_updates“, über das wir allen Installationen Hinweise auf App-Updates
       schicken können. Eine Kort-ID oder Person kann mehrere Installationen haben (etwa Handy und Tablet). Wir können die
       Push-Registrierung und das Abonnement für alle über Firebase Remote Config abschalten (Abschnitt 9); bestehende Registrierungen
-      löscht dieser Schalter nicht, sie können bis zu ihrem Verfall weiter Erinnerungen bekommen. Installations-ID und Geheimnis dienen
+      löscht dieser Schalter nicht, sie können bis zu ihrem Verfall weiter Push-Nachrichten bekommen. Installations-ID und Geheimnis dienen
       außerdem als Ausweis, wenn die App nach deinen Mannschaften sucht (Abschnitt 20).
     </p>
     <p>
@@ -480,6 +574,15 @@
       wurde, von welcher Kort-ID, an wie viele Installationen und wie oft, außerdem einen Tageszähler je Liga. Damit setzen wir die oben
       genannten Grenzen durch. Diese Angaben werden mit der Verfügbarkeits-Saison gelöscht (Abschnitt 20), der Tageszähler nach wenigen Tagen.
       Für den Versand übergeben wir Firebase Cloud Messaging den Token und den Text der Nachricht.
+    </p>
+    <p>
+      <strong>Meldung geänderter Verfügbarkeiten:</strong> Je Liga und Mannschaftsführende*r speichern wir, bis zu welcher Änderung sie
+      die Verfügbarkeiten in der App gesehen hat (jedes Laden der Verfügbarkeiten durch ihre App zählt als gesehen, auch ohne Team und
+      ohne dass ein Bildschirm sichtbar ist), worüber und wann sie zuletzt benachrichtigt wurde und wie oft an diesem Tag; zu Antworten,
+      die eine Mannschaftsführung für andere einträgt, außerdem, wer sie eingetragen hat. Damit setzen wir „nur Ungesehenes“ und die
+      oben genannten Grenzen durch. Diese Angaben werden gelöscht, wenn die Person die Mannschaftsführung der Liga verlässt oder die Liga
+      gelöscht wird, die Angabe, wer eingetragen hat, mit der Verfügbarkeits-Saison oder der Kort-ID; dazu kommen Zähler je Tag ohne
+      Personenbezug. Auch hier übergeben wir Firebase Cloud Messaging für den Versand nur den Token und den Text der Nachricht.
     </p>
     <p>
       <strong>Hinweis „Hat die App“ für die Mannschaftsführung:</strong> Stehst du auf der Mannschaftsliste einer Verfügbarkeits-Saison
@@ -496,8 +599,10 @@
     </p>
     <p>
       <strong>Benachrichtigungen ausschalten:</strong> Push-Nachrichten und die lokale Erinnerung an die Verfügbarkeit schaltest du aus, indem du
-      Kortform in den Systemeinstellungen deines Geräts die Benachrichtigungen entziehst; dann wird nichts angezeigt. Die Registrierung
-      selbst lässt sich in der App nicht abschalten (siehe „Löschen und Widerspruch“).
+      Kortform in den Systemeinstellungen deines Geräts die Benachrichtigungen entziehst; dann wird nichts angezeigt. Die Meldung
+      geänderter Verfügbarkeiten kannst du unter Android auch allein abstellen, indem du in den Systemeinstellungen den
+      Benachrichtigungskanal „Antworten meiner Mannschaft“ ausschaltest; ist Kortform dabei gerade geöffnet, zeigt die App sie unter
+      Android trotzdem an. Die Registrierung selbst lässt sich in der App nicht abschalten (siehe „Löschen und Widerspruch“).
     </p>
     <p>
       <strong>Dienstleister:</strong> Die Registrierung speichert Supabase (Supabase, Inc.) in der Region Frankfurt (EU), wie bei der
@@ -507,7 +612,9 @@
     </p>
     <p>
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, dich über Ereignisse in deiner Mannschaft,
-      derzeit offene Verfügbarkeiten, und künftig über App-Updates zu erreichen, ohne dass dafür ein Konto nötig ist; für den Hinweis
+      derzeit offene Verfügbarkeiten, und künftig über App-Updates zu erreichen, ohne dass dafür ein Konto nötig ist; für die Meldung
+      geänderter Verfügbarkeiten das berechtigte Interesse der Mannschaftsführung, Änderungen ihrer Mannschaft rechtzeitig zu erfahren,
+      ohne die App ständig zu öffnen; für den Hinweis
       „Hat die App“ das berechtigte Interesse der Mannschaft, dass die Mannschaftsführung erkennt, wen eine Erinnerung über die App erreichen kann). Die Registrierung hängt nicht von der Einwilligung zu Nutzungsstatistiken
       (Abschnitt 8) ab.<br>
       <strong>Speicherdauer:</strong> bis zur Löschung (siehe unten), spätestens 180 Tage nach der letzten Meldung der Installation; die App meldet sich bei Nutzung mindestens alle 7 Tage.<br>
@@ -519,7 +626,7 @@
       (ohne Internetverbindung nur auf dem Gerät, die Serverzeile verfällt dann nach 180 Tagen). Danach legt die App,
       solange sie installiert ist, mit einer neuen, anonymen Installations-ID eine neue Registrierung an. Löschst du deine Kort-ID (Abschnitt 19), entfernen wir die
       Registrierungen deiner Kort-ID auf dem Server; Abmelden löst nur die Verknüpfung mit der Kort-ID. Deinstallierst du die App, meldet sie sich nicht
-      mehr, und die Registrierung verfällt nach 180 Tagen. Meldet Firebase Cloud Messaging beim Versand einer Erinnerung, dass ein Token
+      mehr, und die Registrierung verfällt nach 180 Tagen. Meldet Firebase Cloud Messaging beim Versand einer Push-Nachricht, dass ein Token
       nicht mehr gültig ist, löschen wir die Registrierung mit diesem Token sofort. Ohne Installations-ID können wir eine Registrierung nicht ohne Weiteres dir zuordnen (Art. 11 DSGVO);
       wenn du uns schreibst und, soweit vorhanden, deine Lizenznummer nennst (Abschnitt 18), löschen wir die Registrierungen mit diesem Personenschlüssel.
       Mit der Registrierung entfällt auch der Hinweis „Hat die App“ bei deiner Mannschaftsführung, sobald unter deinem Personenschlüssel
@@ -601,8 +708,8 @@
           <tr><td>RevenueCat (Kaufverwaltung)</td><td>RevenueCat, Inc.</td><td>USA (Garantien nach Angaben von RevenueCat, siehe dessen Datenschutzhinweise)</td></tr>
           <tr><td>Android Auto-Backup</td><td>Google LLC</td><td>gemäß Google-Kontoeinstellungen</td></tr>
           <tr><td>iCloud-Backup</td><td>Apple Inc.</td><td>gemäß deinen iCloud-Einstellungen</td></tr>
-          <tr><td>Push-Registrierung und Versand der Erinnerung: Datenbank und Serverfunktion (jede Installation)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
-          <tr><td>Push-Registrierung und Zustellung der Erinnerung: Firebase Cloud Messaging (jede Installation)</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
+          <tr><td>Push-Registrierung und Versand der Push-Nachrichten (Erinnerung, Meldung geänderter Verfügbarkeiten): Datenbank und Serverfunktion (jede Installation)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
+          <tr><td>Push-Registrierung und Zustellung der Push-Nachrichten: Firebase Cloud Messaging (jede Installation)</td><td>Google Ireland Ltd. / Google LLC</td><td>EU/USA (EU-Standardvertragsklauseln)</td></tr>
           <tr><td>Push-Dienst von Apple (iPhone)</td><td>Apple Distribution International Ltd. / Apple Inc.</td><td>gemäß den Bedingungen von Apple</td></tr>
           <tr><td>Kort-ID: Anmeldung, Datenbank, Löschfunktion (nur mit Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
           <tr><td>Verfügbarkeit je Saison: Datenbank (Saison durch die Mannschaftsführung mit Kort-ID; Antworten und Suche auch ohne Kort-ID)</td><td>Supabase, Inc.</td><td>EU (Frankfurt, Deutschland); soweit Daten an den Anbieter in den USA gelangen, auf Grundlage von Standardvertragsklauseln bzw. der Garantien nach Angaben von Supabase</td></tr>
@@ -675,7 +782,7 @@
     <h2 id="loeschen">18. Daten löschen lassen (auch bei Dienstleistern)</h2>
     <p>
       <strong>In der App und auf deinem Gerät:</strong> Im Profil unter „Alle Daten löschen“ entfernst du dein Profil, deinen
-      Verlauf, deine Spiele, die Spieler*innen, denen du folgst, deine Mannschaften samt ihren Mitgliedern, die zuletzt gesuchten Personen, deren Werte und
+      Verlauf, deine Spiele, die Spieler*innen, denen du folgst, deine Ligen samt Kadern und Spielberichten, die zuletzt gesuchten Personen, deren Werte und
       Spielverläufe, deine Einstellungen (inklusive der Einwilligung zu Nutzungsstatistiken, ohne die technische Markierung aus Abschnitt 3;
       die Werbe-Einwilligung bei Google bleibt bestehen) und einen gespeicherten
       ÖTV-Login samt Sitzung. Die Widget-Datei wird dabei zurückgesetzt. Auch die Deinstallation der App löscht die lokalen Daten (zu
@@ -744,8 +851,9 @@
       möchtest. Ohne Kort-ID nutzt du Kortform wie bisher lokal (zu Push-Registrierung und Verfügbarkeit siehe Abschnitte 11 und 20). Dieser Abschnitt gilt nur, wenn du eine
       Kort-ID anlegst oder dich damit anmeldest.
     </p>
-    <p><strong>Zweck:</strong> Mehrere Mannschaftsführende sehen und planen dieselbe Liga (gleiche Rechte, kein Besitzer). Dafür
-      gleichen die Geräte die geteilte Liga über einen Server ab. Damit eine Mannschaft nicht von mehreren Personen unabhängig
+    <p><strong>Zweck:</strong> Du führst deine Liga in Kortform, allein oder gemeinsam mit weiteren Mannschaftsführenden; auch wer allein
+      führt, braucht dafür eine Kort-ID. Mehrere Mannschaftsführende sehen und planen dieselbe Liga (gleiche Rechte, kein Besitzer). Dafür
+      gleichen die Geräte die Liga über einen Server ab. Damit eine Mannschaft nicht von mehreren Personen unabhängig
       voneinander geführt wird, gehört sie einer einzigen Liga auf dem Server; weitere Mannschaftsführende kommen über eine
       Einladung dazu.</p>
     <p><strong>Welche Daten wir speichern:</strong></p>
@@ -762,6 +870,8 @@
         die von der Mannschaftsführung eingegebenen Adressen (Heimanlage, Adresse je Spieltag), die Aufstellungen je Begegnung samt
         Schaltern und Gegner*innen sowie manuell nachnominierte Spieler*innen (Name und die dafür nötigen Angaben);</li>
       <li>zu jeder Liga die Verfügbarkeits-Saison: Spielplan und Mannschaftsliste deiner Mannschaft samt Antworten (Abschnitt 20);</li>
+      <li>für die Meldung geänderter Verfügbarkeiten je Liga, bis wohin du die Antworten gesehen hast und wann du zuletzt benachrichtigt
+        wurdest (Abschnitt 11);</li>
       <li>Zeitpunkte: Beitritt zur Liga und letzte Aktivität; Einladungen (der Einladungslink wird nur als Prüfwert
         gespeichert und ist 7 Tage gültig und nur einmal verwendbar);</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
@@ -812,6 +922,8 @@
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der Kort-ID und der geteilten Ligen, einschließlich
       der Anzeige des Anzeigenamens der Mannschaftsführung gegenüber Personen, die dieselbe Mannschaft importieren möchten, damit sie um eine
       Einladung bitten können);
+      für die Daten manuell nachnominierter Spieler*innen und der Gegner*innen in Aufstellungen Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+      Interesse an der Planung der Mannschaft);
       für technische Protokolldaten Art. 6 Abs. 1 lit. f DSGVO (Sicherheit und Stabilität des Dienstes).<br>
       <strong>Speicherdauer:</strong> bis du deine Kort-ID löschst. Eine geteilte Liga wird gelöscht, sobald keine
       Mannschaftsführung mehr dabei ist, und mit ihr die Verfügbarkeits-Saison samt Antworten (Abschnitt 20). Codes sind 10 Minuten gültig, Einladungen 7 Tage.
@@ -825,7 +937,8 @@
       Sicherungskopien können nach dessen Vorgaben noch für begrenzte Zeit bestehen. Matches, ITN und dein
       Profil auf deinen Geräten bleiben. Du kannst dich auch nur abmelden, ohne die Kort-ID zu löschen; dabei werden
       Ligen, in denen du allein bist, auf dem Server gelöscht (die Mannschaft wird wieder frei, ihre Verfügbarkeits-Saison und die Antworten werden mitgelöscht), geteilte Ligen bleiben für die
-      anderen bestehen, und alle Ligen werden von diesem Gerät entfernt. Nach der erneuten Anmeldung erscheinen die geteilten Ligen wieder.
+      anderen bestehen, und alle Ligen werden von diesem Gerät entfernt (wann die App die Daten der Personen dieser Ligen löscht, steht in
+      Abschnitt 3). Nach der erneuten Anmeldung erscheinen die geteilten Ligen wieder.
     </p>
     <p>
       Da wir deine Kort-ID über deine E-Mail-Adresse zuordnen können, kannst du Auskunft, Berichtigung und die weiteren Rechte
@@ -858,7 +971,7 @@
       <li><strong>Verlauf:</strong> Jede Antwort, jede Bestätigung und jedes Entfernen einer Antwort wird zusätzlich als Ereignis mit
         Zeitpunkt, Quelle, Antwort und Kommentar aufgehoben. Ändert jemand eine Antwort, gilt die neueste; die früheren bleiben im Verlauf, bis die Saison gelöscht wird;</li>
       <li><strong>Suche nach deinen Mannschaften</strong> (nur App, siehe unten): ein Zähler der Suchanfragen je Installation und Tag;</li>
-      <li>zur Erinnerung der Mannschaftsführung die in Abschnitt 11 genannten Angaben;</li>
+      <li>zur Erinnerung der Mannschaftsführung und zur Meldung geänderter Verfügbarkeiten die in Abschnitt 11 genannten Angaben;</li>
       <li>technische Protokolldaten des Dienstleisters beim Abruf (z. B. IP-Adresse, Zeitpunkt).</li>
     </ul>
     <p>
@@ -906,12 +1019,14 @@
       Einen geöffneten Link merkt sie sich höchstens 24 Stunden, bis feststeht, wer du bist. Die Webseite speichert im lokalen Speicher
       deines Browsers (<code>localStorage</code>) nur den Personenschlüssel der gewählten Person, damit du beim nächsten Besuch nicht neu
       wählen musst; „Nicht du? Person wechseln“ löscht ihn. Die Webseite setzt keine Cookies, enthält keine Zählskripte und keine Werbung,
-      und wir erfassen dort keine Nutzungsstatistik. Auch die App sendet zur Verfügbarkeit derzeit keine eigenen Analytics-Ereignisse.
+      und wir erfassen dort keine Nutzungsstatistik. Die App sendet zur Verfügbarkeit nur mit deiner Einwilligung Nutzungsstatistiken,
+      ohne Namen, Kommentare, Links oder Personenschlüssel (Abschnitt 8).
     </p>
     <p>
       <strong>Erinnerungen:</strong> Die App erinnert dich 14 Tage vor einem Spieltag mit einer Karte am Profil und einer lokalen
       Benachrichtigung, die nur auf deinem Gerät entsteht. Zusätzlich kann die Mannschaftsführung allen, die für einen Spieltag noch nicht
-      geantwortet haben, eine Push-Nachricht schicken („Offene erinnern“). Was dabei verarbeitet wird und wie du Benachrichtigungen
+      geantwortet haben, eine Push-Nachricht schicken („Offene erinnern“). Die Mannschaftsführung bekommt außerdem höchstens stündlich eine
+      Push-Nachricht mit der Zahl der geänderten Antworten, die sie noch nicht gesehen hat, ohne Namen oder Kommentare. Was dabei verarbeitet wird und wie du Benachrichtigungen
       ausschaltest, steht in <a href="/datenschutz/#push">Abschnitt 11</a>.
     </p>
     <p>
