@@ -184,3 +184,7 @@
 @media (min-width: 1000px) {
   .sister { padding: 64px 72px; column-gap: 72px; }
 }
+
+/* Explainer videos on the landing page (card styles live in /styles.css) */
+.videos .video-grid { margin-top: 0; }
+@media (min-width: 1000px) { .videos .video-grid { grid-column: 1 / 13; } }

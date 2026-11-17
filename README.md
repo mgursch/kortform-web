@@ -17,6 +17,7 @@ site/                     wird 1:1 veröffentlicht
   styles.css              gemeinsames Stylesheet (hell + dunkel)
   fonts/                  Barlow Condensed, IBM Plex Sans/Mono (WOFF, aus dem App-Repo, SIL OFL)
   favicon.svg (App-Icon, Header-Logo), favicon-small.svg (vereinfacht, fett, Tab-Icon), favicon.ico (16/32/48 aus favicon-small.svg), apple-touch-icon.png, og-image.png
+  video.js                Klick-zum-Laden für die YouTube-Erklärvideos (Startseite, Support; siehe Hinweise)
   count.js                GoatCounter-Zählskript (selbst gehostet, leicht angepasst, siehe Hinweise)
   CNAME                   kortform.at (bei Actions-Deployment wirkungslos; die Domain steht in Settings → Pages, siehe DNS-SETUP.md)
   404.html, .nojekyll, robots.txt, sitemap.xml
@@ -52,6 +53,7 @@ Hinweise:
   404-Seite zählt unter dem aufgerufenen, nicht vorhandenen Pfad mit dem Titel „404 · Seite nicht gefunden“ (in GoatCounter
   nach „404“ filtern). Dashboard-Einstellungen im Konto: einzelne Seitenaufrufe aus, Sprache aus, Aufbewahrung 365 Tage.
   Bei Änderungen die Datenschutzerklärung (Abschnitte 13 und 15) nachziehen.
+- YouTube-Erklärvideos (`.video-card` in `index.html` und `support/index.html`, Stile in `styles.css`, die Grid-Regeln der Startseite in `home.css`): Zwei-Klick-Lösung, vor dem Klick geht keine Anfrage an YouTube/Google. `video.js` ersetzt den Abspielknopf erst beim Klick durch einen iframe auf `youtube-nocookie.com`; ohne JavaScript bleibt der Link „Auf YouTube ansehen“. Die CSP dieser beiden Seiten hat dafür `frame-src https://www.youtube-nocookie.com`, Datenschutzerklärung Abschnitt 13 beschreibt die Einbettung.
 
 ## Lokale Vorschau
 
