@@ -61,6 +61,7 @@
 * { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; }
+@media (max-width: 759px) { p, li, th, td { hyphens: auto; hyphenate-limit-chars: 10 4 4; -webkit-hyphenate-limit-before: 4; -webkit-hyphenate-limit-after: 4; } }
 
 body {
   margin: 0;
@@ -75,7 +76,7 @@ body {
 img, svg { max-width: 100%; }
 
 a { color: var(--primary); text-underline-offset: 3px; }
-a:hover { color: var(--text); }
+@media (hover: hover) { a:hover { color: var(--text); } }
 a:focus-visible, .btn:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
 
 .wrap { max-width: 1060px; margin: 0 auto; padding: 0 16px; }
@@ -88,8 +89,8 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--primary); outline
 
 /* Header: a masthead with a hard rule underneath */
 .site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 16px; border-bottom: 2px solid var(--text); }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; }
-.brand:hover { color: var(--text); }
+.brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--text); text-decoration: none; }
+@media (hover: hover) { .brand:hover { color: var(--text); } }
 .brand img { width: 36px; height: 36px; border-radius: 9px; display: block; box-shadow: 0 0 0 1px var(--border); }
 .brand span { font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; }
 
@@ -102,15 +103,15 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 
 /* The one rounded thing: the big button, as in the app */
 .btn { display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; border-radius: 28px; background: var(--accent); color: var(--on-accent); font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
-.btn:hover { color: var(--on-accent); background: #4cb87a; }
+@media (hover: hover) { .btn:hover { color: var(--on-accent); background: #4cb87a; } }
 .btn:focus-visible { border-radius: 28px; }
 
 /* Footer */
-.site-footer { margin-top: 72px; padding-top: 24px; padding-bottom: 40px; border-top: 2px solid var(--text); font-size: 13px; color: var(--text-2); }
+.site-footer { margin-top: 72px; padding-top: 24px; padding-bottom: 40px; border-top: 2px solid var(--text); font-size: 14px; color: var(--text-2); }
 .site-footer p { margin: 0 0 10px; max-width: 760px; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-bottom: 14px; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.04em; }
-.footer-links a { color: var(--text); font-weight: 500; }
-.footer-links a:hover { color: var(--clay-text); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0 24px; margin-bottom: 14px; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.04em; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); font-weight: 500; }
+@media (hover: hover) { .footer-links a:hover { color: var(--clay-text); } }
 
 /* Legal pages */
 .legal { max-width: 720px; padding-top: 32px; padding-bottom: 8px; }
@@ -121,7 +122,7 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 .legal p, .legal ul { margin: 0 0 12px; }
 .legal ul { padding-left: 22px; }
 .legal li { margin-bottom: 4px; }
-.legal .updated { font-family: var(--font-mono); font-size: 13px; color: var(--text-2); margin: 6px 0 28px; }
+.legal .updated { font-family: var(--font-mono); font-size: 14px; color: var(--text-2); margin: 6px 0 28px; }
 .legal code { font-family: var(--font-mono); font-size: 0.92em; background: var(--surface-2); padding: 1px 5px; border-radius: 2px; overflow-wrap: anywhere; }
 .legal .card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; margin: 12px 0 20px; }
 .legal .card p:last-child { margin-bottom: 0; }
@@ -132,6 +133,34 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 .legal th, .legal td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .legal th { color: var(--text-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
 
+/* Stacked cards for wide tables on phones; column names come from data-label */
+@media (max-width: 559px) {
+  .legal .stack-table { min-width: 0; }
+  .legal .stack-table, .legal .stack-table tbody, .legal .stack-table tr, .legal .stack-table td { display: block; width: 100%; }
+  .legal .stack-table thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .legal .stack-table tr { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 6px 14px; margin: 0 0 12px; }
+  .legal .stack-table td { border-bottom: 0; padding: 8px 0; overflow-wrap: anywhere; }
+  .legal .stack-table td + td { border-top: 1px solid var(--border); }
+  .legal .stack-table td::before { content: attr(data-label); display: block; margin-bottom: 2px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-2); }
+}
+
+/* Table of contents and back-to-top on long legal pages */
+.legal h1, .legal h2, .legal h3 { scroll-margin-top: 16px; }
+.legal .toc { background: var(--card); border: 1px solid var(--border); border-radius: 4px; margin: 0 0 28px; }
+.legal .toc summary { display: flex; align-items: center; min-height: 48px; padding: 0 16px; cursor: pointer; font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; list-style: none; }
+.legal .toc summary::-webkit-details-marker { display: none; }
+.legal .toc summary::after { content: ""; margin-left: auto; width: 9px; height: 9px; border: solid currentColor; border-width: 0 2.5px 2.5px 0; transform: translateY(-3px) rotate(45deg); }
+.legal .toc[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+.legal .toc[open] summary { border-bottom: 1px solid var(--border); }
+.legal .toc ol { list-style: none; margin: 0; padding: 4px 0; }
+.legal .toc ol.toc-num { list-style: decimal; padding-left: 40px; }
+.legal .toc li { margin: 0; hyphens: manual; }
+.legal .toc li a { display: flex; align-items: center; min-height: 44px; padding: 6px 16px; }
+.legal .toc ol.toc-num li a { padding-left: 0; }
+.tap { display: inline-block; padding: 12px 0; margin: -12px 0; }
+.legal .to-top { margin: 28px 0 0; }
+.legal .to-top a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.04em; }
+
 /* Explainer videos: click-to-load facade, nothing from YouTube is requested before the click (see /video.js) */
 .video-grid { display: grid; gap: 28px; margin-top: 32px; }
 .video-card { margin: 0; min-width: 0; }
@@ -139,7 +168,7 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 .video-frame { position: relative; aspect-ratio: 16 / 9; background: var(--field); border: 1.5px solid var(--text); overflow: hidden; }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 .video-play { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; margin: 0; padding: 16px; border: 0; border-radius: 0; background: var(--field); color: var(--on-field); font: inherit; text-align: left; cursor: pointer; }
-.video-play:hover .video-icon { transform: scale(1.08); }
+@media (hover: hover) { .video-play:hover .video-icon { transform: scale(1.08); } }
 .video-play:focus-visible { outline: 3px solid var(--on-field); outline-offset: -8px; }
 .video-kicker { font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-field-2); }
 .video-icon { align-self: flex-end; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--on-field); }
@@ -147,7 +176,7 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 .video-card h3, .video-card h4 { margin: 14px 0 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 .legal .video-card h4 { font-size: 19px; }
 .video-card p { margin: 6px 0 0; font-size: 16px; max-width: 34em; }
-.video-card .video-note { font-size: 12px; color: var(--text-2); }
+.video-card .video-note { font-size: 14px; color: var(--text-2); }
 .video-card .video-link { font-size: 15px; margin-top: 8px; }
 @media (min-width: 760px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
 
@@ -155,7 +184,7 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 
 /* Instagram-Link im Footer (nur Link, keine Einbettung) */
 .footer-social { margin: 0 0 12px; }
-.footer-social a { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 500; }
-.footer-social a:hover { color: var(--clay-text); }
+.footer-social a { display: inline-flex; align-items: center; min-height: 44px; gap: 8px; color: var(--text); font-weight: 500; }
+@media (hover: hover) { .footer-social a:hover { color: var(--clay-text); } }
 .footer-social svg, .insta-btn svg { flex: none; fill: none; stroke: currentColor; stroke-width: 2; }
 .footer-social svg .dot, .insta-btn svg .dot { fill: currentColor; stroke: none; }
