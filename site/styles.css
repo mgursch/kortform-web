@@ -152,3 +152,10 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 @media (min-width: 760px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+/* Instagram-Link im Footer (nur Link, keine Einbettung) */
+.footer-social { margin: 0 0 12px; }
+.footer-social a { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 500; }
+.footer-social a:hover { color: var(--clay-text); }
+.footer-social svg, .insta-btn svg { flex: none; fill: none; stroke: currentColor; stroke-width: 2; }
+.footer-social svg .dot, .insta-btn svg .dot { fill: currentColor; stroke: none; }
