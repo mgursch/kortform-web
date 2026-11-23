@@ -28,6 +28,8 @@
 .crop-liga { aspect-ratio: 720 / 1312; }
 .crop-verlauf { aspect-ratio: 720 / 1295; }
 .crop-aufstellung { aspect-ratio: 720 / 1315; }
+.crop-antwort-app { aspect-ratio: 720 / 828; }
+.crop-antwort-link { aspect-ratio: 720 / 948; }
 
 /* Annotation tags sit in empty space next to what they point at (positions measured on the 720 px originals) */
 .tag, .legend-tag, .ref { display: inline-grid; place-items: center; background: #a64b27; color: #faf9f5; font-family: var(--font-mono); font-weight: 600; line-height: 1; }
@@ -209,8 +211,15 @@
 .w-mittel { grid-column: 1 / 5; }
 .w-klein { grid-column: 1 / 3; }
 .w-leiste { grid-column: 3 / 5; align-self: start; }
+/* Two answer screens side by side, top aligned; the crop border must stay visible on the green */
+.answer-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; max-width: 520px; }
+.answer-shot { margin: 0; }
+.field .crop { border-color: var(--on-field); }
+.answer-shot figcaption { margin-top: 10px; font-size: 14px; line-height: 1.4; color: var(--on-field-2); }
+@media (min-width: 760px) { .answer-shots { gap: 24px; } }
 @media (min-width: 1000px) {
   .field { padding: 96px 0; }
+  .answer-shots { grid-column: 7 / 13; justify-self: end; width: 100%; max-width: none; }
   .field-inner { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: center; }
   .field-copy { grid-column: 1 / 6; }
   .homescreen { grid-column: 7 / 13; justify-self: end; width: 100%; }

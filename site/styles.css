@@ -167,9 +167,16 @@ h3 { font-size: 24px; letter-spacing: 0.02em; line-height: 1.05; }
 .video-card:not(.is-ready) .video-frame, .video-card:not(.is-ready) .video-note { display: none; }
 .video-frame { position: relative; aspect-ratio: 16 / 9; background: var(--field); border: 1.5px solid var(--text); overflow: hidden; }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+/* Self-hosted poster (no request to YouTube before the click); the scrim keeps kicker and icon readable on the light image */
+.video-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-play::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.32) 100%); }
+.video-kicker, .video-icon { position: relative; z-index: 2; }
+.video-kicker { padding: 4px 8px; background: var(--field); }
 .video-play { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; margin: 0; padding: 16px; border: 0; border-radius: 0; background: var(--field); color: var(--on-field); font: inherit; text-align: left; cursor: pointer; }
 @media (hover: hover) { .video-play:hover .video-icon { transform: scale(1.08); } }
 .video-play:focus-visible { outline: 3px solid var(--on-field); outline-offset: -8px; }
+/* The positioned poster paints over the button's inset outline, so the visible focus ring sits around the frame */
+.video-frame:has(.video-play:focus-visible) { outline: 3px solid var(--primary); outline-offset: 3px; }
 .video-kicker { font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-field-2); }
 .video-icon { align-self: flex-end; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--on-field); }
 .video-icon::before { content: ""; display: block; margin-left: 5px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent var(--field); }
