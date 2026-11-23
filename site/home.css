@@ -67,6 +67,14 @@
 }
 /* Short landscape screens: height limits the headline too */
 @media (max-height: 500px) { .hero h1 { font-size: clamp(40px, min(14.5vw, 18svh), 124px); } }
+/* From 760 px "Mannschaftsführung" (8.47 em wide) must stay on one line: size the headline by the width of its own column (the soft hyphen stays as the fallback on phones) */
+@media (min-width: 760px) {
+  .hero-copy { container-type: inline-size; }
+  .hero h1 { font-size: clamp(40px, min(10.4vw, 18svh), 124px); font-size: clamp(40px, min(11.6cqw, 18svh), 124px); }
+}
+@media (min-width: 1000px) {
+  .hero h1 { font-size: clamp(40px, min(6.8vw, 18svh), 87px); font-size: clamp(40px, min(11.6cqw, 18svh), 124px); }
+}
 .status { margin: 14px 0 0; max-width: 40em; padding-left: 14px; border-left: 3px solid var(--clay); font-size: 14px; color: var(--text-2); }
 .status strong { color: var(--text); font-weight: 600; }
 .hero-shot { margin: 0; width: min(100%, 340px); justify-self: end; }
@@ -144,36 +152,26 @@
 .ledger-total th, .ledger-total td { border-top: 2px solid var(--text); border-bottom: 0; padding-top: 12px; }
 .ledger-total th { font-weight: 600; }
 .ledger-total td { font-size: 26px; color: var(--primary); }
-.tiers { list-style: none; margin: 6px 0 0; padding: 0; }
-.tier { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--border); }
-.tier-name { font-size: 28px; line-height: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.tier-cols { display: grid; gap: 28px; margin-top: 12px; }
+.tier-col { min-width: 0; }
+.tier-col-title { margin: 0 0 10px; overflow-wrap: anywhere; font-size: 22px; line-height: 1.05; color: var(--clay-text); }
+.tiers { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.tier { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; align-items: baseline; padding: 14px 16px; border: 1.5px solid var(--text); background: var(--card); }
+.tier-name { margin: 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: 28px; line-height: 1; }
+.tier-note { grid-column: 1 / -1; margin: 0; }
+.tier-lead { grid-column: 1 / -1; margin: 4px 0 0; font-size: 15px; line-height: 1.4; color: var(--text-2); }
+.tier-lead + .tier-list { margin-top: 0; }
 .tier-price { margin: 0; font-family: var(--font-mono); font-weight: 600; font-size: 22px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .tier-price span { display: block; font-family: var(--font-text); font-weight: 400; font-size: 14px; color: var(--text-2); }
 .tier-badge { font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; line-height: 1.3; padding: 3px 8px; border-radius: 12px; background: var(--clay); color: var(--on-clay); text-transform: uppercase; white-space: nowrap; }
-.tier-list { grid-column: 1 / -1; list-style: none; margin: 8px 0 0; padding: 0; font-size: 15px; line-height: 1.4; }
+.tier-list { grid-column: 1 / -1; list-style: none; margin: 4px 0 0; padding: 0; font-size: 15px; line-height: 1.4; }
 .tier-list li { position: relative; padding-left: 26px; }
 .tier-list li + li { margin-top: 6px; }
 .tier-list li::before { content: ""; position: absolute; left: 3px; top: 0.3em; width: 6px; height: 11px; border: solid var(--primary); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
-.tier-mark { background: rgba(166, 75, 39, 0.12); box-shadow: -8px 0 0 rgba(166, 75, 39, 0.12), 8px 0 0 rgba(166, 75, 39, 0.12); }
+.tier-mark { border: 2px solid var(--clay-text); background: rgba(166, 75, 39, 0.12); }
 .tier-mark .tier-price { color: var(--clay-text); }
-@media (prefers-color-scheme: dark) { .tier-mark { background: rgba(224, 138, 99, 0.14); box-shadow: -8px 0 0 rgba(224, 138, 99, 0.14), 8px 0 0 rgba(224, 138, 99, 0.14); } .tier-badge { background: var(--clay-text); color: #16150f; } }
-@media (min-width: 760px) {
-  .tier { align-items: center; }
-  .tier-price { display: flex; justify-content: flex-end; align-items: baseline; padding-right: 88px; }
-  .tier-price span { display: inline-block; width: 80px; margin: 0 -88px 0 8px; text-align: left; }
-  .tier-list { margin-top: 2px; }
-}
-@media (max-width: 759px) {
-  .tiers { display: grid; gap: 14px; margin-top: 12px; }
-  .tier, .tier-mark { padding: 16px; border: 1.5px solid var(--text); background: var(--card); box-shadow: none; }
-  .tier-mark { border-color: var(--clay-text); border-width: 2px; }
-  .tier-price { font-size: 26px; }
-}
-@media (max-width: 459px) {
-  .tier-mark .tier-name { grid-column: 1 / -1; }
-  .tier-mark .tier-price { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 10px; text-align: left; }
-  .tier-mark .tier-price span { display: inline; }
-}
+@media (prefers-color-scheme: dark) { .tier-mark { background: rgba(224, 138, 99, 0.14); } .tier-badge { background: var(--clay-text); color: #16150f; } }
+@media (min-width: 760px) { .tier-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; } }
 .sheet-foot { margin: 12px 0 0; font-size: 14px; color: var(--text-2); }
 
 @media (min-width: 1000px) {
@@ -181,6 +179,7 @@
   .calc-inner { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 32px; }
   .calc-copy { grid-column: 1 / 8; grid-row: 1; }
   .sheet { grid-column: 1 / 8; grid-row: 2; padding: 24px 28px 18px; }
+  .sheet-wide { grid-column: 1 / 13; max-width: 960px; }
   .calc-shot { display: block; grid-column: 9 / 13; grid-row: 1 / 3; width: 100%; max-width: 300px; justify-self: end; align-self: start; }
 }
 
